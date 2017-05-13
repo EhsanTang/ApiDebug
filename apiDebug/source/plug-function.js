@@ -1,0 +1,641 @@
+var paramsTr = "<tr class='last'>";
+paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
+paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
+paramsTr += "<td class='w20'><i class='iconfont'>&#xe63f;</i></td>";
+paramsTr += "</tr>";
+
+var moduleDiv = "<div class='panel panel-info no-radius b0 mt0 left-menu-border-top'>";
+moduleDiv += "      <div class='panel-heading no-radius' data-parent='#modules'>";
+moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='#modules' href='#panel_ca_moduleId' crap-data='ca_moduleId'><i class='iconfont color-main f16'>&#xe628;</i>&nbsp;&nbsp;  ca_moduleName</div>"
+moduleDiv += "      </div>";
+moduleDiv += "      <div id='panel_ca_moduleId' class='panel-collapse BGEEE collapse in'>";
+moduleDiv += "          <div class='panel-body b0 p0'>";
+moduleDiv += "              ca_interfaces";
+moduleDiv += "           </div>";
+moduleDiv += "       </div>";
+moduleDiv += "   </div>";
+
+var interfaceDiv = "<div crap-data='ca_interfaceInfo' class='interface pl30 pr20 rel'>";
+interfaceDiv += "		<i class='iconfont ca_method'>ca_methodIcon</i>&nbsp;&nbsp;ca_name";
+interfaceDiv += "		<span class='more'>";
+interfaceDiv += "			<i class='iconfont fr'>&#xe642;</i>";
+interfaceDiv += "			<span class='t0 h '><i class='iconfont delete delete-interface' crap-data='ca_moduleId|ca_id'>&#xe60e;</i><i class='iconfont'>&#xe618;</i></span>";
+interfaceDiv += "		</span>";
+interfaceDiv += "	</div>";
+
+
+
+var saveInterfaceDiv = "";
+
+var cookieHeader = ""
+var nl2br = false;
+var needCollapse = false;
+var leftEnlarge = true;
+function formatJson(){
+    var rowData = originalResponseText;
+    if( rowData == ""){
+        rowData = $("#response-row").val();
+    }
+    if(rowData == ""){
+        alert("Please click [Send] button to get a response");
+        return false;
+    }
+    try {
+        $.parseJSON( rowData );
+    } catch (e) {
+        console.warn(e);
+        alert("Response data is not json");
+        return;
+    }
+    if( $("#response-row").hasClass("hidden") == false){
+        $("#response-row").addClass("hidden");
+    }
+    $("#response-pretty").removeClass("none");
+    $("#response-pretty").JSONView(rowData);
+    return true;
+}
+
+function changeBg(removeClass, addClass, selectClass,click_button){
+    $("."+selectClass).removeClass(addClass);
+    $("."+selectClass).addClass(removeClass);
+    $(click_button).removeClass(removeClass);
+    $(click_button).addClass(addClass);
+}
+
+function responseShow(showDiv){
+    if( showDiv == "response-row"){
+        if( $("#response-row").hasClass("hidden")){
+            $("#response-row").removeClass("hidden");
+        }
+        if( $("#response-pretty").hasClass("none") == false){
+            $("#response-pretty").addClass("none");
+        }
+    }else if( showDiv == "response-pretty"){
+        if( $("#response-row").hasClass("hidden") == false){
+            $("#response-row").addClass("hidden");
+        }
+        $("#response-pretty").removeClass("none");
+    }
+
+}
+
+function getHeadersStr(){
+    var headers = "";
+    var texts = $("#headers-div input[type='text']");
+    // 获取所有文本框
+    var key = "";
+    $.each(texts, function(i, val) {
+        try {
+            if(val.getAttribute("data-stage") == "value"){
+                if(key.trim() != "" || val.value.trim() != ""){
+                    headers += "&"+key + "=" + val.value
+                }
+            }else if(val.getAttribute("data-stage") == "key"){
+                key = val.value;
+            }
+        } catch (ex) {
+            console.warn(ex);
+        }
+    });
+    return headers;
+}
+
+function getHeaders(request){
+    if( $("#method").val() == "POST")
+        request.setRequestHeader("Content-Type", $('input:radio[name="param-type"]:checked').val());
+
+    var texts = $("#headers-div input[type='text']");
+    // 获取所有文本框
+    var key = "";
+    $.each(texts, function(i, val) {
+        try {
+            if(val.getAttribute("data-stage") == "value"){
+                request.setRequestHeader(key, val.value);
+            }else if(val.getAttribute("data-stage") == "key"){
+                key = val.value;
+            }
+        } catch (ex) {
+            console.warn(ex);
+        }
+    });
+}
+
+function getParams(){
+    var texts = $("#params-div input[type='text']");
+    var data = "";
+    // 获取所有文本框
+    var key = "";
+
+    $.each(texts, function(i, val) {
+        try {
+            if(val.getAttribute("data-stage")  == "value"){
+                if( key != "") {
+                    data += "&" + key + "=" + val.value;
+                }
+            }else if(val.getAttribute("data-stage")  == "key"){
+                key = val.value;
+            }
+        } catch (ex) {
+            console.warn(e);
+            alert(ex);
+        }
+    });
+    return data;
+}
+
+var originalResponseText = "";
+function callAjax() {
+    originalResponseText = "";
+    var url = $("#url").val().trim().split("?")[0] + "?";
+    var method = $("#method").val();
+    var urlParamsStr = "";
+    var params =  getParams();
+
+    // 表单参数优先url参数
+    if( $("#url").val().indexOf("?") > 0){
+        urlParamsStr = $("#url").val().split("?")[1];
+        var urlParams = urlParamsStr.split("&");
+        for(var i=0; i<urlParams.length; i++ ){
+            if( urlParams[i] != "" && urlParams[i].indexOf("=") > 0){
+                if(params.indexOf("&" + urlParams[i].split("=")[0]) < 0){
+                    url += "&" + urlParams[i];
+                }
+            }
+        }
+    }
+
+    if( $('input:radio[name="param-type"]:checked').val() == "application/x-www-form-urlencoded;charset=UTF-8") {
+        params = (params.length > 0 ? params.substr(1) : params);
+    }else{
+        params = $("#customer-value").val();
+    }
+
+    url = url.replace("?&", '?');
+    if( url.endWith("?")){
+        url = url.substr(0 - url.length-1);
+    }
+    $("#float").fadeIn(300);
+    $.ajax({
+        type : method,
+        url : url,
+        async : true,
+        data : params,
+        beforeSend: function(request) {
+            getHeaders(request);
+        },
+        complete: function(responseData, textStatus){
+            if(textStatus == "error"){
+                $("#response-row").val("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus +"\nCould not get any response\n\nThere was an error connecting to " + url);
+                $("#format-row").click();
+            }
+            else if(textStatus == "success"){
+                try{
+                    originalResponseText = responseData.responseText;
+                    var data = responseData.responseText;
+                    var head = responseData.getAllResponseHeaders().toString().huanhang();
+                    $("#response-row").val(data);
+                    $("#response-pretty").html("");
+                    $(".response-header").html(head);
+                    var rootDomainStr =getRootDomain(url);
+                    chrome.cookies.getAll({domain: rootDomainStr}, function(cookies){
+                        $(".response-cookie .table tr").empty();
+                        $(".response-cookie .table").append("<tr class='fb'><td>Name</td> <td>Value</td> <td>Path</td><td>Domain</td><td>ExpirationDate</td></tr>");
+                        var a =  document.createElement('a');
+                        a.href = url;
+                        for(i=0; i<cookies.length;i++) {
+                            if( ("."+a.host).endWith(cookies[i].domain) ){
+                                var cookieStr = "<tr>";
+                                cookieStr += "<td class='w-p-10 break-word'>" + cookies[i].name + "</td>";
+                                cookieStr += "<td class='w-p-30 break-word'>"  + cookies[i].value + "</td>";
+                                cookieStr += "<td class='w-p-20 break-word'>"  + cookies[i].path + "</td>";
+                                cookieStr += "<td class='w-p-20 break-word'>" + cookies[i].domain +"</td>";
+                                cookieStr += "<td class='w-p-20 break-word'>" + cookies[i].expirationDate +"</td>";
+                                cookieStr += "</tr>";
+                                $(".response-cookie .table").append(cookieStr)
+                            }
+                        }
+                    });
+                }catch(e){
+                    $("#format-row").click();
+                }
+
+                try {
+                    $.parseJSON( data );
+                    $("#json-expand").click();
+                } catch (e) {
+                    $("#format-row").click();
+                }
+            }else{
+                $("#response-row").val("textStatus: " + textStatus +"\n\n There was an error connecting to " + url);
+                $("#format-row").click();
+            }
+            $("#float").fadeOut(300);
+        }
+    });
+    if(url.indexOf("?") < 0){
+        url += "?";
+    }
+    if( method == "GET"){
+        if(url.endWith("?")){
+            if(params.length > 0){
+                params = params.substr(1);// 删除&
+            }
+        }
+        if(url.endWith("?") &&  params.length == 0){
+            url  = url.replace("?","");
+        }
+        if(params == "" && url.endWith("?")){
+            url = url.substr(0 - url.length-1);
+        }
+        $("#url").val(url + params);
+    }
+
+    // 记录历史
+    try{
+        var historys;
+        try{
+            historys = $.parseJSON( localStorage['crap-debug-history'] );
+        }catch(e){
+            historys = $.parseJSON( "[]" );
+        }
+        if( $('input:radio[name="param-type"]:checked').val() == "application/x-www-form-urlencoded;charset=UTF-8") {
+            params = params.replace(/=/g, ":").replace(/&/g,"\n");
+        }
+
+        var h  ={"paramType": $("input[name='param-type']:checked").val(), "name": $("#interface-name").val(),"method":method, "url" : url,
+            "params" : params, "headers": getHeadersStr().replace(/=/g, ":").replace(/&/g,"\n")};
+
+        // 如果已经存在则删除
+        for(var i=0; i<historys.length;i++){
+            if(JSON.stringify(historys[i]) == JSON.stringify(h)){
+                historys.splice(i,1);
+            }
+        }
+
+        historys.unshift(h);
+        // 如果历史记录>20，则删除最后一个
+        if(historys.length > 20){
+            historys.pop();
+        }
+        localStorage['crap-debug-history'] = JSON.stringify(historys);
+    }catch(e){
+        console.warn(e);
+    }
+    getHistorys();
+}
+
+function getRootDomain(url) {
+    var a =  document.createElement('a');
+    a.href = url;
+    var hosts =a.host.split('.');
+    return hosts.length ==2 ? a.host : hosts[hosts.length-2]+"."+hosts[hosts.length-1];
+}
+
+// 数据存储
+function getHistorys(){
+    var historys;
+    try{
+        historys = $.parseJSON( localStorage['crap-debug-history'] );
+    }catch(e){
+        historys = $.parseJSON( "[]" );
+        console.warn(e);
+    }
+    var historysText = "";
+    for(var i=0 ; i<historys.length; i++){
+        var title =  historys[i].name;
+        if( handerStr(title) == ""){
+            title = handerStr(historys[i].url);
+        }
+        historysText += "<div class='history-div' crap-data='"+JSON.stringify(historys[i])+"'>" + title +"</div>";
+    }
+    $("#historys").html(historysText);
+}
+
+// 数据存储
+function getLocalModules(){
+    // 模块对应的项目ID为 用户ID + "-debug"该项目模块下只有接口调试记录，可以共享，一个用户有且仅有一个调试目录
+    var modules;
+    try{
+        modules = $.parseJSON( localStorage['crap-debug-modules'] )
+    }catch(e){
+        modules = $.parseJSON( "[]" );
+        console.warn(e);
+    }
+    var moduleText = "";
+    for(var i=0 ; i<modules.length; i++){
+        var moduleName =  modules[i].moduleName;
+        var moduleId = modules[i].moduleId;
+        moduleText += moduleDiv.replace(/ca_moduleId/g,moduleId).replace(/ca_moduleName/g,moduleName);
+        var interfaces;
+        try{
+            interfaces = $.parseJSON( localStorage['crap-debug-interface-' + moduleId] );
+        }catch(e){
+            interfaces = $.parseJSON( "[]" );
+            console.warn(e);
+        }
+        var interfaceText = "";
+        for(var j=0; j<interfaces.length; j++){
+             interfaceText += interfaceDiv.replace(/ca_interfaceInfo/g,JSON.stringify(interfaces[j]))
+								.replace(/ca_name/g,interfaces[j].name)
+								.replace(/ca_id/g,interfaces[j].id)
+								.replace(/ca_moduleId/g,interfaces[j].moduleId);
+								
+             if(interfaces[j].method == "GET"){
+                 interfaceText = interfaceText.replace("ca_methodIcon","&#xe645;");
+                 interfaceText = interfaceText.replace("ca_method","GET");
+             }else{
+                 interfaceText = interfaceText.replace("ca_methodIcon","&#xe6c4;");
+                 interfaceText = interfaceText.replace("ca_method","POST");
+             }
+        }
+        moduleText = moduleText.replace("ca_interfaces", interfaceText);
+    }
+    $("#modules").html( moduleText );
+}
+
+function deleteInterface(moduleId, id) {
+    var interfaces;
+    try{
+        interfaces = $.parseJSON( localStorage['crap-debug-interface-' + moduleId] )
+    }catch(e){
+        interfaces = $.parseJSON( "[]" );
+        console.warn(e);
+    }
+
+    // 如果已经存在则删除
+    for(var i=0; i<interfaces.length;i++){
+        if(interfaces[i].id == id){
+            interfaces.splice(i,1);
+        }
+    }
+    localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
+    return true;
+}
+
+function saveInterface(moduleId, saveAs) {
+    if( handerStr($("#url").val()) == ""){
+        alert("Url can not be null");
+        return false;
+    }
+    if( handerStr($("#save-interface-name").val()) == ""){
+        alert("Interface name can not be null");
+        return false;
+    }
+
+    if( handerStr($("#save-module-id").val()) == "" && handerStr(moduleId) == ""){
+        moduleId = "ffff-"+Date.parse(new Date()) + "-" + random(10);
+        var moduleName = $("#save-module-name").val();
+        if( handerStr(moduleName) == ""){
+            alert("Module name can not be null");
+            return;
+        }
+        var modules;
+        try{
+            modules = $.parseJSON( localStorage['crap-debug-modules'] )
+        }catch(e){
+            modules = $.parseJSON( "[]" );
+            console.warn(e);
+        }
+        var m  ={"moduleName": moduleName,"moduleId":moduleId};
+        modules.unshift(m);
+        localStorage['crap-debug-modules'] = JSON.stringify(modules);
+    }else{
+        if( handerStr(moduleId) == "" ){
+            moduleId = $("#save-module-id").val();
+        }
+    }
+
+    var interfaces;
+    try{
+        interfaces = $.parseJSON( localStorage['crap-debug-interface-' + moduleId] )
+    }catch(e){
+        interfaces = $.parseJSON( "[]" );
+        console.warn(e);
+    }
+
+    var id = $("#interface-id").val();
+    if( handerStr(id) == "" || saveAs){
+        id = "ffff-"+Date.parse(new Date()) + "-" + random(10);
+    }
+    var method = $("#method").val();
+    var params =  getParams();
+    if( $('input:radio[name="param-type"]:checked').val() == "application/x-www-form-urlencoded;charset=UTF-8") {
+        params = params.replace(/=/g, ":").replace(/&/g,"\n");
+    }else{
+        params = $("#customer-value").val();
+    }
+    var h  ={"paramType": $("input[name='param-type']:checked").val(),"moduleId":moduleId,"id": id, "name": $("#save-interface-name").val(),"method":method, "url" : $("#url").val(),
+        "params" : params, "headers": getHeadersStr().replace(/=/g, ":").replace(/&/g,"\n")};
+
+    // 如果已经存在则删除
+    for(var i=0; i<interfaces.length;i++){
+        if(interfaces[i].id == h.id){
+            interfaces.splice(i,1);
+            h.interfaceId = interfaces.interfaceId;
+        }
+    }
+    interfaces.unshift(h);
+    localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
+    closeMyDialog("dialog");
+    getLocalModules();
+    return true;
+}
+
+function intitSaveInterfaceDialog(){
+    $("#save-interface-name").val($("#interface-name").val());
+    // 循环获取所有module
+    var modules;
+    try{
+        modules = $.parseJSON( localStorage['crap-debug-modules'] )
+    }catch(e){
+        modules = $.parseJSON( "[]" );
+        console.warn(e);
+    }
+    $("#save-module-id").find("option").remove();
+    $("#save-module-id").append("<option value='-1'>--Click to select module/folder--</option>");
+    for(var i=0 ; i<modules.length; i++) {
+        $("#save-module-id").append("<option value='"+modules[i].moduleId+"'>"+modules[i].moduleName+"</option>");
+    }
+    openDialog("Save interface:" + $("#interface-name").val(),500);
+}
+
+/****状态码转提示*************/
+function getErrorTip(status){
+	if(status == 404){
+		return "-ERR_FILE_NOT_FOUND: file not found!";
+	}
+	if(status == 500){
+		return "";
+	}
+}
+/**********打开Dialog******************/
+function openDialog(title,iwidth){
+    if(!iwidth){
+        iwidth = 400;
+    }
+    //对话框最高为浏览器的百分之80
+    lookUp('dialog', '', '', iwidth ,7,'');
+    $("#dialog-content").css("max-height",($(document).height()*0.8)+'px');
+    showMessage('dialog','false',false,-1);
+    showMessage('fade','false',false,-1);
+    title = title? title:"编辑";
+    $("#dialog-title").html(title);
+}
+function closeMyDialog(tagDiv){
+    iClose(tagDiv);
+    iClose('fade');
+}
+/************************覆盖弹框**************************************/
+function alert(tipMessage, tipTime, isSuccess){
+	tipTime = tipTime?tipTime:2;
+	if(tipMessage!=""){
+		if(tipMessage!="false"&&tipMessage!=false)
+				$("#tip-div").html(tipMessage);
+	}
+	$("#tip-div").css("left",  ($(window).width()/2 - $("#tip-div").width()/2) +"px");
+	showMessage("tip-div",tipMessage,false,tipTime);
+}
+/** *********************页面提示信息显示方法************************* */
+/**
+ * 显示的div，提示信息，是否晃动，自动隐藏时间：-1为不隐藏，其它为隐藏时间（单位秒) message
+ * 为false时表示不需要提示信息，仅需要显示div即可
+ */
+function showMessage(id,message,ishake,time){
+    if(message!=""){
+        if(message!="false"&&message!=false)
+            $("#"+id).html(message);
+        $("#"+id).fadeIn(300);
+        if(ishake){
+            shake(id);
+        }
+        if(time!=-1){
+            if(isNaN(time))
+                time=2000;
+            else if(time>0)
+                time = time * 1000;
+            setTimeout(function(){
+                if(time!=0){
+                    $("#"+id).fadeOut(500);
+                }
+                else{
+                    $("#"+id).fadeOut(300);
+                }
+                $("#"+id).hide("fast");
+            },time);
+        }
+    }
+}
+// 晃动div
+function shake(o){
+    var $panel = $("#"+o);
+    var box_left =0;
+    $panel.css({'left': box_left});
+    for(var i=1; 4>=i; i++){
+        $panel.animate({left:box_left-(8-2*i)},50);
+        $panel.animate({left:box_left+2*(8-2*i)},50);
+    }
+}
+/*******************************************************************************
+ * 根据点击位置设置div左边
+ *
+ * @param id
+ * @param e
+ *            为空时，局浏览器中部
+ * @param lHeight
+ * @param lWidth
+ * @param onMouse
+ *            div是否覆盖点击的点:(0).不覆盖，div居浏览器中部 (1).X轴居中 (2).Y轴居中 (3).X、Y轴均居中
+ *            (4).右下方,(5).id左下方 6:居中，不需要考虑浏览器滚动 7：居中，高度不定，最大不超过浏览器80%
+ */
+function lookUp(id, e, lHeight, lWidth ,onMouse, positionId) {
+    var lObj = self.document.getElementById(id);
+    var lTop;
+    var lLeft;
+    //居中，高度不定，最大不超过浏览器80%
+    if(onMouse==7){
+        lLeft=$(window).width()/2 - (lWidth/2);
+        lObj.style.top = '200px';
+        lObj.style.width = lWidth + 'px';
+        lObj.style.height = "auto";
+        lObj.style.left = lLeft + 'px';
+        return;
+    }
+
+    //如果传入了event
+    if(e.clientY&&onMouse&&onMouse!=0){
+        lTop = e.clientY;
+        lLeft = e.clientX;
+        if(onMouse==1){
+            lLeft = lLeft - (lWidth/2);
+        }else if(onMouse==2){
+            lTop = lTop - (lHeight/2);
+        }
+        else if(onMouse==3){
+            lTop = lTop - (lHeight/2);
+            lLeft = lLeft - (lWidth/2);
+        }else if(onMouse==4){
+            lTop = e.clientY;
+            lLeft = e.clientX;
+        }
+    }else{
+        lTop=$(window).height()/2 - (lHeight/2);
+        lLeft=$(window).width()/2 - (lWidth/2);
+    }
+    if(onMouse==5){
+        lTop = $("#"+positionId).offset().top+$("#"+positionId).outerHeight()-1;
+        lLeft = $("#"+positionId).offset().left-1;
+    }
+    if (lLeft < 0) lLeft = 5;
+    if ((lLeft + lWidth*1) > $(window).width()) lLeft = $(window).width() - lWidth - 20;
+    if ((lTop + lHeight*1) > $(window).height()) lTop =  $(window).height() - lHeight - 70;
+
+    lObj.style.width = lWidth + 'px';
+    lObj.style.left = (lLeft + document.documentElement.scrollLeft) + 'px';
+
+    lObj.style.height = lHeight + 'px';
+    lObj.style.top =  lTop + 'px';
+}
+
+/**************************** 隐藏div *******************************/
+function iClose(id){
+    $("#"+id).fadeOut(300);
+}
+function iShow(id){
+    $("#"+id).fadeIn(300);
+}
+
+String.prototype.endWith=function(endStr){
+    var str = this;
+    if(endStr.length == 0 || this.length == 0){
+        return false;
+    }
+    if(str.length < endStr.length){
+        return false;
+    }
+    str = str.substr(str.length - endStr.length);
+    return (str == endStr)
+}
+String.prototype.trim = function () {
+    return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+}
+String.prototype.huanhang = function () {
+    return this.replace(/\n/g, "<br>");
+}
+function handerStr(str){
+    if( !str || str.trim() == "" || str == "NaN" || str == "undefined" || str == "-1"){
+        return "";
+    }
+    return str.trim();
+}
+function random(n) {
+    var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    var res = "";
+        for(var i = 0; i < n ; i ++) {
+            var id = Math.ceil(Math.random()*35);
+            res += chars[id];
+        }
+        return res;
+}
+//chrome.windows.create({url :"debug.html" },function(){});//函数后面都有一个functon(){},这个应该标识执行函数的意思吧。
+
+

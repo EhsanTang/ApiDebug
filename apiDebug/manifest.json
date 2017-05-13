@@ -1,0 +1,34 @@
+﻿{
+	"manifest_version": 2,
+    "name": "ApiManager-CrapApi",
+    "version": "1.0.0",
+    "description": "ApiManager-CrapApi接口管理",
+	"author":"ihsantang@163.com",
+	// 更新地址，如果通过谷歌发布则不需要添加 "update_url": "https://clients2.google.com/service/update2/crx",
+	"icons": {
+		"16": "logo.png",
+		"128": "logo.png"
+	},
+	"browser_action": { 
+        "default_icon": "logo.png",
+        "default_title": "CrapApi",  
+        "default_popup": "index.html"
+    },  
+    "permissions": [ 
+        "http://*/*",
+		"https://*/*",
+        "bookmarks",  
+        "tabs",  
+        "history",
+        "cookies",
+        "storage"
+    ],
+	"content_scripts":[//允许插件访问的url
+		{
+			"matches":["http://*/*","https://*/*"],//url满足什么条件执行该插
+			"js":["source/jquery-1.9.1.min.js","source/content_scripts.js"] // 定义js，jquery必须在前
+		}
+	],"background": {
+        "page": "background.html"
+    }
+}

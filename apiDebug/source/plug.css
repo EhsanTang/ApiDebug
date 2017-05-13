@@ -1,0 +1,244 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff') format('woff'), /* chrome, firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    color: #303030;
+}
+input{
+    -webkit-box-shadow:none!important;
+    box-shadow:none!important;
+}
+.GET{color:#99cc66;}
+.POST{color:#ff9933;}
+.color-main {
+    color: #6f5499;
+}
+.bg-main {
+    background-color: #6f5499;
+    color: #ffffff!important;
+}
+.form-control {
+    border:1px solid #dddddd;
+}
+.btn-menu {
+	-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;-khtml-border-radius: 2px;
+    border: 0px;
+	background: rgba(255, 255, 255, 0.3); 
+	font-weight:bold;
+    color: #ffffff;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.btn-menu:hover {
+	background: rgba(255, 255, 255, 0.5); 
+	font-weight:bold;
+    color: #6f5499;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.btn-main {
+    border: 1px solid #6f5499;
+	background-color: #6f5499;
+    color: #ffffff;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.btn-main:hover {
+    border: 1px solid #303030;
+    background: #303030;
+    color: #ffffff;
+}
+
+.btn-default:hover {
+    border: 1px solid #303030;
+    background: #303030;
+    color: #ffffff;
+}
+#params-div .iconfont, #headers-div .iconfont {
+    color:#999999;
+    font-size:12px;
+    cursor: pointer;
+}
+.last i {
+    display: none;
+}
+.menu-title {
+    cursor: pointer;
+    padding-bottom: 5px;
+    float: left;
+    padding-left:15px;
+    padding-right:15px;
+    height:30px;
+}
+.panel-heading {
+    border-bottom:1px solid #e0e0e0!important;
+    background-color: #e8e8e8!important;
+    color: #555555!important;
+}
+
+/************debug***************/
+.bl3{border-left:3px solid #6f5499}
+.bb3{border-bottom:3px solid #6f5499}
+.params-headers-table input, .table-input{font-size:12px!important; border:0px!important;padding:2px 5px!important;height:25px!important;}
+.params-headers-table td{padding:2px!important}
+/************popup***************/
+.title {
+    margin-top: 0;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 21px;
+    position: relative;
+}
+.title:after {
+    content: "";
+    width: 90px;
+    height: 1px;
+    background: #6f5499;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
+#historys div, .panel-body div {
+    border-bottom:1px solid #dfdfdf;
+    color:#999999;
+    height:36px;
+    line-height: 36px;
+    padding-left:20px;
+    overflow: hidden;
+    word-break: break-all;
+    cursor: pointer;
+}
+.panel-body div:hover{
+	background-color:#6f5499;
+	color:#ffffff;
+}
+.more{
+	text-align:center;
+	right:0px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:100%;
+}
+.more:hover{
+	color:#ffffff;
+	background-color:#5f4489;
+}
+.more i{width:20px;}
+.more span{display:none;right:20px;background-color:#5f4489!important; height:100%;float:right; }
+.more span i{width:35px; border-right:1px solid #6f5499;height:100%;margin-top:-3px;}
+.more:hover > span{display:block!important;}
+.more span i:hover{background-color:#4f3479;}
+.more .delete:hover{background-color:#bb0000!important}
+/*****************加载浮层***************************/
+.folat{
+	display:none;
+	position:fixed;top:0px;left:0px;right:0px;bottom:0px;
+	z-index:100;
+	background: rgba(0, 0, 0, 0.3);
+	padding-top:20%; text-align:center;
+}
+.look-up {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    background: #000000;
+    background: rgba(0, 0, 0, 0.2);
+    display: none;
+    color: #fff;
+    z-index: 1051;
+    background-color: #ffffff;
+}
+.look-up-content {
+    position: relative;
+    background: #FDFDFD;
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
+    overflow: auto;
+}
+.look-up .i-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    color:#999;
+}
+.tip-div{
+	text-align: center;
+    overflow: hidden;
+    padding: 5px 20px;
+    line-height: 22px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    position: fixed;
+    top:50%;
+    left:50%;
+    display:none;
+    z-index: 1061;
+}
+/*************loading************/
+.sk-wave .sk-rect {
+    background-color: #6f5499;
+}
+.sk-wave {
+  margin: 40px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px; }
+  .sk-wave .sk-rect {
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
+            animation: sk-waveStretchDelay 1.2s infinite ease-in-out; }
+  .sk-wave .sk-rect1 {
+    -webkit-animation-delay: -1.2s;
+            animation-delay: -1.2s; }
+  .sk-wave .sk-rect2 {
+    -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s; }
+  .sk-wave .sk-rect3 {
+    -webkit-animation-delay: -1s;
+            animation-delay: -1s; }
+  .sk-wave .sk-rect4 {
+    -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s; }
+  .sk-wave .sk-rect5 {
+    -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s; }
+
+@-webkit-keyframes sk-waveStretchDelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4);
+            transform: scaleY(0.4); }
+  20% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); } }
+
+@keyframes sk-waveStretchDelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4);
+            transform: scaleY(0.4); }
+  20% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1); } }
+/****************字体*********************/
+body, h1, h2, h3, h4, h5, h6, hr, blockquote, dl, dt, dd, ul, ol, li,
+	pre, form, fieldset, legend, button, input, textarea, th, td {
+	font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;}
+}
+ 
