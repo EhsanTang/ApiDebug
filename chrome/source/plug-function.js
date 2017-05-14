@@ -324,6 +324,9 @@ function getLocalModules(){
     }
     var moduleText = "";
     for(var i=0 ; i<modules.length; i++){
+        if(modules[i].version == -1){
+            continue;
+        }
         var moduleName =  modules[i].moduleName;
         var moduleId = modules[i].moduleId;
         moduleText += moduleDiv.replace(/ca_moduleId/g,moduleId).replace(/ca_moduleName/g,moduleName);
@@ -375,7 +378,84 @@ function deleteInterface(moduleId, id) {
     localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
     return true;
 }
+function deleteModule(moduleId) {
+    var modules;
+    try{
+        modules = $.parseJSON( localStorage['crap-debug-modules'] )
+    }catch(e){
+        modules = $.parseJSON( "[]" );
+        console.warn(e);
+    }
 
+    // 如果已经存在则删除
+    for(var i=0; i<modules.length;i++){
+        if(modules[i].moduleId == moduleId){
+            modules[i].status = -1;
+        }
+    }
+    localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(modules);
+    return true;
+}
+
+function saveModule(moduleName, moduleId,version,status) {
+    var modules;
+    try {
+        modules = $.parseJSON(localStorage['crap-debug-modules'])
+    } catch (e) {
+        modules = $.parseJSON("[]");
+        console.warn(e);
+    }
+    // 如果已经存在则删除
+    for(var i=0; i<modules.length;i++){
+        if(modules[i].moduleId == moduleId) {
+            if (version == 0) {
+                version = modules[i].version + 1;
+            }
+            modules.splice(i, 1);
+        }
+    }
+    var m = {"moduleName": moduleName, "moduleId": moduleId,"version": version,"status":status};
+    modules.unshift(m);
+    localStorage['crap-debug-modules'] = JSON.stringify(modules);
+    return modules;
+}
+function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params, headers,version,status) {
+    var interfaces;
+    try {
+        interfaces = $.parseJSON(localStorage['crap-debug-interface-' + moduleId])
+    } catch (e) {
+        interfaces = $.parseJSON("[]");
+        console.warn(e);
+    }
+    var h = {
+        "version": version,
+        "paramType": paramType,
+        "moduleId": moduleId,
+        "id": id,
+        "name": name,
+        "method": method,
+        "url": url,
+        "params": params,
+        "headers": headers,
+        "version":version,
+        "status":status
+    };
+
+    // 如果已经存在则删除
+    for (var i = 0; i < interfaces.length; i++) {
+        if (interfaces[i].id == h.id) {
+            h.interfaceId = interfaces[i].interfaceId;
+            h.status = interfaces[i].status;
+            h.moduleId = interfaces[i].moduleId;
+            if(version == 0) {
+                h.version = interfaces[i].version + 1;
+            }
+            interfaces.splice(i, 1);
+        }
+    }
+    interfaces.unshift(h);
+    localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
+}
 function saveInterface(moduleId, saveAs) {
     if( handerStr($("#url").val()) == ""){
         alert("Url can not be null");
@@ -393,28 +473,12 @@ function saveInterface(moduleId, saveAs) {
             alert("Module name can not be null");
             return;
         }
-        var modules;
-        try{
-            modules = $.parseJSON( localStorage['crap-debug-modules'] )
-        }catch(e){
-            modules = $.parseJSON( "[]" );
-            console.warn(e);
-        }
-        var m  ={"moduleName": moduleName,"moduleId":moduleId};
-        modules.unshift(m);
-        localStorage['crap-debug-modules'] = JSON.stringify(modules);
+        // 保存模块
+        saveModule( moduleName, moduleId, 0, 1);
     }else{
         if( handerStr(moduleId) == "" ){
             moduleId = $("#save-module-id").val();
         }
-    }
-
-    var interfaces;
-    try{
-        interfaces = $.parseJSON( localStorage['crap-debug-interface-' + moduleId] )
-    }catch(e){
-        interfaces = $.parseJSON( "[]" );
-        console.warn(e);
     }
 
     var id = $("#interface-id").val();
@@ -428,21 +492,11 @@ function saveInterface(moduleId, saveAs) {
     }else{
         params = $("#customer-value").val();
     }
-    var h  ={"version":0, "status":1,"paramType": $("input[name='param-type']:checked").val(),"moduleId":moduleId,"id": id, "name": $("#save-interface-name").val(),"method":method, "url" : $("#url").val(),
-        "params" : params, "headers": getHeadersStr().replace(/=/g, ":").replace(/&/g,"\n")};
-
-    // 如果已经存在则删除
-    for(var i=0; i<interfaces.length;i++){
-        if(interfaces[i].id == h.id){
-            h.interfaceId = interfaces[i].interfaceId;
-            h.status = interfaces[i].status;
-            h.moduleId = interfaces[i].moduleId;
-            h.version = interfaces[i].version + 1;
-            interfaces.splice(i,1);
-        }
-    }
-    interfaces.unshift(h);
-    localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
+    var headers = getHeadersStr().replace(/=/g, ":").replace(/&/g,"\n");
+    var paramType = $("input[name='param-type']:checked").val()
+    var name = $("#save-interface-name").val();
+    var url = $("#url").val();
+    saveInterfaceDetail(moduleId, paramType, id, name, method, url, params, headers, 0, 1);
     closeMyDialog("dialog");
     getLocalModules();
     return true;

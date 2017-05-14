@@ -15,7 +15,7 @@ $(function(){
         var moduleText = "[";
         var separator = "";
         for(var i=0 ; i<modules.length; i++){
-            moduleText += separator + "{\"moduleId\":\"" + modules[i].moduleId +"\",\"moduleName\":\"" + modules[i].moduleName + "\"";
+            moduleText += separator + "{\"version\":" + modules[i].version +",\"moduleId\":\"" + modules[i].moduleId +"\",\"moduleName\":\"" + modules[i].moduleName + "\"";
             var debugs;
             try{
                 debugs = $.parseJSON( localStorage['crap-debug-interface-' + modules[i].moduleId] );
@@ -42,6 +42,18 @@ $(function(){
                 else if(textStatus == "success"){
                     var responseJson = $.parseJSON(responseData.responseText);
                     if( responseJson.success == 1){
+                        responseJson = responseJson.data;
+                        // 存储服务器同步的数据
+                        for(var i=0;i<responseJson.length; i++){
+                            saveModule(responseJson[i].moduleName, responseJson[i].moduleId, responseJson[i].version, responseJson[i].status);
+                            var debugs = responseJson[i].debugs;
+                            for(var j=0;j<debugs.length;j++){
+                                saveInterfaceDetail(debugs[j].moduleId, debugs[j].paramType, debugs[j].id, debugs[j].name, debugs[j].method,
+                                    debugs[j].url, debugs[j].params, debugs[j].headers, debugs[j].version, debugs[j].status);
+                            }
+                        }
+
+                        getLocalModules();
                         alert("success!",3,"success");
                     }else{
                         alert(responseJson.error.message,5,"error");

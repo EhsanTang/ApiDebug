@@ -28,18 +28,18 @@ input{
     border:1px solid #dddddd;
 }
 .btn-menu {
-	-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;-khtml-border-radius: 2px;
+    -moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;-khtml-border-radius: 2px;
     border: 0px;
-	background: rgba(255, 255, 255, 0.3); 
-	font-weight:bold;
+    background: rgba(255, 255, 255, 0.3);
+    font-weight:bold;
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 .btn-menu:hover {
-	background: rgba(255, 255, 255, 0.5); 
-	font-weight:bold;
+    background: rgba(255, 255, 255, 0.5);
+    font-weight:bold;
     color: #6f5499;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
@@ -47,7 +47,7 @@ input{
 }
 .btn-main {
     border: 1px solid #6f5499;
-	background-color: #6f5499;
+    background-color: #6f5499;
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
@@ -119,20 +119,20 @@ input{
     cursor: pointer;
 }
 .panel-body div:hover{
-	background-color:#6f5499;
-	color:#ffffff;
+    background-color:#6f5499;
+    color:#ffffff;
 }
 .more{
-	text-align:center;
-	right:0px;
-	position:absolute;
-	top:0px;
-	right:0px;
-	height:100%;
+    text-align:center;
+    right:0px;
+    position:absolute;
+    top:0px;
+    right:0px;
+    height:100%;
 }
 .more:hover{
-	color:#ffffff;
-	background-color:#5f4489;
+    color:#ffffff;
+    background-color:#5f4489;
 }
 .more i{width:20px;}
 .more span{display:none;right:20px;background-color:#5f4489!important; height:100%;float:right; }
@@ -142,11 +142,11 @@ input{
 .more .delete:hover{background-color:#bb0000!important}
 /*****************加载浮层***************************/
 .folat{
-	display:none;
-	position:fixed;top:0px;left:0px;right:0px;bottom:0px;
-	z-index:100;
-	background: rgba(0, 0, 0, 0.3);
-	padding-top:20%; text-align:center;
+    display:none;
+    position:fixed;top:0px;left:0px;right:0px;bottom:0px;
+    z-index:100;
+    background: rgba(0, 0, 0, 0.3);
+    padding-top:20%; text-align:center;
 }
 .look-up {
     position: absolute;
@@ -176,7 +176,7 @@ input{
     color:#999;
 }
 .tip-div{
-	text-align: center;
+    text-align: center;
     overflow: hidden;
     padding: 5px 20px;
     line-height: 22px;
@@ -207,51 +207,51 @@ input{
     background-color: #6f5499;
 }
 .sk-wave {
-  margin: 40px auto;
-  width: 50px;
-  height: 40px;
-  text-align: center;
-  font-size: 10px; }
-  .sk-wave .sk-rect {
+    margin: 40px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px; }
+.sk-wave .sk-rect {
     height: 100%;
     width: 6px;
     display: inline-block;
     -webkit-animation: sk-waveStretchDelay 1.2s infinite ease-in-out;
-            animation: sk-waveStretchDelay 1.2s infinite ease-in-out; }
-  .sk-wave .sk-rect1 {
+    animation: sk-waveStretchDelay 1.2s infinite ease-in-out; }
+.sk-wave .sk-rect1 {
     -webkit-animation-delay: -1.2s;
-            animation-delay: -1.2s; }
-  .sk-wave .sk-rect2 {
+    animation-delay: -1.2s; }
+.sk-wave .sk-rect2 {
     -webkit-animation-delay: -1.1s;
-            animation-delay: -1.1s; }
-  .sk-wave .sk-rect3 {
+    animation-delay: -1.1s; }
+.sk-wave .sk-rect3 {
     -webkit-animation-delay: -1s;
-            animation-delay: -1s; }
-  .sk-wave .sk-rect4 {
+    animation-delay: -1s; }
+.sk-wave .sk-rect4 {
     -webkit-animation-delay: -0.9s;
-            animation-delay: -0.9s; }
-  .sk-wave .sk-rect5 {
+    animation-delay: -0.9s; }
+.sk-wave .sk-rect5 {
     -webkit-animation-delay: -0.8s;
-            animation-delay: -0.8s; }
+    animation-delay: -0.8s; }
 
 @-webkit-keyframes sk-waveStretchDelay {
-  0%, 40%, 100% {
-    -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4); }
-  20% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1); } }
+    0%, 40%, 100% {
+        -webkit-transform: scaleY(0.4);
+        transform: scaleY(0.4); }
+    20% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1); } }
 
 @keyframes sk-waveStretchDelay {
-  0%, 40%, 100% {
-    -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4); }
-  20% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1); } }
+    0%, 40%, 100% {
+        -webkit-transform: scaleY(0.4);
+        transform: scaleY(0.4); }
+    20% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1); } }
 /****************字体*********************/
 body, h1, h2, h3, h4, h5, h6, hr, blockquote, dl, dt, dd, ul, ol, li,
-	pre, form, fieldset, legend, button, input, textarea, th, td {
-	font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;}
+pre, form, fieldset, legend, button, input, textarea, th, td {
+    font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
 }
- 
+
