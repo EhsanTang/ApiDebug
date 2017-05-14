@@ -11,7 +11,8 @@ moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='
 moduleDiv += "              <i class='iconfont color-main f16'>&#xe628;</i>&nbsp;&nbsp;  ca_moduleName";
 moduleDiv += "		        <span class='more'>";
 moduleDiv += "			        <i class='iconfont fr h lh40'>&#xe642;</i>";
-moduleDiv += "			        <span class='t0 h '><i class='iconfont delete delete-module mt0 lh40' crap-data='ca_moduleId'>&#xe60e;</i></span>";
+moduleDiv += "			        <span class='t0 h'><i class='iconfont rename-module mt0 lh40 fr'crap-data='ca_moduleId'>&#xe618;</i>";
+moduleDiv += "	                    <i class='iconfont delete delete-module mt0 lh40 fr' crap-data='ca_moduleId'>&#xe60e;</i></span>";
 moduleDiv += "		        </span>";
 moduleDiv += "          </div>";
 moduleDiv += "      </div>";
@@ -379,6 +380,7 @@ function deleteInterface(moduleId, id) {
     for(var i=0; i<interfaces.length;i++){
         if(interfaces[i].id == id){
             interfaces[i].status = -1;
+            break;
         }
     }
     localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
@@ -397,12 +399,33 @@ function deleteModule(moduleId) {
     for(var i=0; i<modules.length;i++){
         if(modules[i].moduleId == moduleId){
             modules[i].status = -1;
+            break;
         }
     }
     localStorage['crap-debug-modules'] = JSON.stringify(modules);
     return true;
 }
 
+
+function renameModule(moduleId,moduleName) {
+    var modules;
+    try{
+        modules = $.parseJSON( localStorage['crap-debug-modules'] )
+    }catch(e){
+        modules = $.parseJSON( "[]" );
+        console.warn(e);
+    }
+
+    // 如果已经存在则删除
+    for(var i=0; i<modules.length;i++){
+        if(modules[i].moduleId == moduleId){
+            modules[i].moduleName = moduleName;
+            break;
+        }
+    }
+    localStorage['crap-debug-modules'] = JSON.stringify(modules);
+    return true;
+}
 function saveModule(moduleName, moduleId,version,status) {
     var modules;
     try {
@@ -457,6 +480,7 @@ function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params,
                 h.version = interfaces[i].version + 1;
             }
             interfaces.splice(i, 1);
+            break;
         }
     }
     interfaces.unshift(h);
@@ -473,7 +497,7 @@ function saveInterface(moduleId, saveAs) {
     }
 
     if( handerStr($("#save-module-id").val()) == "" && handerStr(moduleId) == ""){
-        moduleId = "ffff-"+Date.parse(new Date()) + "-" + random(10);
+        moduleId = "ffff-"+new Date().getTime() + "-" + random(10);
         var moduleName = $("#save-module-name").val();
         if( handerStr(moduleName) == ""){
             alert("Module name can not be null");
@@ -489,7 +513,7 @@ function saveInterface(moduleId, saveAs) {
 
     var id = $("#interface-id").val();
     if( handerStr(id) == "" || saveAs){
-        id = "ffff-"+Date.parse(new Date()) + "-" + random(10);
+        id = "ffff-"+new Date().getTime() + "-" + random(10);
     }
     var method = $("#method").val();
     var params =  getParams();

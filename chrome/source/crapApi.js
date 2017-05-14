@@ -110,8 +110,9 @@ $(function(){
         saveInterface("", saveAs);
     });
 
-    $("#close-dialog").click(function(){
-        closeMyDialog("dialog");
+    $(".close-dialog").click(function(){
+        var id = $(this).attr("crap-data");
+        closeMyDialog(id);
     });
 
 
@@ -181,7 +182,16 @@ $(function(){
         $(".history-div").removeClass("bg-main");
         $(".key-value-edit").click();
     });
-	
+    $("#save-module-submit").click(function() {
+       if($("#rename-module-name").val() == ""){
+           alert("Module name can not be empty!", 5, "error", 300);
+           return false;
+       }
+        renameModule( $("#rename-module-id").val(), $("#rename-module-name").val());
+        getLocalModules();
+        closeMyDialog("dialog2");
+    });
+
 	$("#modules").on("click",".delete-interface", function() {
         if(!myonfirm("Are you sure you want to delete? 「确定要删除吗」"))
         {
@@ -202,6 +212,16 @@ $(function(){
         getLocalModules();
         return false;// 不在传递至父容器
     });
+    $("#modules").on("click",".rename-module", function() {
+        var moduleId = $(this).attr("crap-data");
+        $("#rename-module-id").val(moduleId);
+        lookUp('dialog2', '', '', 400 ,7,'');
+        $("#dialog-content").css("max-height",($(document).height()*0.8)+'px');
+        showMessage('dialog2','false',false,-1);
+        showMessage('fade','false',false,-1);
+        return false;// 不在传递至父容器
+    });
+
 
     $("#left-enlarge").click(function(){
         if( !leftEnlarge){
