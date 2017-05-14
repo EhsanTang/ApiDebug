@@ -15,7 +15,7 @@ $(function(){
         var moduleText = "[";
         var separator = "";
         for(var i=0 ; i<modules.length; i++){
-            moduleText += separator + "{\"version\":" + modules[i].version +",\"moduleId\":\"" + modules[i].moduleId +"\",\"moduleName\":\"" + modules[i].moduleName + "\"";
+            moduleText += separator + "{\"status\":" + modules[i].status +",\"version\":" + modules[i].version +",\"moduleId\":\"" + modules[i].moduleId +"\",\"moduleName\":\"" + modules[i].moduleName + "\"";
             var debugs;
             try{
                 debugs = $.parseJSON( localStorage['crap-debug-interface-' + modules[i].moduleId] );
@@ -45,6 +45,9 @@ $(function(){
                         responseJson = responseJson.data;
                         // 存储服务器同步的数据
                         for(var i=0;i<responseJson.length; i++){
+                            if(responseJson[i].status == -1){
+                                continue;
+                            }
                             saveModule(responseJson[i].moduleName, responseJson[i].moduleId, responseJson[i].version, responseJson[i].status);
                             var debugs = responseJson[i].debugs;
                             for(var j=0;j<debugs.length;j++){
@@ -189,6 +192,17 @@ $(function(){
 		getLocalModules();	
 		return false;// 不在传递至父容器
     });
+    $("#modules").on("click",".delete-module", function() {
+        if(!myonfirm("Are you sure you want to delete? 「确定要删除吗」"))
+        {
+            return false;
+        }
+        var moduleId = $(this).attr("crap-data");
+        deleteModule(moduleId);
+        getLocalModules();
+        return false;// 不在传递至父容器
+    });
+
     $("#left-enlarge").click(function(){
         if( !leftEnlarge){
             leftEnlarge = true;

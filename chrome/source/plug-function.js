@@ -6,8 +6,14 @@ paramsTr += "<td class='w20'><i class='iconfont'>&#xe63f;</i></td>";
 paramsTr += "</tr>";
 
 var moduleDiv = "<div class='panel panel-info no-radius b0 mt0 left-menu-border-top'>";
-moduleDiv += "      <div class='panel-heading no-radius' data-parent='#modules'>";
-moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='#modules' href='#panel_ca_moduleId' crap-data='ca_moduleId'><i class='iconfont color-main f16'>&#xe628;</i>&nbsp;&nbsp;  ca_moduleName</div>"
+moduleDiv += "      <div class='panel-heading no-radius rel' data-parent='#modules'>";
+moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='#modules' href='#panel_ca_moduleId' crap-data='ca_moduleId'>";
+moduleDiv += "              <i class='iconfont color-main f16'>&#xe628;</i>&nbsp;&nbsp;  ca_moduleName";
+moduleDiv += "		        <span class='more'>";
+moduleDiv += "			        <i class='iconfont fr h lh40'>&#xe642;</i>";
+moduleDiv += "			        <span class='t0 h '><i class='iconfont delete delete-module mt0 lh40' crap-data='ca_moduleId'>&#xe60e;</i></span>";
+moduleDiv += "		        </span>";
+moduleDiv += "          </div>";
 moduleDiv += "      </div>";
 moduleDiv += "      <div id='panel_ca_moduleId' class='panel-collapse BGEEE collapse in'>";
 moduleDiv += "          <div class='panel-body b0 p0'>";
@@ -324,7 +330,7 @@ function getLocalModules(){
     }
     var moduleText = "";
     for(var i=0 ; i<modules.length; i++){
-        if(modules[i].version == -1){
+        if(modules[i].status == -1){
             continue;
         }
         var moduleName =  modules[i].moduleName;
@@ -393,7 +399,7 @@ function deleteModule(moduleId) {
             modules[i].status = -1;
         }
     }
-    localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(modules);
+    localStorage['crap-debug-modules'] = JSON.stringify(modules);
     return true;
 }
 
@@ -515,7 +521,9 @@ function intitSaveInterfaceDialog(){
     $("#save-module-id").find("option").remove();
     $("#save-module-id").append("<option value='-1'>--Click to select module/folder--</option>");
     for(var i=0 ; i<modules.length; i++) {
-        $("#save-module-id").append("<option value='"+modules[i].moduleId+"'>"+modules[i].moduleName+"</option>");
+        if(modules[i].status != -1) {
+            $("#save-module-id").append("<option value='" + modules[i].moduleId + "'>" + modules[i].moduleName + "</option>");
+        }
     }
     openDialog("Save interface:" + $("#interface-name").val(),500);
 }
