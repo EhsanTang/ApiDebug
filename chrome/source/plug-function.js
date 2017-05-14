@@ -1,3 +1,4 @@
+var websiteUrl = "http://localhost:8080/api";
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
@@ -19,7 +20,7 @@ var interfaceDiv = "<div crap-data='ca_interfaceInfo' class='interface pl30 pr20
 interfaceDiv += "		<i class='iconfont ca_method'>ca_methodIcon</i>&nbsp;&nbsp;ca_name";
 interfaceDiv += "		<span class='more'>";
 interfaceDiv += "			<i class='iconfont fr'>&#xe642;</i>";
-interfaceDiv += "			<span class='t0 h '><i class='iconfont delete delete-interface' crap-data='ca_moduleId|ca_id'>&#xe60e;</i><i class='iconfont'>&#xe618;</i></span>";
+interfaceDiv += "			<span class='t0 h '><i class='iconfont delete delete-interface' crap-data='ca_moduleId|ca_id'>&#xe60e;</i></span>";
 interfaceDiv += "		</span>";
 interfaceDiv += "	</div>";
 
@@ -335,6 +336,9 @@ function getLocalModules(){
         }
         var interfaceText = "";
         for(var j=0; j<interfaces.length; j++){
+            if(interfaces[j].status == -1){
+                continue;
+            }
              interfaceText += interfaceDiv.replace(/ca_interfaceInfo/g,JSON.stringify(interfaces[j]))
 								.replace(/ca_name/g,interfaces[j].name)
 								.replace(/ca_id/g,interfaces[j].id)
@@ -365,7 +369,7 @@ function deleteInterface(moduleId, id) {
     // 如果已经存在则删除
     for(var i=0; i<interfaces.length;i++){
         if(interfaces[i].id == id){
-            interfaces.splice(i,1);
+            interfaces[i].status = -1;
         }
     }
     localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
@@ -424,14 +428,17 @@ function saveInterface(moduleId, saveAs) {
     }else{
         params = $("#customer-value").val();
     }
-    var h  ={"paramType": $("input[name='param-type']:checked").val(),"moduleId":moduleId,"id": id, "name": $("#save-interface-name").val(),"method":method, "url" : $("#url").val(),
+    var h  ={"version":0, "status":1,"paramType": $("input[name='param-type']:checked").val(),"moduleId":moduleId,"id": id, "name": $("#save-interface-name").val(),"method":method, "url" : $("#url").val(),
         "params" : params, "headers": getHeadersStr().replace(/=/g, ":").replace(/&/g,"\n")};
 
     // 如果已经存在则删除
     for(var i=0; i<interfaces.length;i++){
         if(interfaces[i].id == h.id){
+            h.interfaceId = interfaces[i].interfaceId;
+            h.status = interfaces[i].status;
+            h.moduleId = interfaces[i].moduleId;
+            h.version = interfaces[i].version + 1;
             interfaces.splice(i,1);
-            h.interfaceId = interfaces.interfaceId;
         }
     }
     interfaces.unshift(h);
@@ -486,14 +493,42 @@ function closeMyDialog(tagDiv){
     iClose('fade');
 }
 /************************覆盖弹框**************************************/
-function alert(tipMessage, tipTime, isSuccess){
+function alert(tipMessage, tipTime, isSuccess, width){
+    if( !width){
+        width = 200;
+    }
 	tipTime = tipTime?tipTime:2;
 	if(tipMessage!=""){
-		if(tipMessage!="false"&&tipMessage!=false)
-				$("#tip-div").html(tipMessage);
+		if(tipMessage!="false"&&tipMessage!=false) {
+            $("#tip-div").html(tipMessage);
+            if (tipMessage.length > 35){
+                width = 300;
+            }
+            if (tipMessage.length > 75){
+                width = 500;
+            }
+            if (tipMessage.length > 150){
+                width = 800;
+            }
+        }
 	}
-	$("#tip-div").css("left",  ($(window).width()/2 - $("#tip-div").width()/2) +"px");
+	$("#tip-div").css("left",  ($(window).width()/2 - width/2) +"px").css("width", width+"px");
+    $("#tip-div").removeClass("text-success");
+    $("#tip-div").removeClass("text-error");
+    $("#tip-div").addClass("text-" + isSuccess);
+
 	showMessage("tip-div",tipMessage,false,tipTime);
+}
+function myonfirm(message){
+    var begin = Date.now();
+
+    var result = window.confirm(message);
+    var end = Date.now();
+    if (end - begin < 10) {
+        alert("Please do not disable popups,it's dangerous!「请勿禁用【确认】弹窗，直接操作非常危险」", 5, "error", 500);
+        return true;
+    }
+    return result;
 }
 /** *********************页面提示信息显示方法************************* */
 /**

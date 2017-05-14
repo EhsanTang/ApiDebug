@@ -7,7 +7,8 @@ $(function(){
 				$("#searchInput").val(result);
 			}); 
 		
-	});	
+	});
+
 	// 从插件跳转至码云，自动弹出捐赠页面
 	if(window.location.href == "http://git.oschina.net/CrapApi/CrapApi?autoDonate=true"){
 		$(".modals").removeClass("hidden");

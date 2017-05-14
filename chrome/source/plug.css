@@ -188,6 +188,19 @@ input{
     left:50%;
     display:none;
     z-index: 1061;
+    font-size:12px;
+}
+.text-error {
+    border: 1px solid red;
+    text-align: center;
+    background: #ffebe8;
+    color: #333333;
+}
+.text-success {
+    border: 1px solid green;
+    text-align: center;
+    background: #c1e2b3;
+    color: #333333;
 }
 /*************loading************/
 .sk-wave .sk-rect {

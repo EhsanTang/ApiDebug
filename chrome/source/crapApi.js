@@ -29,7 +29,7 @@ $(function(){
         moduleText = moduleText +"]";
         $.ajax({
             type : "POST",
-            url : "http://localhost:8080/api/user/crapDebug/synch.do",
+            url : websiteUrl + "/user/crapDebug/synch.do",
             async : true,
             data : moduleText,
             beforeSend: function(request) {
@@ -40,7 +40,13 @@ $(function(){
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
                 else if(textStatus == "success"){
-                    alert("success");
+                    var responseJson = $.parseJSON(responseData.responseText);
+                    if( responseJson.success == 1){
+                        alert("success!",3,"success");
+                    }else{
+                        alert(responseJson.error.message,5,"error");
+                    }
+
                 }else{
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
@@ -162,6 +168,10 @@ $(function(){
     });
 	
 	$("#modules").on("click",".delete-interface", function() {
+        if(!myonfirm("Are you sure you want to delete? 「确定要删除吗」"))
+        {
+            return false;
+        }
         var ids = $(this).attr("crap-data").split("|");
 		deleteInterface(ids[0],ids[1]);
 		getLocalModules();	
@@ -181,9 +191,12 @@ $(function(){
         }
 
     });
-	$("#openDebug").click(function(){
+	$("#open-debug").click(function(){
 			window.open("debug.html")
 	});
+    $("#open-json").click(function(){
+        window.open("json.html")
+    });
 
 	$(".params-headers-table").on("keyup","input", function() {
       if($(this).val() != ''){
