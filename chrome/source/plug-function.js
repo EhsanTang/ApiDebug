@@ -420,6 +420,7 @@ function renameModule(moduleId,moduleName) {
     for(var i=0; i<modules.length;i++){
         if(modules[i].moduleId == moduleId){
             modules[i].moduleName = moduleName;
+            modules[i].version = modules[i].version + 1;
             break;
         }
     }
