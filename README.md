@@ -1,7 +1,7 @@
 # ApiDebug
 ApiDebug is a browser plug-in for testing RESTful web services. It might be used for testing other HTTP communications too.
 Support interface debugging (POST, GET), support JSON, XML and other parameters.
-If you want to save data, use the API administration tool -CrapApi<br>
+If you want to save data to you own database, use the API administration tool -CrapApi（a tool to admin interface and save ApiDebug data. CrapApi is open sourced, you also can use the online service, is free to all. The website url is http://api.crap.cn）<br>
 [CrapApi-GitHub](https://github.com/EhsanTang/ApiManager)
 
 
