@@ -174,8 +174,11 @@ $(function(){
         $("#module-id").val("-1");
         $("#method").val("GET");
         $("#method").change();
-        $("#customer-type").val("application/json");
+
+        $("#customer-type").val("x-www-form-urlencoded;charset=UTF-8");
         $("#customer-type").change();
+        $("#params-div input[value='x-www-form-urlencoded;charset=UTF-8']").prop("checked",true);
+        $(".key-value-edit").click();
         $("input[name='param-type']").change();
 
         $(".interface").removeClass("bg-main");
