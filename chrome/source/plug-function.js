@@ -31,6 +31,9 @@ interfaceDiv += "			<span class='t0 h '><i class='iconfont delete delete-interfa
 interfaceDiv += "		</span>";
 interfaceDiv += "	</div>";
 
+// Custom param types
+var customerTypes = ["text/plain", "application/json", "application/xml"];
+
 
 
 var saveInterfaceDiv = "";
@@ -486,6 +489,7 @@ function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params,
     interfaces.unshift(h);
     localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
 }
+// save interface and module
 function saveInterface(moduleId, saveAs) {
     if( handerStr($("#url").val()) == ""){
         alert("Url can not be null");
@@ -495,7 +499,7 @@ function saveInterface(moduleId, saveAs) {
         alert("Interface name can not be null");
         return false;
     }
-
+    // if moduleId is null,then create a new moduleId, but moduleNmae must be input
     if( handerStr($("#save-module-id").val()) == "" && handerStr(moduleId) == ""){
         moduleId = "ffff-"+new Date().getTime() + "-" + random(10);
         var moduleName = $("#save-module-name").val();
@@ -503,7 +507,7 @@ function saveInterface(moduleId, saveAs) {
             alert("Module name can not be null");
             return;
         }
-        // 保存模块
+        // save module
         saveModule( moduleName, moduleId, 0, 1);
     }else{
         if( handerStr(moduleId) == "" ){
@@ -511,19 +515,33 @@ function saveInterface(moduleId, saveAs) {
         }
     }
 
+    // if interfaceId is null, meaning it's a new interface,should create a id
+    // if id is not null, but saveAs is true,meaning should create a new interface base on the current interface,so id should be created
     var id = $("#interface-id").val();
     if( handerStr(id) == "" || saveAs){
         id = "ffff-"+new Date().getTime() + "-" + random(10);
     }
+
     var method = $("#method").val();
     var params =  getParams();
-    if( $('input:radio[name="param-type"]:checked').val() == "application/x-www-form-urlencoded;charset=UTF-8") {
+
+    // if params submit by form, then should format params, else mean param is custom and nothing need to do
+    // as:
+    // a:666
+    // b:777
+    var paramType = $('input:radio[name="param-type"]:checked').val();
+    if(  $.inArray(paramType, customerTypes) == -1) {
         params = params.replace(/=/g, ":").replace(/&/g,"\n");
     }else{
         params = $("#customer-value").val();
     }
+
     var headers = getHeadersStr().replace(/=/g, ":").replace(/&/g,"\n");
-    var paramType = $("input[name='param-type']:checked").val()
+    var paramType = "";
+    if(method != "GET"){
+        paramType = $("input[name='param-type']:checked").val()
+    }
+
     var name = $("#save-interface-name").val();
     var url = $("#url").val();
     saveInterfaceDetail(moduleId, paramType, id, name, method, url, params, headers, 0, 1);

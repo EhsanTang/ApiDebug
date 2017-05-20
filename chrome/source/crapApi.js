@@ -120,7 +120,7 @@ $(function(){
         var urlInfo = $.parseJSON( $(this).attr("crap-data") );
         $("#interface-name").val(handerStr(urlInfo.name));
         $("#headers-bulk").val(urlInfo.headers);
-        if(urlInfo.paramType == "") {
+        if(  $.inArray(urlInfo.paramType, customerTypes) == -1) {
             $("#params-bulk").val(urlInfo.params);
         }else{
             $("#customer-value").val(urlInfo.params);
