@@ -174,8 +174,7 @@ function callAjax() {
             }
         }
     }
-
-    if( $('input:radio[name="param-type"]:checked').val() == "application/x-www-form-urlencoded;charset=UTF-8") {
+    if(  $.inArray($('input:radio[name="param-type"]:checked').val(), customerTypes) == -1) {
         params = (params.length > 0 ? params.substr(1) : params);
     }else{
         params = $("#customer-value").val();
@@ -247,18 +246,13 @@ function callAjax() {
         url += "?";
     }
     if( method == "GET"){
-        if(url.endWith("?")){
-            if(params.length > 0){
-                params = params.substr(1);// 删除&
-            }
-        }
         if(url.endWith("?") &&  params.length == 0){
             url  = url.replace("?","");
         }
         if(params == "" && url.endWith("?")){
             url = url.substr(0 - url.length-1);
         }
-        $("#url").val(url + params);
+        $("#url").val( (url +"&"+ params).replace("&&", '&').replace("?&", '?'));
     }
 
     // 记录历史
@@ -269,7 +263,7 @@ function callAjax() {
         }catch(e){
             historys = $.parseJSON( "[]" );
         }
-        if( $('input:radio[name="param-type"]:checked').val() == "application/x-www-form-urlencoded;charset=UTF-8") {
+        if(  $.inArray($('input:radio[name="param-type"]:checked').val(), customerTypes) == -1) {
             params = params.replace(/=/g, ":").replace(/&/g,"\n");
         }
 
