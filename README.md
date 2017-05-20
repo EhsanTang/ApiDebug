@@ -17,9 +17,9 @@ API接口调试插件：支持接口在线调试（POST、GET），支持json、
 Restfull，API debug，接口调试，开源接口调试，postman，resulteasy
 
 # effect picture 「效果图」
-![Example](https://github.com/EhsanTang/ApiDebug/blob/master/example1.png)
-![Example](https://github.com/EhsanTang/ApiDebug/blob/master/example2.png)
-![Example](https://github.com/EhsanTang/ApiDebug/blob/master/example3.png)
+![Example](http://img.blog.csdn.net/20170520195634607?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![Example](http://img.blog.csdn.net/20170520195653030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![Example](http://img.blog.csdn.net/20170520195711810?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 
 
