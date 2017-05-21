@@ -114,6 +114,30 @@ $(function(){
         var id = $(this).attr("crap-data");
         closeMyDialog(id);
     });
+    $("#clear-local-data").click(function(){
+        if(!myConfirm("Are you sure you want to delete local data? 「确定要删除本地数据吗」")){
+            return false;
+        }
+        localStorage.clear();
+        getLocalModules();
+        $.ajax({
+            type : "POST",
+            url : websiteUrl+"/back/loginOut.do",
+            async : true,
+            data : "",
+            complete: function(responseData, textStatus){
+                if(textStatus == "error"){
+                    alert("Clear local data success, But LogOut fail!「清除数据本地数据成功，但退出登陆失败！」", 5, "error", 500);
+                }
+                else if(textStatus == "success"){
+                    alert("Clear local data success, LogOut success!「清除数据本地数据成功，退出成功」", 5, "success", 500);
+                }else{
+                    alert("Clear local data success, But LogOut fail!「清除数据本地数据成功，但退出登陆失败！」", 5, "error", 500);
+                }
+                $("#float").fadeOut(300);
+            }
+        });
+    });
 
 
     $("#modules").on("click",".interface", function() {
@@ -145,20 +169,20 @@ $(function(){
         var urlInfo = $.parseJSON( $(this).attr("crap-data") );
         $("#interface-name").val(handerStr(urlInfo.name));
         $("#headers-bulk").val(urlInfo.headers);
-        if(urlInfo.paramType == "") {
+        if(  $.inArray(urlInfo.paramType, customerTypes) == -1) {
             $("#params-bulk").val(urlInfo.params);
         }else{
             $("#customer-value").val(urlInfo.params);
         }
         $("#url").val(urlInfo.url);
         $("#interface-id").val("-1");
+        $("#module-id").val("-1");
         $("#method").val(urlInfo.method);
         $("#method").change();
-        $("#module-id").val("-1");
         $("#customer-type").val(urlInfo.paramType);
         $("#customer-type").change();
-        $("#params-div input[value='"+urlInfo.paramType+"']").prop("checked",true);
         $(".key-value-edit").click();
+        $("#params-div input[value='"+urlInfo.paramType+"']").prop("checked",true);
         $("input[name='param-type']").change();
 
         $(".history-div").removeClass("bg-main");
@@ -196,7 +220,7 @@ $(function(){
     });
 
 	$("#modules").on("click",".delete-interface", function() {
-        if(!myonfirm("Are you sure you want to delete? 「确定要删除吗」"))
+        if(!myConfirm("Are you sure you want to delete? 「确定要删除吗」"))
         {
             return false;
         }
@@ -206,7 +230,7 @@ $(function(){
 		return false;// 不在传递至父容器
     });
     $("#modules").on("click",".delete-module", function() {
-        if(!myonfirm("Are you sure you want to delete? 「确定要删除吗」"))
+        if(!myConfirm("Are you sure you want to delete? 「确定要删除吗」"))
         {
             return false;
         }

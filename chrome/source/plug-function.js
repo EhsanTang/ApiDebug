@@ -1,4 +1,4 @@
-var websiteUrl = "http://api2.crap.cn";
+var websiteUrl = "http://localhost:8080/api";
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
@@ -246,13 +246,12 @@ function callAjax() {
         url += "?";
     }
     if( method == "GET"){
-        if(url.endWith("?") &&  params.length == 0){
-            url  = url.replace("?","");
-        }
-        if(params == "" && url.endWith("?")){
+        if(params.trim() == ""){
             url = url.substr(0 - url.length-1);
+        }else{
+            url = (url +"&"+ params).replace("&&", '&').replace("?&", '?');
         }
-        $("#url").val( (url +"&"+ params).replace("&&", '&').replace("?&", '?'));
+        $("#url").val(url);
     }
 
     // 记录历史
@@ -315,7 +314,6 @@ function getHistorys(){
     }
     $("#historys").html(historysText);
 }
-
 // 数据存储
 function getLocalModules(){
     // 模块对应的项目ID为 用户ID + "-debug"该项目模块下只有接口调试记录，可以共享，一个用户有且仅有一个调试目录
@@ -618,7 +616,7 @@ function alert(tipMessage, tipTime, isSuccess, width){
 
 	showMessage("tip-div",tipMessage,false,tipTime);
 }
-function myonfirm(message){
+function myConfirm(message){
     var begin = Date.now();
 
     var result = window.confirm(message);
