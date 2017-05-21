@@ -11,11 +11,12 @@
 </head>
 <body>
 	<div class="h40 CFFF pl20 w shadow fixed z10" style="background:#233050;">
-		<img src="logo.png" class="h30 mt4 ml10 fl">
+		<a href="http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG" target="_blank">
+			<img src="http://api.crap.cn/resources/images/logo.png" class="h30 mt4 ml10 fl">
+		</a>
 		<button class="btn btn-menu btn-sm fl mr10 mt5 cursor ml20" id="left-enlarge">
 			Left &nbsp;<div class="fr mt-1"><i class="iconfont">&#xe605;</i></div>
 		</button>
-
 		<a href="http://api.crap.cn/loginOrRegister.do#/login" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Login</a>
 		<a id="clear-local-data" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">ClearLocalData </a>
 		<a href="json.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Json</a>
@@ -146,7 +147,7 @@
                 <div class="bb1" id="params-div">
                     <div id="content-type" class="f12 p10 C999 pl20 none">
 						<div class="fl">
-							<input type="radio" name="param-type" checked value="application/x-www-form-urlencoded;charset=UTF-8"> x-www-form-urlencoded;charset=UTF-8&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="param-type" checked  id="param-type-value"  value="application/x-www-form-urlencoded;charset=UTF-8"> x-www-form-urlencoded;charset=UTF-8&nbsp;&nbsp;&nbsp;
 						</div>
 						<div class="fl">
 							<input type="radio" name="param-type" crap-data="customer" id="customer-type-value" value="application/json"> customer&nbsp;&nbsp;&nbsp;
@@ -336,6 +337,6 @@
 	<script src="source/jquery.jsonview.js"></script>
 	<script src="source/json.js"></script>
 	<script type="text/javascript" src="source/jquery-ui.min.js"></script>
-
+	<img style="display: none" src="http://debug-acess-statistics.oss-cn-qingdao.aliyuncs.com/ca.gif">
 </body>
 </html>

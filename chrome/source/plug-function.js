@@ -1,4 +1,4 @@
-var websiteUrl = "http://localhost:8080/api";
+var websiteUrl = "http://api.crap.cn";
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
@@ -247,7 +247,7 @@ function callAjax() {
     }
     if( method == "GET"){
         if(params.trim() == ""){
-            url = url.substr(0 - url.length-1);
+            url = url.substr(0, url.length-1);
         }else{
             url = (url +"&"+ params).replace("&&", '&').replace("?&", '?');
         }
@@ -264,6 +264,10 @@ function callAjax() {
         }
         if(  $.inArray($('input:radio[name="param-type"]:checked').val(), customerTypes) == -1) {
             params = params.replace(/=/g, ":").replace(/&/g,"\n");
+        }
+
+        if( url.endWith("?")){
+            url = url.substr(0, url.length-1);
         }
 
         var h  ={"paramType": $("input[name='param-type']:checked").val(), "name": $("#interface-name").val(),"method":method, "url" : url,

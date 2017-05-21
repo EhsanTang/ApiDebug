@@ -142,22 +142,26 @@ $(function(){
 
     $("#modules").on("click",".interface", function() {
         var urlInfo = $.parseJSON( $(this).attr("crap-data") );
-        $("#interface-name").val(handerStr(urlInfo.name));
-        $("#headers-bulk").val(urlInfo.headers);
-        if(  $.inArray(urlInfo.paramType, customerTypes) == -1) {
-            $("#params-bulk").val(urlInfo.params);
-        }else{
-            $("#customer-value").val(urlInfo.params);
-        }
         $("#url").val(urlInfo.url);
         $("#interface-id").val(urlInfo.id);
         $("#module-id").val(urlInfo.moduleId);
+        $("#interface-name").val(handerStr(urlInfo.name));
+        $("#headers-bulk").val(urlInfo.headers);
         $("#method").val(urlInfo.method);
         $("#method").change();
-        $("#customer-type").val(urlInfo.paramType);
-        $("#customer-type").change();
-        $(".key-value-edit").click();
-        $("#params-div input[value='"+urlInfo.paramType+"']").prop("checked",true);
+
+        if($.inArray(urlInfo.paramType, customerTypes) == -1){
+            urlInfo.paramType = "x-www-form-urlencoded;charset=UTF-8";
+            $("#param-type-value").prop("checked",true);
+            $("#params-bulk").val(urlInfo.params);
+            $(".key-value-edit").click();
+        }else{
+            $("#customer-type-value").prop("checked",true);
+            // 下拉选择 customer-type
+            $("#customer-type").val(urlInfo.paramType);
+            $("#customer-type").change();
+            $("#customer-value").val(urlInfo.params);
+        }
         $("input[name='param-type']").change();
 
         $(".interface").removeClass("bg-main");
@@ -167,23 +171,28 @@ $(function(){
 
     $("#historys").on("click","div", function() {
         var urlInfo = $.parseJSON( $(this).attr("crap-data") );
-        $("#interface-name").val(handerStr(urlInfo.name));
-        $("#headers-bulk").val(urlInfo.headers);
-        if(  $.inArray(urlInfo.paramType, customerTypes) == -1) {
-            $("#params-bulk").val(urlInfo.params);
-        }else{
-            $("#customer-value").val(urlInfo.params);
-        }
         $("#url").val(urlInfo.url);
         $("#interface-id").val("-1");
         $("#module-id").val("-1");
+        $("#interface-name").val(handerStr(urlInfo.name));
+        $("#headers-bulk").val(urlInfo.headers);
         $("#method").val(urlInfo.method);
         $("#method").change();
-        $("#customer-type").val(urlInfo.paramType);
-        $("#customer-type").change();
-        $(".key-value-edit").click();
-        $("#params-div input[value='"+urlInfo.paramType+"']").prop("checked",true);
+
+        if($.inArray(urlInfo.paramType, customerTypes) == -1){
+            urlInfo.paramType = "x-www-form-urlencoded;charset=UTF-8";
+            $("#param-type-value").prop("checked",true);
+            $("#params-bulk").val(urlInfo.params);
+            $(".key-value-edit").click();
+        }else{
+            $("#customer-type-value").prop("checked",true);
+            // 下拉选择 customer-type
+            $("#customer-type").val(urlInfo.paramType);
+            $("#customer-type").change();
+            $("#customer-value").val(urlInfo.params);
+        }
         $("input[name='param-type']").change();
+
 
         $(".history-div").removeClass("bg-main");
         $(this).addClass("bg-main");
@@ -432,8 +441,8 @@ $(function(){
     });
     // 单选param-type监控
     $("input[name='param-type']").change(function(){
-        var crapData = $('input:radio[name="param-type"]:checked').attr("crap-data");
-        if (crapData =="customer"){
+        var crapData = $("input[name='param-type']:checked").attr("crap-data");
+        if( crapData && crapData=="customer") {
             $("#customer-type").removeClass("none")
             $("#params-table").addClass("none");
             $("#customer-div").removeClass("none");
