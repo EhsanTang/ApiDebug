@@ -20,6 +20,9 @@ How to install after download? Download .crx file-> Open chrome extension [chrom
 
 如何安装：下载.crx文件后->打开扩展工具[在浏览器地中中输入：chrome://extensions/ 即可]->拖动.crx文件至chrome即可。
 
+# Suggest「意见&吐槽」
+[http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG](http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG)
+
 # 开源接口调试插件
 API接口调试插件：支持接口在线调试（POST、GET），支持json、xml等参数。
 如果想保存数据，请配合使用API管理工具-CrapApi<br>
