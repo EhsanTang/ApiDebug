@@ -17,9 +17,6 @@
     "permissions": [ 
         "http://*/*",
 		"https://*/*",
-        "bookmarks",  
-        "tabs",  
-        "history",
         "cookies",
         "storage"
     ],
