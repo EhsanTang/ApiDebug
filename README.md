@@ -14,7 +14,7 @@ How to install? Download .crx file, the drag the file to chrome.
 [Chrome浏览器插件地址:点击安装](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
 
 [GitHub下载.crx安装包](https://github.com/EhsanTang/ApiDebug/blob/master/release/chrome/ieoejemkppmjcdfbnfphhpbfmallhfnc_main.crx)
-[Download .crx from GitHub](https://github.com/EhsanTang/ApiDebug/blob/master/release/chrome/ieoejemkppmjcdfbnfphhpbfmallhfnc_main.crx)
+[码云下载.crx安装包](http://git.oschina.net/CrapApi/ApiDebug/raw/master/release/chrome/ieoejemkppmjcdfbnfphhpbfmallhfnc_main.crx)
 
 如何安装：下载.crx文件后，打开扩展工具，拖动.crx文件至chrome即可。
 
