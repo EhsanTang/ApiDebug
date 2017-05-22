@@ -5,14 +5,14 @@ If you want to save data to you own database, use the API administration tool -C
 [CrapApi-GitHub](https://github.com/EhsanTang/ApiManager)
 
 # Chrome address
-[Chrome browser plug-in address:Click to install](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
+[Chrome browser plug-in address:Click to install from Google App store](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
 
 [Download .crx from GitHub](https://github.com/EhsanTang/ApiDebug/blob/master/release/chrome/ieoejemkppmjcdfbnfphhpbfmallhfnc_main.crx)
 
 How to install after download? Download .crx file-> Open chrom extension[chrome://extensions/the](chrome://extensions/) ->drag the file to chrome.
 
 ![Chrome](http://img.blog.csdn.net/20170522174505914?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-[Chrome浏览器插件地址:点击安装](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
+[Chrome浏览器插件地址:点击从谷歌应用商店安装](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
 
 [GitHub下载.crx安装包](https://github.com/EhsanTang/ApiDebug/blob/master/release/chrome/ieoejemkppmjcdfbnfphhpbfmallhfnc_main.crx)
 
