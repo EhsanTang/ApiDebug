@@ -208,15 +208,13 @@ $(function(){
         $("#method").val("GET");
         $("#method").change();
 
-        $("#customer-type").val("x-www-form-urlencoded;charset=UTF-8");
-        $("#customer-type").change();
-        $("#params-div input[value='x-www-form-urlencoded;charset=UTF-8']").prop("checked",true);
+        $("#param-type-value").prop("checked",true);
+        $("#params-bulk").val("");
         $(".key-value-edit").click();
         $("input[name='param-type']").change();
 
         $(".interface").removeClass("bg-main");
         $(".history-div").removeClass("bg-main");
-        $(".key-value-edit").click();
     });
     $("#save-module-submit").click(function() {
        if($("#rename-module-name").val() == ""){
@@ -342,6 +340,11 @@ $(function(){
 	    for(var i=0 ; i< params.length; i++){
 			if( params[i].trim() != ""){
 				var p = params[i].split(":");
+				if(p.length>2){
+                    for(var j=2 ; j< p.length; j++){
+                        p[1] = p[1] +":" + p[j];
+                    }
+                }
 				var key = p[0];
 				var value = "";
 				if(p.length >1 ){

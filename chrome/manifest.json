@@ -1,8 +1,8 @@
 ﻿{
 	"manifest_version": 2,
-    "name": "ApiManager-CrapApi",
+    "name": "ApiDebug-接口调试插件",
     "version": "1.0.0",
-    "description": "ApiManager-CrapApi接口管理",
+    "description": "ApiDebug is a browser plug-in for testing RESTful web services. It might be used for testing other HTTP communications too. Support interface debugging (POST, GET), support JSON, XML and other parameters.",
 	"author":"ihsantang@163.com",
 	// 更新地址，如果通过谷歌发布则不需要添加 "update_url": "https://clients2.google.com/service/update2/crx",
 	"icons": {
