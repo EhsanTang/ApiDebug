@@ -1,10 +1,9 @@
 ﻿{
 	"manifest_version": 2,
     "name": "ApiDebug-接口调试插件",
-    "version": "1.0.0",
-    "description": "ApiDebug is a browser plug-in for testing RESTful web services. It might be used for testing other HTTP communications too. Support interface debugging (POST, GET), support JSON, XML and other parameters.",
+    "version": "1.0.1",
+    "description": "ApiDebug is a browser plug-in for testing RESTful web services.「ApiDebug可用于http、http稍等接口调试」",
 	"author":"ihsantang@163.com",
-	// 更新地址，如果通过谷歌发布则不需要添加 "update_url": "https://clients2.google.com/service/update2/crx",
 	"icons": {
 		"16": "logo.png",
 		"128": "logo.png"
@@ -20,10 +19,10 @@
         "cookies",
         "storage"
     ],
-	"content_scripts":[//允许插件访问的url
+	"content_scripts":[
 		{
-			"matches":["http://*/*","https://*/*"],//url满足什么条件执行该插
-			"js":["source/jquery-1.9.1.min.js","source/content_scripts.js"] // 定义js，jquery必须在前
+			"matches":["http://*/*","https://*/*"],
+			"js":["source/jquery-1.9.1.min.js","source/content_scripts.js"]
 		}
 	],"background": {
         "page": "background.html"
