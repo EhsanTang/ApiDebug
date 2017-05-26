@@ -247,7 +247,9 @@ function callAjax() {
     }
     if( method == "GET"){
         if(params.trim() == ""){
-            url = url.substr(0, url.length-1);
+            if(url.endWith("?") || url.endWith("&") ){
+                url = url.substr(0, url.length-1);
+            }
         }else{
             url = (url +"&"+ params).replace("&&", '&').replace("?&", '?');
         }
