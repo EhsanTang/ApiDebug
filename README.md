@@ -22,6 +22,9 @@ How to install after download? Download .crx file-> Open chrome extension [chrom
 如何安装：下载.crx文件后->打开扩展工具[在浏览器地中中输入：chrome://extensions/ 即可]->拖动.crx文件至chrome即可。
 
 # Suggest「意见&吐槽」
+建议反馈请加QQ群：515305698
+
+![QQ群](http://img.blog.csdn.net/20170601193654319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)<br>Suggest「意见&吐槽」
 [http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG](http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG)
 
 # 开源接口调试插件
