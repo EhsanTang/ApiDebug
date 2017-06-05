@@ -33,9 +33,6 @@ interfaceDiv += "	</div>";
 
 // Custom param types
 var customerTypes = ["text/plain", "application/json", "application/xml"];
-
-
-
 var saveInterfaceDiv = "";
 
 var cookieHeader = ""
@@ -385,6 +382,7 @@ function deleteInterface(moduleId, id) {
         }
     }
     localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
+    refreshSyncIco(0);
     return true;
 }
 function deleteModule(moduleId) {
@@ -404,6 +402,7 @@ function deleteModule(moduleId) {
         }
     }
     localStorage['crap-debug-modules'] = JSON.stringify(modules);
+    refreshSyncIco(0);
     return true;
 }
 
@@ -426,6 +425,7 @@ function renameModule(moduleId,moduleName) {
         }
     }
     localStorage['crap-debug-modules'] = JSON.stringify(modules);
+    refreshSyncIco(0);
     return true;
 }
 function saveModule(moduleName, moduleId,version,status) {
@@ -448,6 +448,7 @@ function saveModule(moduleName, moduleId,version,status) {
     var m = {"moduleName": moduleName, "moduleId": moduleId,"version": version,"status":status};
     modules.unshift(m);
     localStorage['crap-debug-modules'] = JSON.stringify(modules);
+    refreshSyncIco(0);
     return modules;
 }
 function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params, headers,version,status) {
@@ -487,6 +488,7 @@ function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params,
     }
     interfaces.unshift(h);
     localStorage['crap-debug-interface-' + moduleId] = JSON.stringify(interfaces);
+    refreshSyncIco(0);
 }
 // save interface and module
 function saveInterface(moduleId, saveAs) {
@@ -775,5 +777,50 @@ function random(n) {
         return res;
 }
 //chrome.windows.create({url :"debug.html" },function(){});//函数后面都有一个functon(){},这个应该标识执行函数的意思吧。
-
-
+/**
+ * 刷新是否同步颜色标识
+ * -1：初始化，从数据库读取
+ * 1：同步
+ * 0：有未同步数据
+ * @param isSync
+ */
+function refreshSyncIco(isSync){
+    var key = "crap-debug-isSync";
+    var value = "";
+    if(isSync == -1){
+        value = getLoaclData(key);
+    }else if(isSync == 1){
+        value = "true";
+        saveLoaclData(key, value);
+    }else if(isSync == 0){
+        value = "false";
+        saveLoaclData(key, value);
+    }
+    $("#synch-ico").removeClass("GET");
+    $("#synch-ico").removeClass("POST");
+    if(value == "true"){
+        $("#synch-ico").addClass("GET");
+    }else if(value == "false"){
+        $("#synch-ico").addClass("POST");
+    }
+}
+function getLoaclData(key){
+    try{
+        var value = localStorage[key];
+        if(value){
+            return value;
+        }
+    }catch(e){
+        console.warn(e);
+        return "";
+    }
+}
+function saveLoaclData(key,value){
+    try{
+        localStorage[key] = value;
+        return true;
+    }catch(e){
+        console.warn(e);
+        return false;
+    }
+}

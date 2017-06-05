@@ -2,7 +2,7 @@ $(function(){
     getLocalModules();
     //getHistorys();
     //openMyDialog("title",500);
-
+    refreshSyncIco(-1);
     $("#synch").click(function(){
         $("#float").fadeIn(300);
         var modules;
@@ -61,7 +61,7 @@ $(function(){
                     }else{
                         alert(responseJson.error.message,5,"error");
                     }
-
+                    refreshSyncIco(1);
                 }else{
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
@@ -427,7 +427,7 @@ $(function(){
 
 
     $("#method").change(function() {
-        if( $("#method").val() == "POST"){
+        if( $("#method").val() == "POST" || $("#method").val() == "PUT"){
             if($("#content-type").hasClass("none")){
                 $("#content-type").removeClass("none");
             }

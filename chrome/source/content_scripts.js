@@ -1,14 +1,5 @@
 //点击luceneSearch时执行以下代码
 $(function(){
-    $("#luceneSearch").click(function(){
-			var content = $("#searchInput").val();
-			httpRequest("http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=13662113634", function(result){   
-				alert(result);
-				$("#searchInput").val(result);
-			}); 
-		
-	});
-
 	// 从插件跳转至码云，自动弹出捐赠页面
 	if(window.location.href == "http://git.oschina.net/CrapApi/CrapApi?autoDonate=true"){
 		$(".modals").removeClass("hidden");
