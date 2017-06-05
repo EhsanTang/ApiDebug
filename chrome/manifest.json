@@ -1,11 +1,11 @@
 ﻿{
 	"manifest_version": 2,
     "name": "ApiDebug-接口调试插件",
-    "version": "1.0.2",
-    "description": "ApiDebug is a browser plug-in for testing RESTful web services.「ApiDebug可用于http、http稍等接口调试」",
+    "version": "1.0.3",
+    "description": "Api Debug is a browser plug-in for testing RESTful web services.「ApiDebug可用于http、https等接口调试」",
 	"author":"ihsantang@163.com",
 	"icons": {
-		"16": "logo.png",
+		"64": "logo.png",
 		"128": "logo.png"
 	},
 	"browser_action": { 
