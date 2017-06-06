@@ -199,10 +199,13 @@ function callAjax() {
                 try{
                     originalResponseText = responseData.responseText;
                     var data = responseData.responseText;
-                    var head = responseData.getAllResponseHeaders().toString().huanhang();
                     $("#response-row").val(data);
+                    var head = responseData.getAllResponseHeaders().toString().huanhang();
+                    $(".response-header .headers").html(head);
+                    var general ="Request URL: " + url +"<br>Request Method: " + method +"<br>Status Code: " + responseData.status;
+                    $(".response-header .general").html(general);
                     $("#response-pretty").html("");
-                    $(".response-header").html(head);
+
                     var rootDomainStr =getRootDomain(url);
                     chrome.cookies.getAll({domain: rootDomainStr}, function(cookies){
                         $(".response-cookie .table tr").empty();

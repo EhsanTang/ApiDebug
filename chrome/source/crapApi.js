@@ -58,10 +58,10 @@ $(function(){
 
                         getLocalModules();
                         alert("success!",3,"success");
+                        refreshSyncIco(1);
                     }else{
                         alert(responseJson.error.message,5,"error");
                     }
-                    refreshSyncIco(1);
                 }else{
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
