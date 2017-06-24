@@ -85,7 +85,10 @@ input{
     background-color: #e8e8e8!important;
     color: #555555!important;
 }
-
+/************dialog**************/
+.dialog-title{
+    line-height:40px;padding-left:20px; height:40px; background-color:#233050;
+}
 /************debug***************/
 .bl3{border-left:3px solid #6f5499}
 .bb3{border-bottom:3px solid #6f5499}

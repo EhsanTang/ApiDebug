@@ -137,7 +137,7 @@ no-radius{-moz-border-radius: 0px!important;-webkit-border-radius:  0px!importan
 .w150{width:150px!important}.w200{width:200px}.w250{width:250px}.w300{width:300px}.w400{width:400px}
 .w-p-10{width:10%;}.w-p-20{width:20%;}.w-p-30{width:30%;}
 .w500{width:500px}.w600{width:600px}.w700{width:700px}.w800{width:800px}
-.w{width:100%}.w-10{width:10%;}.w-40{width:40%;}.w-50{width:50%;}
+.w{width:100%!important;}.w-10{width:10%;}.w-40{width:40%;}.w-50{width:50%;}
 .h-auto{height:auto;}
 .h30{height:30px!important}.h20{height:20px}.h27{height:27px!important;}
 .h32{height:32px!important}
