@@ -1,4 +1,4 @@
-var websiteUrl = "http://localhost:8080/api";
+var websiteUrl = "http://api.crap.cn";
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
