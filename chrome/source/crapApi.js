@@ -40,17 +40,18 @@ $(function(){
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
                 else if(textStatus == "success"){
+                    localStorage.clear();
                     var responseJson = $.parseJSON(responseData.responseText);
                     if( responseJson.success == 1){
                         responseJson = responseJson.data;
                         // 存储服务器同步的数据
-                        for(var i=0;i<responseJson.length; i++){
+                        for(var i=responseJson.length-1;i>=0; i--){
                             if(responseJson[i].status == -1){
                                 continue;
                             }
                             saveModule(responseJson[i].moduleName, responseJson[i].moduleId, responseJson[i].version, responseJson[i].status);
                             var debugs = responseJson[i].debugs;
-                            for(var j=0;j<debugs.length;j++){
+                            for(var j=debugs.length-1;j>=0;j--){
                                 saveInterfaceDetail(debugs[j].moduleId, debugs[j].paramType, debugs[j].id, debugs[j].name, debugs[j].method,
                                     debugs[j].url, debugs[j].params, debugs[j].headers, debugs[j].version, debugs[j].status);
                             }
@@ -226,6 +227,7 @@ $(function(){
         closeMyDialog("dialog2");
     });
 
+    /******删除接口*********/
 	$("#modules").on("click",".delete-interface", function() {
         if(!myConfirm("Are you sure you want to delete? 「确定要删除吗」"))
         {
@@ -236,6 +238,21 @@ $(function(){
 		getLocalModules();	
 		return false;// 不在传递至父容器
     });
+    /*******上移接口**********/
+    $("#modules").on("click",".up-interface", function() {
+        var ids = $(this).attr("crap-data").split("|");
+        upInterface(ids[0],ids[1]);
+        getLocalModules();
+        return false;// 不在传递至父容器
+    });
+    /*******下移接口**********/
+    $("#modules").on("click",".down-interface", function() {
+        var ids = $(this).attr("crap-data").split("|");
+        downInterface(ids[0],ids[1]);
+        getLocalModules();
+        return false;// 不在传递至父容器
+    });
+
     $("#modules").on("click",".delete-module", function() {
         if(!myConfirm("Are you sure you want to delete? 「确定要删除吗」"))
         {
@@ -246,6 +263,21 @@ $(function(){
         getLocalModules();
         return false;// 不在传递至父容器
     });
+    /*******上移**********/
+    $("#modules").on("click",".up-module", function() {
+        var moduleId = $(this).attr("crap-data");
+        upModule(moduleId);
+        getLocalModules();
+        return false;// 不在传递至父容器
+    });
+    /*******下移**********/
+    $("#modules").on("click",".down-module", function() {
+        var moduleId = $(this).attr("crap-data");
+        downModule(moduleId);
+        getLocalModules();
+        return false;// 不在传递至父容器
+    });
+
     $("#modules").on("click",".rename-module", function() {
         var moduleId = $(this).attr("crap-data");
         $("#rename-module-id").val(moduleId);

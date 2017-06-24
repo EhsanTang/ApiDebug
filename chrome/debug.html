@@ -17,7 +17,7 @@
 		<button class="btn btn-menu btn-sm fl mr10 mt5 cursor ml20" id="left-enlarge">
 			Left &nbsp;<div class="fr mt-1"><i class="iconfont">&#xe605;</i></div>
 		</button>
-		<a href="more.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">More...</a>
+		<!--<a href="more.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">More...</a>-->
 		<a href="http://api.crap.cn/loginOrRegister.do#/login" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Login</a>
 		<a id="clear-local-data" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">ClearLocalData </a>
 		<a href="json.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Json</a>
@@ -28,21 +28,20 @@
 	</div>
 
 	<div class="w h pt40 fixed min-w900" id="content">
+
+		<!-- *****************************left************************************ -->
 		<div id="left" class="BGEEE h m0 fl p0 shadow ofy-a" style="width:18%;">
             <!--接口请求头、参数等切换标签-->
             <div class="bb1 h40 mt40 f12 C555 pt10">
-
-							<div class="bb3 fl w-50 tc h30 cursor" id="modules-title" title="Module">Mod</div>
-							<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">His</div>
-
+				<div class="bb3 fl w-50 tc h30 cursor" id="modules-title" title="Module">Mod</div>
+				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">His</div>
             </div>
-			<div id="historys" class="none w">
-				
-			</div>
-			<div id="modules" class="w panel-group mb0" role="tablist">
-
-			</div>
+			<!--历史记录 -->
+			<div id="historys" class="none w"></div>
+			<!--模块-->
+			<div id="modules" class="w panel-group mb0" role="tablist"></div>
         </div>
+		<!-- ****************************left end*********************************** -->
 
 		<div id="right" class="BGF5 h m0 fr p0 ofy-s fl"  style="width:82%;">
 
@@ -52,12 +51,12 @@
 			<div class="w h32 bb1 BGF9 f12 lh30">
 				<div class="fl ml10 pl10 pr20 C555 top-radius h32 w150 b1 bb0 rel BGF5  of-h">
 						<i class="iconfont CAAA f12 abs pos-t5 pos-r5 cursor" onclick="closeMyDialog('myDialog')">&#xe615;</i>
-						简招简招候选人新接口简招简招候选人新接口
+						选人新接口
 
 				</div>
 				<div class="fl ml10 pl10 pr20 CAAA top-radius h32 w150 b1 bb0 rel BGF9 of-h mt-1">
 						<i class="iconfont CAAA f12 abs pos-t5 pos-r5 cursor" onclick="closeMyDialog('myDialog')">&#xe615;</i>
-						简招简招候选人新接口简招简招候选人新接口
+						人新接口
 				</div>
 			</div>-->
 			<div class="cb"></div>
@@ -340,6 +339,9 @@
 
 	<script src="source/jquery-1.9.1.min.js"></script>
 	<script src="source/bootstrap.js"></script>
+	<script src="source/base-dao.js"></script>
+	<script src="source/interface-dao.js"></script>
+	<script src="source/module-dao.js"></script>
 	<script src="source/plug-function.js"></script>
 	<script src="source/crapApi.js"></script>
 	<script src="source/jquery.jsonview.js"></script>

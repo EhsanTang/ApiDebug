@@ -1,4 +1,4 @@
-var websiteUrl = "http://api.crap.cn";
+var websiteUrl = "http://localhost:8080/api";
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
@@ -11,8 +11,10 @@ moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='
 moduleDiv += "              <i class='iconfont color-main f16'>&#xe628;</i>&nbsp;&nbsp;  ca_moduleName";
 moduleDiv += "		        <span class='more'>";
 moduleDiv += "			        <i class='iconfont fr h lh40'>&#xe642;</i>";
-moduleDiv += "			        <span class='t0 h'><i class='iconfont rename-module mt0 lh40 fr'crap-data='ca_moduleId'>&#xe618;</i>";
-moduleDiv += "	                    <i class='iconfont delete delete-module mt0 lh40 fr' crap-data='ca_moduleId'>&#xe60e;</i></span>";
+moduleDiv += "			        <span class='t0 h'><i class='iconfont interface-menu rename-module mt0 lh40 fr'crap-data='ca_moduleId'>&#xe618;</i></span>";
+moduleDiv += "	                <span class='t0 h'><i class='iconfont interface-menu delete-module mt0 lh40 fr' crap-data='ca_moduleId'>&#xe60e;</i></span>";
+moduleDiv += "			        <span class='t0 h'><i class='iconfont interface-menu down-module  mt0 lh40 fr' crap-data='ca_moduleId'>&#xe624;</i></span>";
+moduleDiv += "			        <span class='t0 h'><i class='iconfont interface-menu up-module  mt0 lh40 fr' crap-data='ca_moduleId'>&#xe623;</i></span>";
 moduleDiv += "		        </span>";
 moduleDiv += "          </div>";
 moduleDiv += "      </div>";
@@ -23,11 +25,13 @@ moduleDiv += "           </div>";
 moduleDiv += "       </div>";
 moduleDiv += "   </div>";
 
-var interfaceDiv = "<div crap-data='ca_interfaceInfo' class='interface pl30 pr20 rel'>";
+var interfaceDiv = "<div crap-data='ca_interfaceInfo' class='interface pl30 pr20 rel' title='ca_name'>";
 interfaceDiv += "		<i class='iconfont ca_method'>ca_methodIcon</i>&nbsp;&nbsp;ca_name";
 interfaceDiv += "		<span class='more'>";
 interfaceDiv += "			<i class='iconfont fr'>&#xe642;</i>";
-interfaceDiv += "			<span class='t0 h '><i class='iconfont delete delete-interface' crap-data='ca_moduleId|ca_id'>&#xe60e;</i></span>";
+interfaceDiv += "			<span class='t0 h'><i class='iconfont interface-menu delete-interface' crap-data='ca_moduleId|ca_id'>&#xe60e;</i></span>";
+interfaceDiv += "			<span class='t0 h'><i class='iconfont interface-menu down-interface' crap-data='ca_moduleId|ca_id'>&#xe624;</i></span>";
+interfaceDiv += "			<span class='t0 h'><i class='iconfont interface-menu up-interface' crap-data='ca_moduleId|ca_id'>&#xe623;</i></span>";
 interfaceDiv += "		</span>";
 interfaceDiv += "	</div>";
 
@@ -367,7 +371,7 @@ function getLocalModules(){
     }
     $("#modules").html( moduleText );
 }
-
+/**********删除接口*********/
 function deleteInterface(moduleId, id) {
     var interfaces;
     try{
@@ -388,6 +392,7 @@ function deleteInterface(moduleId, id) {
     refreshSyncIco(0);
     return true;
 }
+
 function deleteModule(moduleId) {
     var modules;
     try{
@@ -805,25 +810,5 @@ function refreshSyncIco(isSync){
         $("#synch-ico").addClass("GET");
     }else if(value == "false"){
         $("#synch-ico").addClass("POST");
-    }
-}
-function getLoaclData(key){
-    try{
-        var value = localStorage[key];
-        if(value){
-            return value;
-        }
-    }catch(e){
-        console.warn(e);
-        return "";
-    }
-}
-function saveLoaclData(key,value){
-    try{
-        localStorage[key] = value;
-        return true;
-    }catch(e){
-        console.warn(e);
-        return false;
     }
 }

@@ -142,7 +142,7 @@ input{
 .more span i{width:35px; border-right:1px solid #6f5499;height:100%;margin-top:0px;}
 .more:hover > span{display:block!important;}
 .more span i:hover{background-color:#4f3479;}
-#modules .delete:hover{background-color:#bb0000!important}
+#modules .interface-menu:hover{background-color:#bb0000!important}
 /*****************加载浮层***************************/
 .folat{
     display:none;
