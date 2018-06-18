@@ -1,10 +1,6 @@
 # ApiDebug
-[ApiDebug](https://github.com/EhsanTang/ApiDebug) is a browser plug-in for testing RESTful web services. It might be used for testing other HTTP communications too.
-Support interface debugging (POST, GET), support JSON, XML and other parameters.
-If you want to save data to you own database, use the API administration tool -CrapApi（a tool to admin interface and save ApiDebug data. CrapApi is open sourced, you also can use the online service, is free to all. The website url is http://api.crap.cn）<br>
-[ApiDebug-GitHub](https://github.com/EhsanTang/ApiDebug)<br>
-[CrapApi-GitHub](https://github.com/EhsanTang/ApiManager)
-
+[ApiDebug](https://github.com/EhsanTang/ApiDebug) 是一个浏览器HTTP接口测试插件，可以用来测试HTTP、HTTPS接口。支持POST、GET等方式，同时也支持json、xml等自定义接口参数。系统支持保存历史记录，也可同步测试接口至CrapApi接口管理系统（登陆 http://api.crap.cn ,点击同步即可保存）。除接口测试外，系统还包含json格式化等小工具。
+<br>
 # Chrome address
 [Chrome browser plug-in address:Click to install from Google App store](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
 
