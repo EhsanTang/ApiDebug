@@ -17,19 +17,18 @@ How to install after download? Download .crx file-> Open chrome extension [chrom
 
 如何安装：下载.crx文件后->打开扩展工具[在浏览器地中中输入：chrome://extensions/ 即可]->拖动.crx文件至chrome即可。
 
+
+# crapApi增强插件
+从2.0.0版开始，apiDebug升级为crapApi增强插件，实现插件接口与接口管理系统接口同步，安装插件后可以直接在管理系统中通过本地调试接口
+Chrome官网下载（需要访问google chrome market/webstore，请确保所在网络具备越过长城的能力）：[chrome.google.com下载](https://chrome.google.com/webstore/detail/crapapi-%E6%8E%A5%E5%8F%A3%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/dbdonnbbnhgojidhcogkapdldcheclnn)
+离线下载（下载后需要自行拖到Chrome扩展程序）：[离线下载v2.0.1](https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/crapApi/dbdonnbbnhgojidhcogkapdldcheclnn_main_v2.0.1.crx)
+
+
 # Suggest「意见&吐槽」
 建议反馈请加QQ群：515305698
 
 ![QQ群](http://img.blog.csdn.net/20170601193654319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)<br>Suggest「意见&吐槽」
 [http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG](http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG)
-
-# 开源接口调试插件
-[API接口调试插件](https://github.com/EhsanTang/ApiDebug)：支持接口在线调试（POST、GET），支持json、xml等参数。
-如果想保存数据，请配合使用API管理工具-CrapApi<br>
-[ApiDebug-码云地址](http://git.oschina.net/CrapApi/ApiDebug)<br>
-[ApiDebug-GitHub地址](https://github.com/EhsanTang/ApiDebug)<br>
-[CrapApi-GitHub](https://github.com/EhsanTang/ApiManager)<br>
-[CrapApi-oschina](http://git.oschina.net/CrapApi/CrapApi)<br>
 
 # keyword 「关键词」
 Restfull，API debug，接口调试，开源接口调试，postman，resulteasy
