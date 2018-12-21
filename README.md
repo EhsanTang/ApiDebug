@@ -27,8 +27,8 @@ v1 & v2区别：
 
 Chrome官网下载（需要访问google chrome market/webstore，请确保所在网络具备越过长城的能力）：[chrome.google.com下载](https://chrome.google.com/webstore/detail/crapapi-%E6%8E%A5%E5%8F%A3%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/dbdonnbbnhgojidhcogkapdldcheclnn)
 
-离线下载（下载后需要自行拖到Chrome扩展程序）：[离线下载v2.0.1]
-(https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/dbdonnbbnhgojidhcogkapdldcheclnn_main.crx)
+离线下载（下载后需要自行拖到Chrome扩展程序）：
+[离线下载v2.0.1](https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/dbdonnbbnhgojidhcogkapdldcheclnn_main.crx)
 
 
 # Suggest「意见&吐槽」
