@@ -29,7 +29,7 @@ $(function(){
         moduleText = moduleText +"]";
         $.ajax({
             type : "POST",
-            url : websiteUrl + "/user/crapDebug/synch.do",
+            url : getWebSiteUrl() + "/user/crapDebug/synch.do",
             async : true,
             data : moduleText,
             beforeSend: function(request) {
@@ -123,7 +123,7 @@ $(function(){
         getLocalModules();
         $.ajax({
             type : "POST",
-            url : websiteUrl+"/back/loginOut.do",
+            url : getWebSiteUrl()+"/back/loginOut.do",
             async : true,
             data : "",
             complete: function(responseData, textStatus){
@@ -309,6 +309,16 @@ $(function(){
     $("#open-json").click(function(){
         window.open("json.html")
     });
+    $("#set-web-site").click(function(){
+        window.open("setWebSite.html")
+    });
+    $("#set-website-button").click(function(){
+        setWebSiteUrl($("#website-url").val());
+    });
+    $("#login-button").click(function(){
+        window.open(getWebSiteUrl() + "/loginOrRegister.do#/login");
+    });
+
 
 	$(".params-headers-table").on("keyup","input", function() {
       if($(this).val() != ''){
