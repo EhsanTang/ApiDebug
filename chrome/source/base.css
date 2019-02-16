@@ -173,7 +173,7 @@ no-radius{-moz-border-radius: 0px!important;-webkit-border-radius:  0px!importan
 .mt75{margin-top:75px!important}.mt100{margin-top:100px!important}
 /***********display*************************/
 .ndis{
-	display:none;
+	display:none!important;
 }
 .dis{
 	display:block!important;

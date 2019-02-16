@@ -3,6 +3,10 @@ $(function(){
     //getHistorys();
     //openMyDialog("title",500);
     refreshSyncIco(-1);
+    $("#website-url").val(getWebSiteUrl());
+    if (getValue("id-page-name") != null && getValue("id-page-name") == "debugPage"){
+        getAdvertisement();
+    }
     $("#synch").click(function(){
         $("#float").fadeIn(300);
         var modules;
@@ -538,7 +542,4 @@ $(function(){
                     });
             }
         });
-
-
-	
 })
