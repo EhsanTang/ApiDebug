@@ -2,7 +2,7 @@
 	"manifest_version": 2,
     "name": "ApiDebug-接口调试插件",
     "version": "1.0.5",
-    "description": "Api Debug is a browser plug-in for testing RESTful web services, like postman.「ApiDebug可用于http、https等接口调试，API接口调试插件，开源API接口调试插件，Restfull接口调试软件，Restfull接口调试插件，谷歌API接口调试插件，Chrome浏览器接口调试插件，POST请求模拟插件，api接口调试工具，开源接口调试工具，POST模拟工具」",
+    "description": "Is a plug for testing RESTful web services, like postman.「可用于http、https等接口调试。是一个开源API接口调试插件，支持Restfull接口调试，POST请求模拟插件，POST模拟工具」",
 	"author":"ihsantang@163.com",
 	"icons": {
 		"64": "logo.png",
