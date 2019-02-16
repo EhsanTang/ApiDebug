@@ -216,11 +216,7 @@ function callAjax() {
             getHeaders(request);
         },
         complete: function(responseData, textStatus){
-            if(textStatus == "error"){
-                $("#response-row").val("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus +"\nCould not get any response\n\nThere was an error connecting to " + url);
-                $("#format-row").click();
-            }
-            else if(textStatus == "success"){
+            if(textStatus == "error" || textStatus == "success"){
                 try{
                     originalResponseText = responseData.responseText;
                     var data = responseData.responseText;
