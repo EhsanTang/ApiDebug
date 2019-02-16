@@ -83,6 +83,7 @@ function httpPost(url, myData, myAsync, callBack, callBackParams){
         url: url,
         async: myAsync,
         data: myData,
+        timeout: 3000,
         beforeSend: function (request) {
             // 通过body传递参数时后需要设置
             //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -94,8 +95,12 @@ function httpPost(url, myData, myAsync, callBack, callBackParams){
                 if (callBack) {
                     callBack(responseJson, callBackParams);
                 }
-            } else{
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"未知错误\",\"message\":网络异常\"\"}}")
+            } else if (textStatus == "timeout") {
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"网络异常\",\"message\":网络超时\"\"}}")
+            }
+
+            else {
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"未知错误\",\"message\":未知异常\"\"}}")
             }
         }
     });
