@@ -298,7 +298,7 @@ function callAjax() {
             getHeaders(request);
         },
         complete: function(responseData, textStatus){
-            if(textStatus == "error" || textStatus == "success"){
+            if(textStatus == "success" || (textStatus == "error" && responseData.responseText != "")){
                 try{
                     originalResponseText = responseData.responseText;
                     var data = responseData.responseText;
