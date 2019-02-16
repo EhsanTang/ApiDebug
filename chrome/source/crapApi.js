@@ -40,7 +40,7 @@ $(function(){
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
                 else if(textStatus == "success"){
-                    localStorage.clear();
+                    clearLocalStorage();
                     var responseJson = $.parseJSON(responseData.responseText);
                     if( responseJson.success == 1){
                         responseJson = responseJson.data;
@@ -119,7 +119,7 @@ $(function(){
         if(!myConfirm("Are you sure you want to delete local data? 「确定要删除本地数据吗」")){
             return false;
         }
-        localStorage.clear();
+        clearLocalStorage();
         getLocalModules();
         $.ajax({
             type : "POST",

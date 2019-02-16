@@ -10,7 +10,11 @@ function setWebSiteUrl(url){
     localStorage['crap-web-site-url'] = url;
     $("#set-website-button").text("Change website url success!");
 }
-
+function clearLocalStorage() {
+    var webSiteUrl = getWebSiteUrl();
+    localStorage.clear();
+    setWebSiteUrl(webSiteUrl)
+}
 $(function(){
     $("#website-url").val(getWebSiteUrl());
 });
