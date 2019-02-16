@@ -17,20 +17,6 @@ How to install after download? Download .crx file-> Open chrome extension [chrom
 
 如何安装：下载.crx文件后->打开扩展工具[在浏览器地中中输入：chrome://extensions/ 即可]->拖动.crx文件至chrome即可。
 
-
-# crapApi增强插件(v2.x.x)
-v1 & v2区别：
-  
-  v1支持通过插件新增调试数据，但是调试数据不与管理系统数据打通，是一个完全独立的工具
-  
-  从2.0.0版开始，apiDebug升级为crapApi增强插件，实现插件接口与接口管理系统接口同步，安装插件后可以直接在管理系统中通过本地调试接口，但是不再支持通过插件管理接口，至能通过管理后台新增、删除接口
-
-Chrome官网下载（需要访问google chrome market/webstore，请确保所在网络具备越过长城的能力）：[chrome.google.com下载](https://chrome.google.com/webstore/detail/crapapi-%E6%8E%A5%E5%8F%A3%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7/dbdonnbbnhgojidhcogkapdldcheclnn)
-
-离线下载（下载后需要自行拖到Chrome扩展程序）：
-[离线下载v2.0.1](https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/dbdonnbbnhgojidhcogkapdldcheclnn_main.crx)
-
-
 # Suggest「意见&吐槽」
 建议反馈请加QQ群：515305698
 
