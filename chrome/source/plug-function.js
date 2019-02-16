@@ -1,4 +1,21 @@
-var websiteUrl = "http://api.crap.cn";
+function getWebSiteUrl(){
+    var webSiteUrl = localStorage['crap-web-site-url'];
+    if (webSiteUrl && webSiteUrl != null && webSiteUrl != ''){
+        return webSiteUrl;
+    }else{
+        return "http://api.crap.cn";
+    }
+}
+function setWebSiteUrl(url){
+    localStorage['crap-web-site-url'] = url;
+    $("#set-website-button").text("Change website url success!");
+}
+
+$(function(){
+    $("#website-url").val(getWebSiteUrl());
+});
+
+
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
