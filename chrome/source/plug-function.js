@@ -265,11 +265,17 @@ function getParams(){
 
 var originalResponseText = "";
 function callAjax() {
+    if ($("#url").val().trim() == ''){
+        $("#response-row").val("Url can't be null!");
+        $("#format-row").click();
+        return;
+    }
     originalResponseText = "";
     var url = $("#url").val().trim().split("?")[0] + "?";
     var method = $("#method").val();
     var urlParamsStr = "";
     var params =  getParams();
+
 
     // 表单参数优先url参数
     if( $("#url").val().indexOf("?") > 0){
@@ -299,8 +305,15 @@ function callAjax() {
         url : url,
         async : true,
         data : params,
+        timeout: 3000,
         beforeSend: function(request) {
             getHeaders(request);
+            $("#response-row").val("");
+            $(".response-header .headers").html("");
+            $(".response-header .general").html("");
+            $("#response-pretty").html("");
+            $(".response-cookie .table").append("");
+            $("#format-row").click();
         },
         complete: function(responseData, textStatus){
             if(textStatus == "success" || (textStatus == "error" && responseData.responseText != "")){

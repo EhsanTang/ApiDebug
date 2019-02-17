@@ -420,7 +420,10 @@ $(function(){
             rowData = $("#response-row").val();
         }
         try{
-            $("#response-row").val(jsonFormat(rowData));
+            var jsonFormatResult = jsonFormat(rowData);
+            if (jsonFormatResult != null && jsonFormatResult != '') {
+                $("#response-row").val();
+            }
         }catch(e){
             console.warn(e)
             $("#response-row").val(rowData);
