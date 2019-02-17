@@ -96,11 +96,11 @@ function httpPost(url, myData, myAsync, callBack, callBackParams){
                     callBack(responseJson, callBackParams);
                 }
             } else if (textStatus == "timeout") {
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"net error\",\"message\":\"timeout\"}}")
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"网络异常\",\"message\":\"timeout\"}}")
             }
 
             else {
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"unknown error\",\"message\":\"unknown error\"}}")
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"未知异常\",\"message\":\"未知异常\"}}")
             }
         }
     });
@@ -687,19 +687,19 @@ function intitSaveInterfaceDialog(){
         console.warn(e);
     }
     $("#save-module-id").find("option").remove();
-    $("#save-module-id").append("<option value='-1'>--Click to select module/folder--</option>");
+    $("#save-module-id").append("<option value='-1'>--点击选择模块--</option>");
     for(var i=0 ; i<modules.length; i++) {
         if(modules[i].status != -1) {
             $("#save-module-id").append("<option value='" + modules[i].moduleId + "'>" + modules[i].moduleName + "</option>");
         }
     }
-    openDialog("Save interface:" + $("#interface-name").val(),500);
+    openDialog("保存接口:" + $("#interface-name").val(),500);
 }
 
 /****状态码转提示*************/
 function getErrorTip(status){
 	if(status == 404){
-		return "-ERR_FILE_NOT_FOUND: file not found!";
+		return "-ERR_FILE_NOT_FOUND: 没有找到文件!";
 	}
 	if(status == 500){
 		return "";
@@ -715,7 +715,7 @@ function openDialog(title,iwidth){
     $("#dialog-content").css("max-height",($(document).height()*0.8)+'px');
     showMessage('dialog','false',false,-1);
     showMessage('fade','false',false,-1);
-    title = title? title:"edit";
+    title = title? title:"编辑";
     $("#dialog-title").html(title);
 }
 function closeMyDialog(tagDiv){
@@ -755,7 +755,7 @@ function myConfirm(message){
     var result = window.confirm(message);
     var end = Date.now();
     if (end - begin < 10) {
-        alert("Please do not disable popups,it's dangerous!", 5, "error", 500);
+        alert("请勿禁用【确认】弹窗，直接操作非常危险!", 5, "error", 500);
         return true;
     }
     return result;
