@@ -1,6 +1,14 @@
+# ApiDebug & CrapApi-Plug区别
+```
+ApiDebug为独立插件，与CrapApi接口管理系统接口数据没有互通，能不依赖服务器运行，服务器仅作数据备份
+
+CrapApi-Plug为CrapApi接口管理软件的增强插件，不能单独使用，必须为联网状态才能使用，接口数据与管理系统接口一致
+```
+
 # ApiDebug(v1.x.x)
+```
 [ApiDebug](https://github.com/EhsanTang/ApiDebug) 是一个浏览器HTTP接口测试插件，可以用来测试HTTP、HTTPS接口。支持POST、GET等方式，同时也支持json、xml等自定义接口参数。系统支持保存历史记录，也可同步测试接口至CrapApi接口管理系统（登陆 http://api.crap.cn ,点击同步即可保存）。除接口测试外，系统还包含json格式化等小工具。
-<br>
+```
 
 # 下载
 [谷歌应用商店下载](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
