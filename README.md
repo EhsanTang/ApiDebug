@@ -1,4 +1,4 @@
-# ApiDebug & CrapApi-Plug区别
+# ApiDebug & CrapApi-Plug(ApiManager-Plug)区别
 ```
 ApiDebug为独立插件，与CrapApi接口管理系统接口数据没有互通，能不依赖服务器运行，服务器仅作数据备份
 
