@@ -120,7 +120,7 @@ $(function(){
         closeMyDialog(id);
     });
     $("#clear-local-data").click(function(){
-        if(!myConfirm("Are you sure you want to delete local data? 「确定要删除本地数据吗」")){
+        if(!myConfirm("Are you sure you want to delete local data? ")){
             return false;
         }
         clearLocalStorage();
@@ -132,12 +132,12 @@ $(function(){
             data : "",
             complete: function(responseData, textStatus){
                 if(textStatus == "error"){
-                    alert("Clear local data success, But LogOut fail!「清除数据本地数据成功，但退出登陆失败！」", 5, "error", 500);
+                    alert("Clear local data success, But LogOut fail!", 5, "error", 500);
                 }
                 else if(textStatus == "success"){
-                    alert("Clear local data success, LogOut success!「清除数据本地数据成功，退出成功」", 5, "success", 500);
+                    alert("Clear local data success, LogOut success!", 5, "success", 500);
                 }else{
-                    alert("Clear local data success, But LogOut fail!「清除数据本地数据成功，但退出登陆失败！」", 5, "error", 500);
+                    alert("Clear local data success, But LogOut fail!", 5, "error", 500);
                 }
                 $("#float").fadeOut(300);
             }
@@ -233,7 +233,7 @@ $(function(){
 
     /******删除接口*********/
 	$("#modules").on("click",".delete-interface", function() {
-        if(!myConfirm("Are you sure you want to delete? 「确定要删除吗」"))
+        if(!myConfirm("Are you sure you want to delete? "))
         {
             return false;
         }
@@ -258,7 +258,7 @@ $(function(){
     });
 
     $("#modules").on("click",".delete-module", function() {
-        if(!myConfirm("Are you sure you want to delete? 「确定要删除吗」"))
+        if(!myConfirm("Are you sure you want to delete? "))
         {
             return false;
         }

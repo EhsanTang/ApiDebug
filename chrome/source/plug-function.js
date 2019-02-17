@@ -96,11 +96,11 @@ function httpPost(url, myData, myAsync, callBack, callBackParams){
                     callBack(responseJson, callBackParams);
                 }
             } else if (textStatus == "timeout") {
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"网络异常\",\"message\":网络超时\"\"}}")
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"net error\",\"message\":\"timeout\"}}")
             }
 
             else {
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"未知错误\",\"message\":未知异常\"\"}}")
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"unknown error\",\"message\":\"unknown error\"}}")
             }
         }
     });
@@ -702,7 +702,7 @@ function openDialog(title,iwidth){
     $("#dialog-content").css("max-height",($(document).height()*0.8)+'px');
     showMessage('dialog','false',false,-1);
     showMessage('fade','false',false,-1);
-    title = title? title:"编辑";
+    title = title? title:"edit";
     $("#dialog-title").html(title);
 }
 function closeMyDialog(tagDiv){
@@ -742,7 +742,7 @@ function myConfirm(message){
     var result = window.confirm(message);
     var end = Date.now();
     if (end - begin < 10) {
-        alert("Please do not disable popups,it's dangerous!「请勿禁用【确认】弹窗，直接操作非常危险」", 5, "error", 500);
+        alert("Please do not disable popups,it's dangerous!", 5, "error", 500);
         return true;
     }
     return result;
