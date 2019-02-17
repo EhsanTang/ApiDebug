@@ -1,10 +1,14 @@
 # ApiDebug(v1.x.x)
 [ApiDebug](https://github.com/EhsanTang/ApiDebug) 是一个浏览器HTTP接口测试插件，可以用来测试HTTP、HTTPS接口。支持POST、GET等方式，同时也支持json、xml等自定义接口参数。系统支持保存历史记录，也可同步测试接口至CrapApi接口管理系统（登陆 http://api.crap.cn ,点击同步即可保存）。除接口测试外，系统还包含json格式化等小工具。
 <br>
+
 # Chrome address
 [Chrome browser plug-in address:Click to install from Google App store](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
 
-[Download .crx from GitHub](https://github.com/EhsanTang/ApiDebug/blob/master/release/chrome/ieoejemkppmjcdfbnfphhpbfmallhfnc_main.crx)
+离线下载（下载后需要自行拖到Chrome扩展程序）：
+[apiDebug.v1.0.4.crx](https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/apiDebug.v1.0.4.crx)
+[apiDebug.v1.0.7.crx](https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/apiDebug.v.1.0.7.crx)
+
 
 How to install after download? Download .crx file-> Open chrome extension [chrome://extensions/] ->drag the file to chrome.
 
