@@ -1,8 +1,8 @@
 ﻿{
 	"manifest_version": 2,
-    "name": "ApiDebug-Http接口调试插件",
-    "version": "1.0.6",
-    "description": "Is a plug for testing RESTful web services, like postman.「可用于http、https等接口调试。是一个开源API接口调试插件，支持Restfull接口调试，POST请求模拟插件，POST模拟工具」」",
+    "name": "ApiDebug-Http接口调试插件-中文版",
+    "version": "1.0.0",
+    "description": "ApiDebug 可用于http、https等接口调试。是一个开源API接口调试插件，支持Restfull接口调试、POST请求模拟，同时也支持PUT、DELETE等接口调试",
 	"author":"ihsantang@163.com",
 	"icons": {
 		"64": "logo.png",
@@ -10,7 +10,7 @@
 	},
 	"browser_action": { 
         "default_icon": "logo.png",
-        "default_title": "CrapApi",  
+        "default_title": "ApiDebug-中文版",
         "default_popup": "index.html"
     },  
     "permissions": [ 

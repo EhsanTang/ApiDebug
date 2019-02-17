@@ -18,15 +18,15 @@
 		</a>
 
 		<button class="btn btn-menu btn-sm fl mr10 mt5 cursor ml20" id="left-enlarge">
-			Left &nbsp;<div class="fr mt-1"><i class="iconfont">&#xe605;</i></div>
+			菜单 &nbsp;<div class="fr mt-1"><i class="iconfont">&#xe605;</i></div>
 		</button>
 		<!--<a href="more.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">More...</a>-->
-		<a id="login-button" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Login</a>
-		<a id="clear-local-data" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">ClearLocalData </a>
-		<a href="json.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Json</a>
-		<a href="debug.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">NewTab</a>
-		<a id="new-interface" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">NewInterface</a>
-		<a id="synch" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5"><i class="iconfont" id="synch-ico">&#xe611;</i> Synch</a>
+		<a id="login-button" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">登录</a>
+		<a id="clear-local-data" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">清除本地数据</a>
+		<a href="json.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">Json工具</a>
+		<a href="debug.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">打开新页面</a>
+		<a id="new-interface" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">新建接口</a>
+		<a id="synch" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5"><i class="iconfont" id="synch-ico">&#xe611;</i> 同步数据</a>
 
 	</div>
 
@@ -36,8 +36,8 @@
 		<div id="left" class="BGEEE h m0 fl p0 shadow ofy-a" style="width:18%;">
             <!--接口请求头、参数等切换标签-->
             <div class="bb1 h40 mt40 f12 C555 pt10">
-				<div class="bb3 fl w-50 tc h30 cursor" id="modules-title" title="Module">Mod</div>
-				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">His</div>
+				<div class="bb3 fl w-50 tc h30 cursor" id="modules-title" title="Module">模块</div>
+				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">历史</div>
             </div>
 			<!--历史记录 -->
 			<div id="historys" class="none w"></div>
@@ -68,7 +68,7 @@
 			<div class="w h mt10 rel">
 				<!--接口标题-->
 				<div class="mt10 ml10 fb bl3 f14 pl10 tl pr10">
-					<input type="text" class="form-control b0 r2 BGF5 p3 h27" id="interface-name" placeholder="Click input interface name"/>
+					<input type="text" class="form-control b0 r2 BGF5 p3 h27" id="interface-name" placeholder="请输入接口名"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="interface-id" value="-1"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="module-id" value="-1"/>
 				</div>
@@ -85,19 +85,19 @@
 							</td>
 							<td class="pr10">
 								<div class="input-group">
-								  <input type="text" class="form-control" id="url" placeholder="Enter request URL">
-								  <span class="input-group-addon cursor btn-main" id="send"><i class="iconfont">&#xe634;</i> Send</span>
+								  <input type="text" class="form-control" id="url" placeholder="请输入接口地址">
+								  <span class="input-group-addon cursor btn-main" id="send"><i class="iconfont">&#xe634;</i> 发送请求</span>
 								</div>
 							</td>
 							<td class="tr w100">
 								<div class="btn-group w">
-								  <button type="button" class="btn btn-main" id="save-interface">Save</button>
+								  <button type="button" class="btn btn-main" id="save-interface">保存</button>
 								  <button type="button" class="btn btn-main dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<span class="caret"></span>
 									<span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu min-w80">
-									<li><a id="save-as-interface" class="pl10 pr10 cursor">Save As</a></li>
+									<li><a id="save-as-interface" class="pl10 pr10 cursor">另存为</a></li>
 									<!--<li><a href="#" class="pl10 pr10">Another</a></li>
 									<li><a href="#" class="pl10 pr10">Something</a></li>
 									<li role="separator" class="divider pl10 pr10"></li>
@@ -110,8 +110,8 @@
 
 				<!--接口请求头、参数等切换标签-->
 				<div class="h30 mt10 shadow-b pl10 C555">
-					<div class="params-title menu-title" data-stage="headers-div">Headers</div>
-                    <div class="params-title menu-title bb3" data-stage="params-div">Params</div>
+					<div class="params-title menu-title" data-stage="headers-div">请求头</div>
+                    <div class="params-title menu-title bb3" data-stage="params-div">请求参数</div>
 				</div>
 
                 <!--请求头-->
@@ -124,7 +124,7 @@
 								</td>
 								<td class="p5" colspan="2">
 									 Value
-									 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="headers">Bulk Edit</a>
+									 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="headers">批量编辑</a>
 								</td>
 							</tr>
 						</thead>
@@ -142,7 +142,7 @@
                     </table>
 					
 					<div id="headers-bulk-edit-div" class=" f12 none">
-							<a class="key-value-edit fr  mr20 color-main cursor fb" crap-data-value="headers">Key-Value Edit</a>
+							<a class="key-value-edit fr  mr20 color-main cursor fb" crap-data-value="headers">单个编辑</a>
 							<textarea id="headers-bulk" class="form-control w BGFFF min-h100 max-w" placeholder="key:value"></textarea>
 						</div>
                 </div>
@@ -155,7 +155,7 @@
 							<input type="radio" name="param-type" checked  id="param-type-value"  value="application/x-www-form-urlencoded;charset=UTF-8"> x-www-form-urlencoded;charset=UTF-8&nbsp;&nbsp;&nbsp;
 						</div>
 						<div class="fl">
-							<input type="radio" name="param-type" crap-data="customer" id="customer-type-value" value="application/json"> customer&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="param-type" crap-data="customer" id="customer-type-value" value="application/json"> 自定义格式&nbsp;&nbsp;&nbsp;
 						</div>
 						<select class="form-control none w150 fl table-input" id="customer-type">
 							<option value="application/json">application/json</option>
@@ -176,7 +176,7 @@
 									</td>
 									<td class="p5" colspan="2">
 										 Value
-										 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="params">Bulk Edit</a>
+										 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="params">批量编辑</a>
 									</td>
 								</tr>
 							</thead>
@@ -198,7 +198,7 @@
 						</div>
 
 						<div id="params-bulk-edit-div" class=" f12 none">
-							<a class="key-value-edit fr  mr20 color-main cursor fb" crap-data-value="params">Key-Value Edit</a>
+							<a class="key-value-edit fr  mr20 color-main cursor fb" crap-data-value="params">单个编辑</a>
 							<textarea id="params-bulk" class="form-control w BGFFF min-h100 max-w" placeholder="key:value"></textarea>
 						</div>
                     </div>
@@ -209,8 +209,8 @@
 				<!--response-title-->
                 <div class="bb1 h30 mt10 shadow-b pl10 C555 mb10">
                     <div class="mt10 f14 tl w">
-						<div class="response-title menu-title bb3" data-stage="response-body">Body</div>
-						<div class="response-title menu-title" data-stage="response-header">Headers</div>
+						<div class="response-title menu-title bb3" data-stage="response-body">响应主体</div>
+						<div class="response-title menu-title" data-stage="response-header">响应头</div>
 						<div class="response-title menu-title" data-stage="response-cookie">Cookie</div>
 						<div class="cb"></div>
 					</div>
@@ -219,21 +219,20 @@
 				<!--response-menu-->
 				<div class="response-body p10 pb0 pt0">
 					<div class="btn-group" role="group">
-						<button type="button" class="response-menu btn btn-default btn-xs" id="format-row">Row</button>
-						<button type="button" class="response-menu btn btn-default btn-xs" id="format-pretty">Pretty</button>
+						<button type="button" class="response-menu btn btn-default btn-xs" id="format-row">原始返回</button>
+						<button type="button" class="response-menu btn btn-default btn-xs" id="format-pretty">格式化</button>
 					</div>
-					&nbsp;&nbsp;&nbsp;&nbsp;Json:
+					&nbsp;&nbsp;&nbsp;&nbsp;Json工具:
 					<div class="btn-group" role="group">
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" id="json-expand" crap-data-name="expand" crap-data-value="1">Expand</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="1">Collapse</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="2">Collapse2</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="3">Collapse3</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="4">Collapse4</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="nl2br" crap-data-value="true">Nl2br</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" id="json-expand" crap-data-name="expand" crap-data-value="1">全部展开</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="1">展开一级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="2">展开二级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="3">展开三级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="4">展开四级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="nl2br" crap-data-value="true">自动换行</button>
 					</div>
 
-					<a class="btn btn-default btn-xs" target="_blank" href="http://api.crap.cn/index.do#/ffff-1492933619469-1017019456-0016/article/detail/ffff-1492933630999-1017019456-0017/ARTICLE/ffff-1492933967111-1017019456-0009
-"><i class="iconfont">&#xe63e; Help</i></a>
+					<a class="btn btn-default btn-xs" target="_blank" href="http://api.crap.cn/static/help/155032426525701000007.html"><i class="iconfont">&#xe63e; 帮助文档</i></a>
 				</div>
 				<!--response-menu:end-->
 
@@ -241,13 +240,13 @@
 
 					<div class="response-body">
 						<!--row-->
-						<textarea id="response-row" class="form-control w h BGFFF min-h400 hidden" placeholder="Hit the Send buttom to get a response"></textarea>
+						<textarea id="response-row" class="form-control w h BGFFF min-h400 hidden" placeholder="请点击发送请求按钮调试接口"></textarea>
 
 						<!--pretty-->
 						<div id="response-pretty" class="b1 r5 p10 BGFFF min-h400">
-							<div class="tc mt100 C999"><i class="iconfont">&#xe626;</i>Hit the Send button to get a response</div>
+							<div class="tc mt100 C999"><i class="iconfont">&#xe626;</i>请点击发送请求按钮调试接口</div>
 							<div class="tc C999">
-								<a class="cursor C999" target="_blank" href="http://api.crap.cn/index.do#/ffff-1492933619469-1017019456-0016/article/list/ffff-1492933630999-1017019456-0017/ARTICLE/%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/NULL"><i class="iconfont">&#xe63e;</i> Click this to get help</a>
+								<a class="cursor C999" target="_blank" href="http://api.crap.cn/static/help/155037947655301000051.html"><i class="iconfont">&#xe63e;</i> 点击查看帮助文档 ~</a>
 							</div>
 						</div>
 					</div>

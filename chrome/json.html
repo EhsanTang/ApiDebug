@@ -15,35 +15,34 @@
 			<img src="http://api.crap.cn/resources/images/logo.png" class="h30 mt4 ml10 fl">
 		</a>
 		<!--<a href="more.html" target="_self" class="btn btn-menu btn-sm fr mr10 mt5">More...</a>-->
-		<a href="debug.html" target="_self" class="btn btn-menu btn-sm fr mr10 mt5">Debug</a>
+		<a href="debug.html" target="_self" class="btn btn-menu btn-sm fr mr10 mt5">接口调试</a>
 	</div>
 
 	<!--response-menu-->
 				<div class="response-body p10 pb0 pt50 ">
 					<div class="btn-group" role="group">
-						<button type="button" class="response-menu btn btn-default btn-xs" id="format-row">Row</button>
-						<button type="button" class="response-menu btn btn-default btn-xs" id="format-pretty">Pretty</button>
+						<button type="button" class="response-menu btn btn-default btn-xs" id="format-row">原始返回</button>
+						<button type="button" class="response-menu btn btn-default btn-xs" id="format-pretty">格式化</button>
 					</div>
 
 					&nbsp;&nbsp;&nbsp;&nbsp;Json:
 					<div class="btn-group" role="group">
-						<button type="button" class="response-menu response-json btn btn-default btn-sm" id="json-expand" crap-data-name="expand" crap-data-value="1">Expand</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-sm" crap-data-name="collapse" crap-data-value="1">Collapse</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-sm" crap-data-name="collapse" crap-data-value="2">Collapse2</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-sm" crap-data-name="collapse" crap-data-value="3">Collapse3</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-sm" crap-data-name="collapse" crap-data-value="4">Collapse4</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-sm" crap-data-name="nl2br" crap-data-value="true">Nl2br</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" id="json-expand" crap-data-name="expand" crap-data-value="1">全部展开</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="1">展开一级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="2">展开二级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="3">展开三级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="4">展开四级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="nl2br" crap-data-value="true">自动换行</button>
 					</div>
 
-					<a class="btn btn-default btn-sm" target="_blank" href="http://api.crap.cn/index.do#/ffff-1492933619469-1017019456-0016/article/detail/ffff-1492933630999-1017019456-0017/ARTICLE/ffff-1492933967111-1017019456-0009
-"><i class="iconfont">&#xe63e; Help</i></a>
+					<a class="btn btn-default btn-sm" target="_blank" href="http://api.crap.cn/static/help/155032426525701000007.html"><i class="iconfont">&#xe63e; Help</i></a>
 				</div>
 				<!--response-menu:end-->
 				
 				
 	<div class="w min-w900 response-body p10">
 			<!--row-->
-			<textarea id="response-row" class="form-control w h BGFFF min-h500" placeholder="Please input json"></textarea>
+			<textarea id="response-row" class="form-control w h BGFFF min-h500" placeholder="请输入Json格式数据"></textarea>
 
 			<!--pretty-->
 			<div id="response-pretty" class="b1 r5 p10 min-h400 BGFFF none">
