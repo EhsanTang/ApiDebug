@@ -305,7 +305,7 @@ function callAjax() {
         url : url,
         async : true,
         data : params,
-        timeout: 3000,
+        timeout: 5000,
         beforeSend: function(request) {
             getHeaders(request);
             $("#response-row").val("");
