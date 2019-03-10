@@ -407,7 +407,8 @@ $(function(){
 	$("#format-row").click(function(){
 	    var rowData = originalResponseText;
 	    if( rowData == ""){
-            rowData = $("#response-row").val();
+            originalResponseText = $("#response-row").val();
+            rowData = originalResponseText;
         }
         changeBg("btn-default", "btn-main", "response-menu",this);
         $("#response-row").val(rowData);
@@ -417,7 +418,8 @@ $(function(){
     $("#format-pretty").click(function(){
         var rowData = originalResponseText;
         if( rowData == ""){
-            rowData = $("#response-row").val();
+            originalResponseText = $("#response-row").val();
+            rowData = originalResponseText;
         }
         try{
             var jsonFormatResult = format(rowData);
