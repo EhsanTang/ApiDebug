@@ -20,7 +20,7 @@ function clearLocalStorage() {
 /************* 插件广告 ****************/
 function getAdvertisement() {
     try {
-        var result = httpPost(ADVERTISEMENT, null, false, null, null);
+        var result = httpPost(ADVERTISEMENT, null, true, null, null);
         if (result.text && result.text != '') {
             setHtml("id-advertisement-text", result.text);
             showDiv("id-advertisement-text");
