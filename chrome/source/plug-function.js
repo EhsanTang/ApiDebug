@@ -1,6 +1,33 @@
 var ADVERTISEMENT = "http://crap.cn/mock/trueExam.do?id=155030837878212000015&cache=true";
+var WEB_SITE_URL = "crap-web-site-url";
+var WEB_HTTP_TIMEOUT = "crap-http-timeout";
+
+/***************** 系统设置 *****************/
+function getHttpTimeout(){
+    try {
+        var httpTimeout = localStorage[WEB_HTTP_TIMEOUT];
+        httpTimeout = parseFloat(httpTimeout);
+        if (httpTimeout && httpTimeout != null && httpTimeout.toString() != "NaN" && httpTimeout > 1000) {
+            return httpTimeout;
+        } else {
+            return 10000;
+        }
+    }catch(e){
+        return 10000;
+    }
+}
+function setHttpTimeout(httpTimeout){
+    httpTimeout = parseFloat(httpTimeout);
+    if (httpTimeout.toString() == "NaN" || httpTimeout < 1000) {
+        $("#http-timeout-button").text("Error! Timeout must be number, and must big than 1000!");
+        return;
+    }
+    localStorage[WEB_HTTP_TIMEOUT] = httpTimeout;
+    $("#http-timeout-button").text("Change http timeout success!");
+}
+
 function getWebSiteUrl(){
-    var webSiteUrl = localStorage['crap-web-site-url'];
+    var webSiteUrl = localStorage[WEB_SITE_URL];
     if (webSiteUrl && webSiteUrl != null && webSiteUrl != ''){
         return webSiteUrl;
     }else{
@@ -8,19 +35,28 @@ function getWebSiteUrl(){
     }
 }
 function setWebSiteUrl(url){
-    localStorage['crap-web-site-url'] = url;
+    localStorage[WEB_SITE_URL] = url;
     $("#set-website-button").text("Change website url success!");
 }
+
 function clearLocalStorage() {
     var webSiteUrl = getWebSiteUrl();
+    var httpTimeout = getHttpTimeout();
     localStorage.clear();
     setWebSiteUrl(webSiteUrl)
+    setHttpTimeout(httpTimeout)
 }
 
 /************* 插件广告 ****************/
 function getAdvertisement() {
     try {
-        var result = httpPost(ADVERTISEMENT, null, true, null, null);
+        var result = httpPost(ADVERTISEMENT, null, true, getAdvertisementCallback, null);
+    }catch (e){
+        console.error(e);
+    }
+}
+function getAdvertisementCallback(result) {
+    try {
         if (result.text && result.text != '') {
             setHtml("id-advertisement-text", result.text);
             showDiv("id-advertisement-text");
@@ -299,13 +335,14 @@ function callAjax() {
     if( url.endWith("?")){
         url = url.substr(0 - url.length-1);
     }
+    var httpTimeout = getHttpTimeout();
     $("#float").fadeIn(300);
     $.ajax({
         type : method,
         url : url,
         async : true,
         data : params,
-        timeout: 5000,
+        timeout: httpTimeout,
         beforeSend: function(request) {
             getHeaders(request);
             $("#response-row").val("");

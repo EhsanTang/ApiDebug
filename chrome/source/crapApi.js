@@ -2,11 +2,15 @@ $(function(){
     getLocalModules();
     //getHistorys();
     //openMyDialog("title",500);
-    refreshSyncIco(-1);
-    $("#website-url").val(getWebSiteUrl());
-    if (getValue("id-page-name") != null && getValue("id-page-name") == "debugPage"){
+    var pageName = getValue("id-page-name")
+    if (pageName == "debug"){
+        refreshSyncIco(-1);
         getAdvertisement();
+    } else if (pageName == "setting"){
+        $("#website-url").val(getWebSiteUrl());
+        $("#http-timeout").val(getHttpTimeout());
     }
+
     $("#synch").click(function(){
         $("#float").fadeIn(300);
         var modules;
@@ -314,10 +318,13 @@ $(function(){
         window.open("json.html")
     });
     $("#set-web-site").click(function(){
-        window.open("setWebSite.html")
+        window.open("setting.html")
     });
     $("#set-website-button").click(function(){
         setWebSiteUrl($("#website-url").val());
+    });
+    $("#http-timeout-button").click(function(){
+        setHttpTimeout($("#http-timeout").val());
     });
     $("#login-button").click(function(){
         window.open(getWebSiteUrl() + "/loginOrRegister.do#/login");
