@@ -19,11 +19,11 @@ function getHttpTimeout(){
 function setHttpTimeout(httpTimeout){
     httpTimeout = parseFloat(httpTimeout);
     if (httpTimeout.toString() == "NaN" || httpTimeout < 1000) {
-        $("#http-timeout-button").text("Error! Timeout must be number, and must big than 1000!");
+        $("#http-timeout-button").text("异常! 超时时间必须是数字，且必须大于1000!");
         return;
     }
     localStorage[WEB_HTTP_TIMEOUT] = httpTimeout;
-    $("#http-timeout-button").text("Change http timeout success!");
+    $("#http-timeout-button").text("修改接口超时时间成功!");
 }
 
 function getWebSiteUrl(){
@@ -36,7 +36,7 @@ function getWebSiteUrl(){
 }
 function setWebSiteUrl(url){
     localStorage[WEB_SITE_URL] = url;
-    $("#set-website-button").text("Change website url success!");
+    $("#set-website-button").text("修改服务器地址成功!");
 }
 
 function clearLocalStorage() {
