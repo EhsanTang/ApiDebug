@@ -10,7 +10,8 @@
 	<link href="source/jquery.jsonview.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="BGF5">
-	<div class="h40 CFFF pl20 w shadow fixed z10" style="background:#233050;">
+<input id="id-page-name" type="hidden" value="setting">
+<div class="h40 CFFF pl20 w shadow fixed z10" style="background:#233050;">
 		<a href="http://api.crap.cn/index.do#/web/article/detail/web/PAGE/APIDEBUG" target="_blank">
 			<img src="http://api.crap.cn/resources/images/logo.png" class="h30 mt4 ml10 fl">
 		</a>
@@ -27,6 +28,15 @@
 
 			<button id="set-website-button" class="btn btn-danger btn-sm fr mt10">Submit</button>
 			<div class="fr p10 C555 mt5">Default website url — http://api.crap.cn</div>
+	</div>
+
+	<div class="w min-w900 response-body p10 pb0 pt50">
+		<!--row-->
+		<textarea id="http-timeout" class="form-control w h BGFFF" rows="5" placeholder="Please input http timeout (ms)"></textarea>
+
+
+		<button id="http-timeout-button" class="btn btn-danger btn-sm fr mt10">Submit</button>
+		<div class="fr p10 C555 mt5">Default timeout — 10000(ms)</div>
 	</div>
 	
 
