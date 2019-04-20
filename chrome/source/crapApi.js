@@ -420,6 +420,8 @@ $(function(){
         changeBg("btn-default", "btn-main", "response-menu",this);
         $("#response-row").val(rowData);
         responseShow("response-row");
+        $('#response-row').removeAttr("readonly");
+        originalResponseText = "";
     });
 
     $("#format-pretty").click(function(){
@@ -438,6 +440,7 @@ $(function(){
             $("#response-row").val(rowData);
         }
         changeBg("btn-default", "btn-main", "response-menu",this);
+        $('#response-row').attr("readonly","readonly");
         responseShow("response-row");
     });
 
