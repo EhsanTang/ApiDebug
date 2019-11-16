@@ -286,7 +286,7 @@ function getParams(){
         try {
             if(val.getAttribute("data-stage")  == "value"){
                 if( key != "") {
-                    data += "&" + key + "=" + val.value;
+                    data += "&" + key + "=" + encodeURIComponent(val.value);
                 }
             }else if(val.getAttribute("data-stage")  == "key"){
                 key = val.value;
