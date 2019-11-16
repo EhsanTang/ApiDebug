@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ApiDebug-Http接口调试插件</title>
+	<link href="source/base.css" rel="stylesheet" type="text/css" />
+	<link href="source/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="source/plug.css" rel="stylesheet" type="text/css" />
+	<link href="source/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<link href="source/jquery.jsonview.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<input id="id-page-name" type="hidden" value="dashbord">
+
+
+	<div class="w h pt40 fixed min-w900" id="content">
+
+		<!-- *****************************left************************************ -->
+		<!--<div id="left" class="BGEEE h m0 fl p0 shadow ofy-a" style="width:18%;">
+            <div class="bb1 h40 mt40 f12 C555 pt10">
+				<div class="bb3 fl w-50 tc h30 cursor" id="modules-title" title="Module">Mod</div>
+				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">His</div>
+            </div>
+			<div id="historys" class="none w"></div>
+			<div id="modules" class="w panel-group mb0" role="tablist"></div>
+        </div>-->
+		<!-- ****************************left end*********************************** -->
+		<div class="margin-top:50px;">
+		<input type="button" value="爱问" onclick="add(1)" />
+		<input type="button" value="搜乐" onclick="add(2)" />
+		<input type="button" value="搜狗" onclick="add(3)" />
+		<input type="button" value="百度" onclick="add(4)" />
+		<input type="button" value="谷歌" onclick="add(5)" />
+		<input type="button" value="搜搜" onclick="add(6)" />
+		<input type="button" value="必应" onclick="add(7)" />
+		<input type="button" value="解锁Blog" onclick="lock(false)" />
+		<input type="button" value="锁定Blog" onclick="lock(true)" />
+		<input type="button" value="关闭Blog" onclick="remove(1)" />
+		<input type="button" value="左移" onclick="move('left')" />
+		<input type="button" value="右移" onclick="move('right')" />
+		<input type="button" value="复位" onclick="move('reset')" />
+		</div>
+		<div id="TabMain">
+			<div class="c_tabNav"><div class="tabNavWrapper">
+				<div class="tabTurner">
+					<ul>
+						<li><a id="Left" href="#" title="左移标签组" class="left"></a></li>
+						<li><a id="Right" href="#" title="右移标签组" class="right"></a></li>
+						<li><a id="Reset" href="#" title="复位标签组" class="default"></a></li>
+						<li><a id="Close" href="#" title="全部关闭" class="close"></a></li>
+					</ul>
+				</div>
+				<div><div class="tab"><div class="maxWidth">
+					<!-- 这里存放生成的Tab-->
+					<ul id="Tabs"></ul>
+				</div></div></div>
+			</div>
+			</div>
+		</div>
+		<!-- 这里
+                <div id="Frames" class="BGF5 h m0 fr p0 ofy-s fl"  style="width:82%;">
+                    <!--顶部空白-->
+			<div class="BGF9 h40 w"></div>
+		</div>
+	</div>
+
+
+	<script src="source/jquery-1.9.1.min.js"></script>
+	<script src="source/bootstrap.js"></script>
+	<script src="source/base-dao.js"></script>
+	<script src="source/interface-dao.js"></script>
+	<script src="source/module-dao.js"></script>
+	<script src="source/plug-function.js"></script>
+	<script src="source/bootstrap-tab.js"></script>
+
+    <script src="source/crapApi.js"></script>
+	<script src="source/dashbord.js"></script>
+
+
+	<script src="source/jquery.jsonview.js"></script>
+	<script src="source/json.js"></script>
+
+
+    <script type="text/javascript" src="source/jquery-ui.min.js"></script>
+</body>
+</html>

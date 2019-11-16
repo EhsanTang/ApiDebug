@@ -1,4 +1,5 @@
 $(function(){
+
     getLocalModules();
     //getHistorys();
     //openMyDialog("title",500);
@@ -314,6 +315,9 @@ $(function(){
 	$("#open-debug").click(function(){
 			window.open("debug.html")
 	});
+    $("#open-dashbord").click(function(){
+        window.open("dashbord.html")
+    });
     $("#open-json").click(function(){
         window.open("json.html")
     });
