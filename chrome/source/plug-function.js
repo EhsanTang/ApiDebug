@@ -593,7 +593,11 @@ function renameModule(moduleId,moduleName) {
 function saveModule(moduleName, moduleId,version,status) {
     var modules;
     try {
-        modules = $.parseJSON(localStorage['crap-debug-modules'])
+        var localModules = localStorage['crap-debug-modules'];
+        if (localModules == null){
+            localModules = "[]";
+        }
+        modules = $.parseJSON(localModules);
     } catch (e) {
         modules = $.parseJSON("[]");
         console.warn(e);
@@ -616,7 +620,11 @@ function saveModule(moduleName, moduleId,version,status) {
 function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params, headers,version,status) {
     var interfaces;
     try {
-        interfaces = $.parseJSON(localStorage['crap-debug-interface-' + moduleId])
+        var localInterfaces = localStorage['crap-debug-interface-' + moduleId];
+        if (localInterfaces == null){
+            localInterfaces = "[]";
+        }
+        interfaces = $.parseJSON(localInterfaces);
     } catch (e) {
         interfaces = $.parseJSON("[]");
         console.warn(e);

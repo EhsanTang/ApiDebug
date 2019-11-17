@@ -48,17 +48,26 @@ $(function(){
                     alert("Status:" + responseData.status + "\nStatusText:" + responseData.statusText +"\nTextStatus: " + textStatus);
                 }
                 else if(textStatus == "success"){
-                    clearLocalStorage();
                     var responseJson = $.parseJSON(responseData.responseText);
                     if( responseJson.success == 1){
+                        clearLocalStorage();
                         responseJson = responseJson.data;
                         // 存储服务器同步的数据
+                        console.log("模块总数：" + responseJson.length);
+
                         for(var i=responseJson.length-1;i>=0; i--){
-                            if(responseJson[i].status == -1){
+                            var resModule = responseJson[i];
+
+                            console.log("处理模块：" + i + "（" + resModule.moduleName + "），状态：" + resModule.status);
+                            if(resModule.status == -1){
                                 continue;
                             }
-                            saveModule(responseJson[i].moduleName, responseJson[i].moduleId, responseJson[i].version, responseJson[i].status);
-                            var debugs = responseJson[i].debugs;
+
+                            saveModule(resModule.moduleName, resModule.moduleId, resModule.version, resModule.status);
+
+                            var debugs = resModule.debugs;
+                            console.log("处理模块接口：" + i + "，" + resModule.moduleName + "，接口数量：" + debugs.length);
+
                             for(var j=debugs.length-1;j>=0;j--){
                                 saveInterfaceDetail(debugs[j].moduleId, debugs[j].paramType, debugs[j].id, debugs[j].name, debugs[j].method,
                                     debugs[j].url, debugs[j].params, debugs[j].headers, debugs[j].version, debugs[j].status);
