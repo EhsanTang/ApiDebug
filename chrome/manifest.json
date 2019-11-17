@@ -1,30 +1,30 @@
-﻿﻿{
-	"manifest_version": 2,
-    "name": "ApiDebug-Http接口调试插件-中文版",
-    "version": "1.0.3",
-    "description": "ApiDebug 可用于http、https等接口调试。是一个开源API接口调试插件，支持Restfull接口调试、POST请求模拟，同时也支持PUT、DELETE等接口调试",
-	"author":"ihsantang@163.com",
-	"icons": {
-		"64": "logo.png",
-		"128": "logo.png"
-	},
-	"browser_action": { 
-        "default_icon": "logo.png",
-        "default_title": "ApiDebug-中文版",
-        "default_popup": "index.html"
-    },  
-    "permissions": [ 
-        "http://*/*",
-		"https://*/*",
-        "cookies",
-        "storage"
-    ],
-	"content_scripts":[
-		{
-			"matches":["http://*/*","https://*/*"],
-			"js":["source/jquery-1.9.1.min.js","source/content_scripts.js"]
-		}
-	],"background": {
-        "page": "background.html"
+﻿{
+  "manifest_version": 2,
+  "name": "ApiDebug-Http接口调试插件-中文版",
+  "version": "1.0.5",
+  "description": "ApiDebug 可用于http、https等接口调试。是一个开源API接口调试插件，支持Restfull接口调试、POST请求模拟，同时也支持PUT、DELETE等接口调试",
+  "author":"ihsantang@163.com",
+  "icons": {
+    "64": "logo.png",
+    "128": "logo.png"
+  },
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_title": "ApiDebug-中文版",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "cookies",
+    "storage"
+  ],
+  "content_scripts":[
+    {
+      "matches":["http://*/*","https://*/*"],
+      "js":["source/jquery-1.9.1.min.js","source/content_scripts.js"]
     }
+  ],"background": {
+  "page": "background.html"
+}
 }
