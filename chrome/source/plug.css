@@ -9,7 +9,7 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
-    color: #4e61d4;
+    color: #303030;
 }
 input{
     -webkit-box-shadow:none!important;
@@ -18,10 +18,10 @@ input{
 .GET{color:#99cc66;}
 .POST{color:#ff9933;}
 .color-main {
-    color: #4e61d4;
+    color: #6f5499;
 }
 .bg-main {
-    background-color: #4e61d4;
+    background-color: #6f5499;
     color: #ffffff!important;
 }
 .form-control {
@@ -40,28 +40,28 @@ input{
 .btn-menu:hover {
     background: rgba(255, 255, 255, 0.5);
     font-weight:bold;
-    color: #4e61d4;
+    color: #6f5499;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 .btn-main {
-    border: 1px solid #4e61d4;
-    background-color: #4e61d4;
+    border: 1px solid #6f5499;
+    background-color: #6f5499;
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 .btn-main:hover {
-    border: 1px solid #ff4530;
-    background: #ff4530;
+    border: 1px solid #303030;
+    background: #303030;
     color: #ffffff;
 }
 
 .btn-default:hover {
-    border: 1px solid #ff4530;
-    background: #ff4530;
+    border: 1px solid #303030;
+    background: #303030;
     color: #ffffff;
 }
 #params-div .iconfont, #headers-div .iconfont {
@@ -90,8 +90,8 @@ input{
     line-height:40px;padding-left:20px; height:40px; background-color:#233050;
 }
 /************debug***************/
-.bl3{border-left:3px solid #4e61d4}
-.bb3{border-bottom:3px solid #4e61d4}
+.bl3{border-left:3px solid #6f5499}
+.bb3{border-bottom:3px solid #6f5499}
 .params-headers-table input, .table-input{font-size:12px!important; border:0px!important;padding:2px 5px!important;height:25px!important;}
 .params-headers-table td{padding:2px!important}
 /************popup***************/
@@ -106,7 +106,7 @@ input{
     content: "";
     width: 90px;
     height: 1px;
-    background: #4e61d4;
+    background: #6f5499;
     position: absolute;
     left: 0;
     bottom: -1px;
@@ -122,7 +122,7 @@ input{
     cursor: pointer;
 }
 .panel-body div:hover{
-    background-color:#4e61d4;
+    background-color:#6f5499;
     color:#ffffff;
 }
 .more{
@@ -135,13 +135,13 @@ input{
 }
 .more:hover{
     color:#ffffff;
-    background-color:#3e51c4;
+    background-color:#5f4489;
 }
 .more i{width:20px;}
-.more span{display:none;right:20px;background-color:#4e61d4!important; height:100%;float:right; }
-.more span i{width:35px; border-right:1px solid #4e61d4;height:100%;margin-top:0px;}
+.more span{display:none;right:20px;background-color:#5f4489!important; height:100%;float:right; }
+.more span i{width:35px; border-right:1px solid #6f5499;height:100%;margin-top:0px;}
 .more:hover > span{display:block!important;}
-.more span i:hover{background-color:#ff4530;}
+.more span i:hover{background-color:#4f3479;}
 #modules .interface-menu:hover{background-color:#bb0000!important}
 /*****************加载浮层***************************/
 .folat{
@@ -207,7 +207,7 @@ input{
 }
 /*************loading************/
 .sk-wave .sk-rect {
-    background-color: #4e61d4;
+    background-color: #6f5499;
 }
 .sk-wave {
     margin: 40px auto;
