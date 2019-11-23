@@ -1,7 +1,7 @@
 ﻿{
   "manifest_version": 2,
   "name": "ApiDebug-Http接口调试插件-中文版",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "ApiDebug 可用于http、https等接口调试。是一个开源API接口调试插件，支持Restfull接口调试、POST请求模拟，同时也支持PUT、DELETE等接口调试。相较于postman，ApiDebug更符合中国用户习惯，并且完全免费开源",
   "author": "ihsantang@163.com",
   "icons": {
