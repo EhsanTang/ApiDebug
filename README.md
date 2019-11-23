@@ -22,7 +22,7 @@ CrapApi-Plug为CrapApi接口管理软件的增强插件，不能单独使用，�
 
 [apiDebug.v1.0.7.crx](https://gitee.com/CrapApi/ApiDebug/raw/master/release/chrome/apiDebug.v.1.0.7.crx)
 
-[最新下载版本请点击查看](http://api.crap.cn/index.do#/article/detail?projectId=help&moduleId=155032424248009000006&type=ARTICLE&id=155037947655301000051)
+[最新离线下载版本请点击查看](http://api.crap.cn/index.do#/article/detail?projectId=help&moduleId=155032424248009000006&type=ARTICLE&id=155037947655301000051)
 
 ![Chrome](http://img.blog.csdn.net/20170522174505914?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdG9ycnl0YW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 [Chrome浏览器插件地址:点击从谷歌应用商店安装](https://chrome.google.com/webstore/detail/ieoejemkppmjcdfbnfphhpbfmallhfnc?utm_source=chrome-app-launcher-info-dialog)
