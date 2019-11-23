@@ -140,7 +140,7 @@ $(function(){
         getLocalModules();
         $.ajax({
             type : "POST",
-            url : getWebSiteUrl()+"/back/loginOut.do",
+            url : getWebSiteUrl()+"/user/loginOut.do",
             async : true,
             data : "",
             complete: function(responseData, textStatus){
