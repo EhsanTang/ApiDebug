@@ -6,7 +6,7 @@
     url('iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
     url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-
+*{"PingFangSC-Regular","Helvetica Neue","Helvetica","Microsoft YaHei","sans-serif","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;}
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     color: #303030;
@@ -31,32 +31,47 @@ input{
     -moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;-khtml-border-radius: 2px;
     border: 0px;
     background: rgba(255, 255, 255, 0.3);
-    font-weight:bold;
+    font-weight: 300;
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 .btn-menu:hover {
-    background: rgba(255, 255, 255, 0.5);
-    font-weight:bold;
-    color: #6f5499;
+    background: #ff4530;
+    color: #ffffff;
+    font-weight:300;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-.btn-main {
-    border: 1px solid #6f5499;
-    background-color: #6f5499;
+.btn-adorn {
+    border: 1px solid #ff4530;
+    background-color: #ff4530;
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 .btn-main:hover {
-    border: 1px solid #303030;
-    background: #303030;
+    border: 1px solid #ff4530;
+    background: #ff4530;
     color: #ffffff;
+    opacity: 0.8;
+}
+.btn-main {
+    border: 1px solid #4e61d4;
+    background-color: #4e61d4;
+    color: #ffffff;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.btn-main:hover {
+    border: 1px solid #4e61d4;
+    background: #4e61d4;
+    color: #ffffff;
+    opacity: 0.8;
 }
 
 .btn-default:hover {
