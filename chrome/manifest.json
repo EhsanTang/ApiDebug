@@ -2,7 +2,7 @@
 	"manifest_version": 2,
     "name": "ApiDebug - Http Test",
     "version": "1.0.13",
-    "description": "ApiDebug is a plug for testing RESTful web services, like postman. Makes API development faster, easier, and better.「接口调试英语版:http调试，post调试，post模拟」",
+    "description": "ApiDebug is a plug for testing RESTful web services, like postman.「接口调试英语版:http调试，post调试，post模拟」",
 	"author":"ihsantang@163.com",
 	"icons": {
 		"64": "logo.png",
