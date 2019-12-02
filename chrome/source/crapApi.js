@@ -412,7 +412,7 @@ $(function(){
 				if(p.length >1 ){
 					value = p[1];
 				}
-				var tdText = paramsTr.replace("'key'","'key' value='"+key+"'").replace("'value'","'value' value='"+value+"'");
+				var tdText = paramsTr.replace("'key'","'key' value='"+key+"'").replace("'value'","'value' value='"+decodeURIComponent(value)+"'");
 				tdText = tdText.replace("last","");
 				$("#"+preId+"-table tbody").append(tdText);
 			}
