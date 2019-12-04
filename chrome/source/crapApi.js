@@ -5,6 +5,7 @@ $(function(){
     var pageName = getValue("id-page-name")
     if (pageName == "debug"){
         refreshSyncIco(-1);
+        getLoginInfoDAO(drawLoginInfoDAO);
         // getAdvertisement();
     } else if (pageName == "setting"){
         $("#website-url").val(getWebSiteUrl());

@@ -33,3 +33,15 @@ function drawLoginInfoDAO(response) {
         showDiv(ID_LOGOUT);
     }
 }
+$("#" + ID_LOGOUT).click(function(){
+    httpPost(LOGOUT_URL, {}, drawLogoutDAO);
+});
+
+function drawLogoutDAO(response) {
+    alert("Logout success!",3,"success");
+    if (response.success == 1){
+        hiddenDiv(ID_USER_NAME);
+        showDiv(ID_LOGIN);
+        hiddenDiv(ID_LOGOUT);
+    }
+}
