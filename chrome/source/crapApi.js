@@ -312,12 +312,12 @@ $(function(){
             leftEnlarge = true;
             $("#left").css("width","18%");
             $("#right").css("width","82%");
-            $("#left-enlarge div").html("<i class='iconfont'>&#xe605;</i>");
+            $("#left-enlarge div").html("<i class='iconfont'>&#xe6a7;</i>");
         }else{
             leftEnlarge = false;
             $("#left").css("width","0%");
             $("#right").css("width","100%");
-            $("#left-enlarge div").html("<i class='iconfont'>&#xe641;</i>");
+            $("#left-enlarge div").html("<i class='iconfont'>&#xe697;</i>");
         }
 
     });
