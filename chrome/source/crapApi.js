@@ -5,7 +5,8 @@ $(function(){
     var pageName = getValue("id-page-name")
     if (pageName == "debug"){
         refreshSyncIco(-1);
-        getAdvertisement();
+        getLoginInfoDAO(drawLoginInfoDAO);
+        // getAdvertisement();
     } else if (pageName == "setting"){
         $("#website-url").val(getWebSiteUrl());
         $("#http-timeout").val(getHttpTimeout());
@@ -497,11 +498,13 @@ $(function(){
 
 
     $("#method").change(function() {
-        if( $("#method").val() == "POST" || $("#method").val() == "PUT"){
+        if( $("#method").val() != "GET"){
             if($("#content-type").hasClass("none")){
                 $("#content-type").removeClass("none");
             }
         }else{
+            $("#param-type-value").prop("checked",true);
+            $("input[name='param-type']").change();
             if(!$("#content-type").hasClass("none")){
                 $("#content-type").addClass("none");
             }

@@ -1,7 +1,3 @@
-var ADVERTISEMENT = "http://crap.cn/mock/trueExam.do?id=155030837878212000015&cache=true";
-var WEB_SITE_URL = "crap-web-site-url";
-var WEB_HTTP_TIMEOUT = "crap-http-timeout";
-
 /***************** 系统设置 *****************/
 function getHttpTimeout(){
     try {
@@ -50,7 +46,7 @@ function clearLocalStorage() {
 /************* 插件广告 ****************/
 function getAdvertisement() {
     try {
-        var result = httpPost(ADVERTISEMENT, null, true, getAdvertisementCallback, null);
+        var result = httpPost(ADVERTISEMENT, null, getAdvertisementCallback, null);
     }catch (e){
         console.error(e);
     }
@@ -109,7 +105,7 @@ function prop(id) {
 }
 
 /********* http *******/
-function httpPost(url, myData, myAsync, callBack, callBackParams){
+function httpPost(url, myAsync, callBack, callBackParams){
     if (url.indexOf("https://") != 0 && url.indexOf("http://") != 0){
         url = getWebSiteUrl() + url;
     }
@@ -118,7 +114,7 @@ function httpPost(url, myData, myAsync, callBack, callBackParams){
         type: "POST",
         url: url,
         async: myAsync,
-        data: myData,
+        data: true,
         timeout: 2000,
         beforeSend: function (request) {
             // 通过body传递参数时后需要设置
@@ -257,8 +253,9 @@ function getHeadersStr(){
 }
 
 function getHeaders(request){
-    if( $("#method").val() == "POST")
+    if( $("#method").val() != "GET") {
         request.setRequestHeader("Content-Type", $('input:radio[name="param-type"]:checked').val());
+    }
 
     var texts = $("#headers-div input[type='text']");
     // 获取所有文本框
