@@ -497,11 +497,13 @@ $(function(){
 
 
     $("#method").change(function() {
-        if( $("#method").val() == "POST" || $("#method").val() == "PUT"){
+        if( $("#method").val() != "GET"){
             if($("#content-type").hasClass("none")){
                 $("#content-type").removeClass("none");
             }
         }else{
+            $("#param-type-value").prop("checked",true);
+            $("input[name='param-type']").change();
             if(!$("#content-type").hasClass("none")){
                 $("#content-type").addClass("none");
             }

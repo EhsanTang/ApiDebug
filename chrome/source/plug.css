@@ -31,7 +31,7 @@ input{
     -moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;-khtml-border-radius: 2px;
     border: 0px;
     background: rgba(255, 255, 255, 0.3);
-    font-weight:bold;
+    font-weight:300;
     color: #ffffff;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
@@ -39,7 +39,7 @@ input{
 }
 .btn-menu:hover {
     background: rgba(255, 255, 255, 0.5);
-    font-weight:bold;
+    font-weight:300;
     color: #6f5499;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;

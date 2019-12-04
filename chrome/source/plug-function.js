@@ -257,8 +257,9 @@ function getHeadersStr(){
 }
 
 function getHeaders(request){
-    if( $("#method").val() == "POST")
+    if( $("#method").val() != "GET") {
         request.setRequestHeader("Content-Type", $('input:radio[name="param-type"]:checked').val());
+    }
 
     var texts = $("#headers-div input[type='text']");
     // 获取所有文本框
