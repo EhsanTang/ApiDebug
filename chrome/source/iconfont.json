@@ -454,6 +454,13 @@
       "unicode_decimal": 58949
     },
     {
+      "icon_id": "1534872",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
       "icon_id": "1745818",
       "name": "加速",
       "font_class": "jiasu",
@@ -487,6 +494,13 @@
       "font_class": "folder",
       "unicode": "e83b",
       "unicode_decimal": 59451
+    },
+    {
+      "icon_id": "2420041",
+      "name": "文件夹",
+      "font_class": "wenjianjia1",
+      "unicode": "e610",
+      "unicode_decimal": 58896
     },
     {
       "icon_id": "2738785",

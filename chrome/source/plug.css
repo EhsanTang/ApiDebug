@@ -18,17 +18,17 @@ input{
 .GET{color:#99cc66;}
 .POST{color:#ff9933;}
 .color-main {
-    color: #6f5499;
+    color: #4e61d4;
 }
 .bg-main {
-    background-color: #6f5499;
+    background-color: #5e71e4!important;
     color: #ffffff!important;
 }
 .form-control {
     border:1px solid #dddddd;
 }
 .btn-menu {
-    -moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;-khtml-border-radius: 2px;
+    -moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius: 4px;-khtml-border-radius: 4px;
     border: 0px;
     background: rgba(255, 255, 255, 0.3);
     font-weight: 300;
@@ -97,7 +97,7 @@ input{
 }
 .panel-heading {
     border-bottom:1px solid #e0e0e0!important;
-    background-color: #e8e8e8!important;
+    background-color: #f5f5f5!important;
     color: #555555!important;
 }
 /************dialog**************/
@@ -105,8 +105,8 @@ input{
     line-height:40px;padding-left:20px; height:40px; background-color:#233050;
 }
 /************debug***************/
-.bl3{border-left:3px solid #6f5499}
-.bb3{border-bottom:3px solid #6f5499}
+.bl3{border-left:3px solid #ff4530}
+.bb2{border-bottom:2px solid #ff4530}
 .params-headers-table input, .table-input{font-size:12px!important; border:0px!important;padding:2px 5px!important;height:25px!important;}
 .params-headers-table td{padding:2px!important}
 /************popup***************/
@@ -121,23 +121,25 @@ input{
     content: "";
     width: 90px;
     height: 1px;
-    background: #6f5499;
+    background: #4e61d4;
     position: absolute;
     left: 0;
     bottom: -1px;
 }
 #historys div, .panel-body div {
-    border-bottom:1px solid #dfdfdf;
-    color:#999999;
+    border-bottom:1px solid #f5f5f5;
+    color:#495057;
     height:36px;
-    line-height: 36px;
+    font-size: 12px;
+    line-height: 40px;
     padding-left:20px;
     overflow: hidden;
     word-break: break-all;
     cursor: pointer;
+    background-color: #ffffff;
 }
 .panel-body div:hover{
-    background-color:#6f5499;
+    background-color:#4e61d4;
     color:#ffffff;
 }
 .more{
@@ -150,14 +152,15 @@ input{
 }
 .more:hover{
     color:#ffffff;
-    background-color:#5f4489;
+    background-color:#4e61d4;
 }
 .more i{width:20px;}
-.more span{display:none;right:20px;background-color:#5f4489!important; height:100%;float:right; }
-.more span i{width:35px; border-right:1px solid #6f5499;height:100%;margin-top:0px;}
+.more span{display:none;right:20px;background-color:#4e61d4!important; height:100%;float:right; }
+.panel-body .more span{margin-top: -3px;}
+.more span i{width:35px; border-right:1px solid #4e61d4;height:100%;margin-top:0px;}
 .more:hover > span{display:block!important;}
 .more span i:hover{background-color:#4f3479;}
-#modules .interface-menu:hover{background-color:#bb0000!important}
+#modules .interface-menu:hover{background-color:#ff4530!important}
 /*****************加载浮层***************************/
 .folat{
     display:none;
@@ -222,7 +225,7 @@ input{
 }
 /*************loading************/
 .sk-wave .sk-rect {
-    background-color: #6f5499;
+    background-color: #4e61d4;
 }
 .sk-wave {
     margin: 40px auto;

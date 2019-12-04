@@ -11,13 +11,13 @@
 </head>
 <body>
 	<input id="id-page-name" type="hidden" value="debug">
-	<div class="h40 CFFF pl20 w shadow fixed z10" style="background:#233050;">
+	<div class="h50 CFFF pl20 pt5 w shadow fixed z10" style="background:#233050;">
 		<a id="id-advertisement-href" href="http://api.crap.cn/" target="_blank">
 			<img id="id-advertisement-img"  src="logo.png" class="h30 mt4 ml10 fl">
 			<button id="id-advertisement-text" class="btn btn-menu btn-sm fl cursor mt5 ml10 ndis"></button>
 		</a>
 
-		<button class="btn btn-menu btn-sm fl mr10 mt5 cursor ml20" id="left-enlarge">
+		<button class="btn btn-menu btn-adorn btn-sm fl mr10 mt5 cursor ml20" id="left-enlarge">
             菜单 &nbsp;<div class="fr mt-1"><i class="iconfont">&#xe699;</i></div>
 		</button>
 
@@ -33,14 +33,14 @@
 
 	</div>
 
-	<div class="w h pt40 fixed min-w900" id="content">
+	<div class="w h pt10 fixed min-w900" id="content">
 
 		<!-- *****************************left************************************ -->
-		<div id="left" class="BGEEE h m0 fl p0 shadow ofy-a" style="width:18%;">
+		<div id="left" class="h m0 fl p0 shadow ofy-a" style="width:18%;">
             <!--接口请求头、参数等切换标签-->
             <div class="bb1 h40 mt40 f12 C555 pt10">
-				<div class="bb3 fl w-50 tc h30 cursor" id="modules-title" title="Module">模块</div>
-				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">历史</div>
+				<div class="bb2 fl w-50 tc h30 cursor" id="modules-title" title="Module"><i class="iconfont">&#xe615;</i>&nbsp;&nbsp;模块</div>
+				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History"><i class="iconfont">&#xe6bb;</i>&nbsp;&nbsp;历史记录</div>
             </div>
 			<!--历史记录 -->
 			<div id="historys" class="none w"></div>
@@ -49,7 +49,7 @@
         </div>
 		<!-- ****************************left end*********************************** -->
 
-		<div id="right" class="BGF5 h m0 fr p0 ofy-s fl"  style="width:82%;">
+		<div id="right" class="BGF9 h m0 fr p0 ofy-s fl"  style="width:82%;">
 
 			<!--顶部空白-->
 			<div class="BGF9 h40 w"></div>
@@ -70,8 +70,8 @@
 			<!--参数、头、相应结果-->
 			<div class="w h mt10 rel">
 				<!--接口标题-->
-				<div class="mt10 ml10 fb bl3 f14 pl10 tl pr10">
-					<input type="text" class="form-control b0 r2 BGF5 p3 h27" id="interface-name" placeholder="请输入接口名"/>
+				<div class="mt10 ml10 bl3 f14 pl10 tl pr10">
+					<input type="text" class="form-control b0 r2 p3 h27 f14 color-main BGFFF p15" id="interface-name" autocomplete="off" placeholder="请输入接口名"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="interface-id" value="-1"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="module-id" value="-1"/>
 				</div>
@@ -88,19 +88,19 @@
 							</td>
 							<td class="pr10">
 								<div class="input-group">
-								  <input type="text" class="form-control" id="url" placeholder="请输入接口地址">
-								  <span class="input-group-addon cursor btn-main" id="send"><i class="iconfont">&#xe634;</i> 发送请求</span>
+								  <input type="text" class="form-control" id="url" placeholder="请输入接口地址" autocomplete="off">
+								  <span class="input-group-addon cursor btn-main f12" id="send"><i class="iconfont">&#xe634;</i> 发送请求</span>
 								</div>
 							</td>
 							<td class="tr w100">
 								<div class="btn-group w">
-								  <button type="button" class="btn btn-adorn" id="save-interface">保存</button>
-								  <button type="button" class="btn btn-adorn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  <button type="button" class="btn btn-adorn f12" id="save-interface">保存</button>
+								  <button type="button" class="btn btn-adorn dropdown-toggle f12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<span class="caret"></span>
 									<span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu min-w80">
-									<li><a id="save-as-interface" class="pl10 pr10 cursor">另存为</a></li>
+									<li><a id="save-as-interface" class="pl10 pr10 cursor f12">另存为</a></li>
 									<!--<li><a href="#" class="pl10 pr10">Another</a></li>
 									<li><a href="#" class="pl10 pr10">Something</a></li>
 									<li role="separator" class="divider pl10 pr10"></li>
@@ -114,14 +114,14 @@
 				<!--接口请求头、参数等切换标签-->
 				<div class="h30 mt10 shadow-b pl10 C555">
 					<div class="params-title menu-title" data-stage="headers-div">请求头</div>
-                    <div class="params-title menu-title bb3" data-stage="params-div">请求参数</div>
+                    <div class="params-title menu-title bb2" data-stage="params-div">请求参数</div>
 				</div>
 
                 <!--请求头-->
                 <div class="p10 bt1 bb1 none" id="headers-div">
                     <table class="params-headers-table f12 w"  id="headers-table">
 					<thead>
-							<tr class="fb">
+							<tr>
 								<td class="p5" style="width:30%">
 									Key
 								</td>
@@ -173,7 +173,7 @@
                     <div class="bt1 p10">
 						<table class="params-headers-table f12 w" id="params-table">
 							<thead>
-							   <tr class="fb">
+							   <tr>
 									<td class="p5" style="width:30%">
 										Key
 									</td>
@@ -212,7 +212,7 @@
 				<!--response-title-->
                 <div class="bb1 h30 mt10 shadow-b pl10 C555 mb10">
                     <div class="mt10 f14 tl w">
-						<div class="response-title menu-title bb3" data-stage="response-body">响应主体</div>
+						<div class="response-title menu-title bb2" data-stage="response-body">响应主体</div>
 						<div class="response-title menu-title" data-stage="response-header">响应头</div>
 						<div class="response-title menu-title" data-stage="response-cookie">Cookie</div>
 						<div class="cb"></div>

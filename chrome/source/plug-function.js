@@ -148,7 +148,7 @@ paramsTr += "</tr>";
 var moduleDiv = "<div class='panel panel-info no-radius b0 mt0 left-menu-border-top'>";
 moduleDiv += "      <div class='panel-heading no-radius rel' data-parent='#modules'>";
 moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='#modules' href='#panel_ca_moduleId' crap-data='ca_moduleId'>";
-moduleDiv += "              <i class='iconfont color-main f16'>&#xe83b;</i>&nbsp;&nbsp;  ca_moduleName";
+moduleDiv += "              <i class='iconfont color-main f16'>&#xe615;</i>&nbsp;&nbsp;  ca_moduleName";
 moduleDiv += "		        <span class='more'>";
 moduleDiv += "			        <i class='iconfont fr h lh40'>&#xe75f;</i>";
 moduleDiv += "			        <span class='t0 h'><i class='iconfont interface-menu rename-module mt0 lh40 fr'crap-data='ca_moduleId'>&#xe69e;</i></span>";
@@ -660,11 +660,11 @@ function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params,
 // save interface and module
 function saveInterface(moduleId, saveAs) {
     if( handerStr($("#url").val()) == ""){
-        alert("Url can not be null");
+        alert("接口地址不能为空");
         return false;
     }
     if( handerStr($("#save-interface-name").val()) == ""){
-        alert("Interface name can not be null");
+        alert("接口名不能为空");
         return false;
     }
     // if moduleId is null,then create a new moduleId, but moduleNmae must be input
@@ -672,7 +672,7 @@ function saveInterface(moduleId, saveAs) {
         moduleId = "ffff-"+new Date().getTime() + "-" + random(10);
         var moduleName = $("#save-module-name").val();
         if( handerStr(moduleName) == ""){
-            alert("Module name can not be null");
+            alert("模块不能为空");
             return;
         }
         // save module

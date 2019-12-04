@@ -91,15 +91,15 @@ $(function(){
     $("#historys-title").click(function(){
         $("#historys").removeClass("none");
         $("#modules").addClass("none");
-        $("#modules-title").removeClass("bb3");
-        $(this).addClass("bb3");
+        $("#modules-title").removeClass("bb2");
+        $(this).addClass("bb2");
         getHistorys();
     });
     $("#modules-title").click(function(){
         $("#historys").addClass("none");
         $("#modules").removeClass("none");
-        $("#historys-title").removeClass("bb3");
-        $(this).addClass("bb3");
+        $("#historys-title").removeClass("bb2");
+        $(this).addClass("bb2");
         getLocalModules();
     });
 
@@ -476,8 +476,8 @@ $(function(){
 
     // 请求头、参数切换
   $(".params-title").click(function(){
-        $(".params-title").removeClass("bb3");
-        $(this).addClass("bb3");
+        $(".params-title").removeClass("bb2");
+        $(this).addClass("bb2");
         var contentDiv = $(this).attr("data-stage");
         $("#headers-div").addClass("none");
         $("#params-div").addClass("none");
@@ -485,9 +485,9 @@ $(function(){
   });
 
     $(".response-title").click(function(){
-        $(".response-title").removeClass("bb3");
+        $(".response-title").removeClass("bb2");
 
-        $(this).addClass("bb3");
+        $(this).addClass("bb2");
         var contentDiv = $(this).attr("data-stage");
         $(".response-header").addClass("none");
         $(".response-body").addClass("none");
