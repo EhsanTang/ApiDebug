@@ -20,3 +20,16 @@ function saveLoaclData(key,value){
         return false;
     }
 }
+
+/**********登陆****************/
+function getLoginInfoDAO(callBack) {
+    httpPost(INIT_URL, {}, callBack);
+}
+function drawLoginInfoDAO(response) {
+    if (response.success == 1){
+        setHtml(ID_USER_NAME, "Hi, " + response.data.sessionAdminName + " !");
+        showDiv(ID_USER_NAME);
+        hiddenDiv(ID_LOGIN);
+        showDiv(ID_LOGOUT);
+    }
+}
