@@ -5,7 +5,7 @@ $(function(){
     var pageName = getValue("id-page-name")
     if (pageName == "debug"){
         refreshSyncIco(-1);
-        getAdvertisement();
+        // getAdvertisement();
     } else if (pageName == "setting"){
         $("#website-url").val(getWebSiteUrl());
         $("#http-timeout").val(getHttpTimeout());
