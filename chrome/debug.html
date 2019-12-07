@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ApiDebug-Http接口调试插件</title>
+    <title data-i18n="head.title">ApiDebug-Http接口调试插件</title>
 	<link href="source/base.css" rel="stylesheet" type="text/css" />
 	<link href="source/bootstrap.css" rel="stylesheet" type="text/css" />
 	<link href="source/plug.css" rel="stylesheet" type="text/css" />
@@ -11,27 +11,52 @@
 </head>
 <body>
 	<input id="id-page-name" type="hidden" value="debug">
-	<div class="h50 CFFF pl20 pt5 w shadow fixed z10" style="background:#233050;">
+	<nav class="h50 CFFF pl20 pt5 w shadow fixed z10" style="background:#233050;">
 		<a id="id-advertisement-href" href="http://api.crap.cn/" target="_blank">
 			<img id="id-advertisement-img"  src="logo.png" class="h30 mt4 ml10 fl">
 			<button id="id-advertisement-text" class="btn btn-menu btn-sm fl cursor mt5 ml10 ndis"></button>
 		</a>
 
 		<button class="btn btn-menu btn-adorn btn-sm fl mr10 mt5 cursor ml20" id="left-enlarge">
-            菜单 &nbsp;<div class="fr mt-1"><i class="iconfont">&#xe699;</i></div>
+			<i class="iconfont mr5 mt-1">&#xe699;</i>
+			<span data-i18n="nav.menu">菜单</span>
 		</button>
 
 		<div class="fl mr10 mt5 ml20 ndis f12 pt5 fb CFFF" id="id-user-name"></div>
 
-		<a id="login-button" target="_blank" class="btn btn-menu btn-main btn-sm fr mr10 mt5"><i class="iconfont">&#xe6b8;</i> 登录</a>
-		<a id="id-logout" class="btn btn-menu btn-sm fr mr10 mt5 ndis btn-adorn"><i class="iconfont">&#xe60d;</i> 退出</a>
-		<a id="clear-local-data" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5"><i class="iconfont mt-2">&#xe69d;</i> 清除本地数据 </a>
-		<a href="json.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5"><i class="iconfont">&#xe600;</i> Json工具</a>
-		<a href="debug.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">打开新页面</a>
-		<a id="new-interface" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">新建接口</a>
-		<a id="synch" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5"><i class="iconfont" id="synch-ico">&#xe6aa;</i>  同步数据</a>
+		<a id="login-button" target="_blank" class="btn btn-menu btn-main btn-sm fr mr10 mt5">
+			<i class="iconfont mr5 mt-1">&#xe6b8;</i>
+			<span data-i18n="nav.login">登录</span>
+		</a>
 
-	</div>
+		<a id="id-logout" class="btn btn-menu btn-sm fr mr10 mt5 ndis btn-adorn">
+			<i class="iconfont mr5 mt-1">&#xe60d;</i>
+			<span data-i18n="nav.loginOut">退出</span>
+		</a>
+
+		<a id="clear-local-data" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">
+			<i class="iconfont mr5 mt-1">&#xe69d;</i>
+			<span data-i18n="nav.clearLocal">清除本地数据</span>
+		</a>
+
+		<a href="json.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">
+			<i class="iconfont mr5 mt-1">&#xe600;</i>
+			<span data-i18n="nav.jsonTool">Json工具</span>
+		</a>
+		<a data-i18n="nav.newTab" href="debug.html" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">
+			打开新页面
+		</a>
+
+		<a data-i18n="nav.newInterface" id="new-interface" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">
+			新建接口
+		</a>
+
+		<a id="synch" target="_blank" class="btn btn-menu btn-sm fr mr10 mt5">
+			<i class="iconfont mr5 mt-1" id="synch-ico">&#xe6aa;</i>
+			<span data-i18n="nav.sync">同步数据</span>
+		</a>
+
+	</nav>
 
 	<div class="w h pt10 fixed min-w900" id="content">
 
@@ -39,8 +64,14 @@
 		<div id="left" class="h m0 fl p0 shadow ofy-a" style="width:18%;">
             <!--接口请求头、参数等切换标签-->
             <div class="bb1 h40 mt40 f12 C555 pt10">
-				<div class="bb2 fl w-50 tc h30 cursor" id="modules-title" title="Module"><i class="iconfont">&#xe615;</i>&nbsp;&nbsp;模块</div>
-				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History"><i class="iconfont">&#xe6bb;</i>&nbsp;&nbsp;历史记录</div>
+				<div class="bb2 fl w-50 tc h30 cursor" id="modules-title" title="Module">
+					<i class="iconfont">&#xe615;</i>&nbsp;&nbsp;
+					<span data-i18n="left.module">模块</span>
+				</div>
+				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">
+					<i class="iconfont">&#xe6bb;</i>&nbsp;&nbsp;
+					<span data-i18n="left.history">历史记录</span>
+				</div>
             </div>
 			<!--历史记录 -->
 			<div id="historys" class="none w"></div>
@@ -53,28 +84,17 @@
 
 			<!--顶部空白-->
 			<div class="BGF9 h40 w"></div>
-			<!--标签
-			<div class="w h32 bb1 BGF9 f12 lh30">
-				<div class="fl ml10 pl10 pr20 C555 top-radius h32 w150 b1 bb0 rel BGF5  of-h">
-						<i class="iconfont CAAA f12 abs pos-t5 pos-r5 cursor" onclick="closeMyDialog('myDialog')">&#xe69a;</i>
-						选人新接口
-
-				</div>
-				<div class="fl ml10 pl10 pr20 CAAA top-radius h32 w150 b1 bb0 rel BGF9 of-h mt-1">
-						<i class="iconfont CAAA f12 abs pos-t5 pos-r5 cursor" onclick="closeMyDialog('myDialog')">&#xe69a;</i>
-						人新接口
-				</div>
-			</div>-->
 			<div class="cb"></div>
 
 			<!--参数、头、相应结果-->
 			<div class="w h mt10 rel">
 				<!--接口标题-->
 				<div class="mt10 ml10 bl3 f14 pl10 tl pr10">
-					<input type="text" class="form-control b0 r2 p3 h27 f14 color-main BGFFF p15" id="interface-name" autocomplete="off" placeholder="请输入接口名"/>
+					<input type="text" class="form-control b0 r2 p3 h27 f14 color-main BGFFF p15" id="interface-name" autocomplete="off" data-i18n="[placeholder]right.interfaceName"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="interface-id" value="-1"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="module-id" value="-1"/>
 				</div>
+
 				<!--接口URL-->
 				<table class="w mt10">
 						<tr>
@@ -88,19 +108,22 @@
 							</td>
 							<td class="pr10">
 								<div class="input-group">
-								  <input type="text" class="form-control" id="url" placeholder="请输入接口地址" autocomplete="off">
-								  <span class="input-group-addon cursor btn-main f12" id="send"><i class="iconfont">&#xe634;</i> 发送请求</span>
+								  <input type="text" class="form-control" id="url" data-i18n="[placeholder]right.interfaceUrl" autocomplete="off">
+								  <span class="input-group-addon cursor btn-main f12" id="send">
+									  <i class="iconfont">&#xe634;</i>
+									  <span data-i18n="right.send">发送请求</span>
+								  </span>
 								</div>
 							</td>
 							<td class="tr w100">
 								<div class="btn-group w">
-								  <button type="button" class="btn btn-adorn f12" id="save-interface">保存</button>
+								  <button type="button" class="btn btn-adorn f12" id="save-interface" data-i18n="right.save">保存</button>
 								  <button type="button" class="btn btn-adorn dropdown-toggle f12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<span class="caret"></span>
 									<span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu min-w80">
-									<li><a id="save-as-interface" class="pl10 pr10 cursor f12">另存为</a></li>
+									<li><a id="save-as-interface" class="pl10 pr10 cursor f12" data-i18n="right.saveAs">另存为</a></li>
 									<!--<li><a href="#" class="pl10 pr10">Another</a></li>
 									<li><a href="#" class="pl10 pr10">Something</a></li>
 									<li role="separator" class="divider pl10 pr10"></li>
@@ -113,8 +136,8 @@
 
 				<!--接口请求头、参数等切换标签-->
 				<div class="h30 mt10 shadow-b pl10 C555">
-					<div class="params-title menu-title" data-stage="headers-div">请求头</div>
-                    <div class="params-title menu-title bb2" data-stage="params-div">请求参数</div>
+					<div class="params-title menu-title" data-stage="headers-div" data-i18n="right.header">请求头</div>
+                    <div class="params-title menu-title bb2" data-stage="params-div" data-i18n="right.param">请求参数</div>
 				</div>
 
                 <!--请求头-->
@@ -127,7 +150,7 @@
 								</td>
 								<td class="p5" colspan="2">
 									 Value
-									 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="headers">批量编辑</a>
+									 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="headers" data-i18n="right.batchEdit">批量编辑</a>
 								</td>
 							</tr>
 						</thead>
@@ -145,7 +168,7 @@
                     </table>
 					
 					<div id="headers-bulk-edit-div" class=" f12 none">
-							<a class="key-value-edit fr  mr20 color-main cursor fb" crap-data-value="headers">单个编辑</a>
+							<a class="key-value-edit fr  mr20 color-main cursor" crap-data-value="headers" data-i18n="right.singleEdit">单个编辑</a>
 							<textarea id="headers-bulk" class="form-control w BGFFF min-h100 max-w" placeholder="key:value"></textarea>
 						</div>
                 </div>
@@ -179,7 +202,7 @@
 									</td>
 									<td class="p5" colspan="2">
 										 Value
-										 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="params">批量编辑</a>
+										 <a class="bulk-edit fr mr20 color-main cursor" crap-data-value="params" data-i18n="right.batchEdit">批量编辑</a>
 									</td>
 								</tr>
 							</thead>
@@ -201,7 +224,7 @@
 						</div>
 
 						<div id="params-bulk-edit-div" class=" f12 none">
-							<a class="key-value-edit fr  mr20 color-main cursor fb" crap-data-value="params">单个编辑</a>
+							<a class="key-value-edit fr  mr20 color-main cursor" crap-data-value="params" data-i18n="right.singleEdit">单个编辑</a>
 							<textarea id="params-bulk" class="form-control w BGFFF min-h100 max-w" placeholder="key:value"></textarea>
 						</div>
                     </div>
@@ -344,6 +367,7 @@
 
 	<script src="source/constant.js"></script>
 	<script src="source/jquery-1.9.1.min.js"></script>
+	<script src="source/i18next-1.11.2.min.js"></script>
 	<script src="source/bootstrap.js"></script>
 	<script src="source/base-dao.js"></script>
 	<script src="source/interface-dao.js"></script>
@@ -354,5 +378,6 @@
 	<script src="source/json.js"></script>
 	<script type="text/javascript" src="source/jquery-ui.min.js"></script>
 	<img style="display: none" src="http://debug-acess-statistics.oss-cn-qingdao.aliyuncs.com/ca.gif">
+
 </body>
 </html>

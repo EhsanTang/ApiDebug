@@ -1,0 +1,30 @@
+{
+    "head" :{
+        "title":"ApiDebug-Http接口调试插件"
+    },
+    "nav":{
+        "menu":"菜单1",
+        "login":"登录1",
+        "loginOut":"退出1",
+        "clearLocal":"清除本地数据1",
+        "jsonTool":"Json工具1",
+        "newTab":"打开新页面1",
+        "newInterface":"新建接口1",
+        "sync":"同步数据1"
+    },
+    "left":{
+        "module":"模块1",
+        "history":"历史记录1"
+    },
+    "right":{
+        "interfaceName":"请输入接口名1",
+        "interfaceUrl":"请输入接口地址1",
+        "send":"发送请求1",
+        "save":"保存1",
+        "saveAs":"另存为1",
+        "header":"请求头1",
+        "param":"请求参数1",
+        "batchEdit":"批量编辑1",
+        "singleEdit":"单个编辑1"
+    }
+}

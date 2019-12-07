@@ -4,6 +4,7 @@ $(function(){
     //openMyDialog("title",500);
     var pageName = getValue("id-page-name")
     if (pageName == "debug"){
+        i18nInit();
         refreshSyncIco(-1);
         getLoginInfoDAO(drawLoginInfoDAO);
         // getAdvertisement();
@@ -312,12 +313,12 @@ $(function(){
             leftEnlarge = true;
             $("#left").css("width","18%");
             $("#right").css("width","82%");
-            $("#left-enlarge div").html("<i class='iconfont'>&#xe6a7;</i>");
+            $("#left-enlarge i").html("&#xe6a7;");
         }else{
             leftEnlarge = false;
             $("#left").css("width","0%");
             $("#right").css("width","100%");
-            $("#left-enlarge div").html("<i class='iconfont'>&#xe697;</i>");
+            $("#left-enlarge i").html("&#xe697;");
         }
 
     });

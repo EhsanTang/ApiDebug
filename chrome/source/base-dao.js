@@ -45,3 +45,19 @@ function drawLogoutDAO(response) {
         hiddenDiv(ID_LOGOUT);
     }
 }
+
+
+function i18nInit() {
+    $.i18n.init({
+        lng : 'zh', //指定语言
+        resGetPath : 'source/locales/__lng__/__ns__.json',
+        lngWhitelist:['zh', 'en'],
+        preload:['zh', 'en'],
+        ns: {
+            namespaces: ['translation'],
+            defaultNs: 'translation'   //默认使用的，不指定namespace时
+        }
+    },function(err, t){
+        $('[data-i18n]').i18n(); // 通过选择器集体翻译
+    });
+}
