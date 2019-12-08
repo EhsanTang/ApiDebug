@@ -90,7 +90,7 @@
 			<div class="w h mt10 rel">
 				<!--接口标题-->
 				<div class="mt10 ml10 bl3 f14 pl10 tl pr10">
-					<input type="text" class="form-control b0 r2 p3 h27 f14 color-main BGFFF p15" id="interface-name" autocomplete="off" data-i18n="[placeholder]right.interfaceName"/>
+					<input type="text" class="form-control b0 r2 p3 h27 f14 color-main BGFFF p15" id="interface-name" autocomplete="off" data-i18n="[placeholder]interfaceNameTip"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="interface-id" value="-1"/>
 					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="module-id" value="-1"/>
 				</div>
@@ -183,7 +183,8 @@
 							<input type="radio" name="param-type" checked  id="param-type-value"  value="application/x-www-form-urlencoded;charset=UTF-8"> x-www-form-urlencoded;charset=UTF-8&nbsp;&nbsp;&nbsp;
 						</div>
 						<div class="fl">
-							<input type="radio" name="param-type" crap-data="customer" id="customer-type-value" value="application/json"> 自定义格式&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="param-type" crap-data="customer" id="customer-type-value" value="application/json">
+							<span data-i18n="right.custom">自定义格式</span>&nbsp;&nbsp;&nbsp;
 						</div>
 						<select class="form-control none w150 fl table-input" id="customer-type">
 							<option value="application/json">application/json</option>
@@ -237,9 +238,9 @@
 				<!--response-title-->
                 <div class="bb1 h30 mt10 shadow-b pl10 C555 mb10">
                     <div class="mt10 f14 tl w">
-						<div class="response-title menu-title bb2" data-stage="response-body">响应主体</div>
-						<div class="response-title menu-title" data-stage="response-header">响应头</div>
-						<div class="response-title menu-title" data-stage="response-cookie">Cookie</div>
+						<div class="response-title menu-title bb2" data-stage="response-body" data-i18n="right.responseBody">响应主体</div>
+						<div class="response-title menu-title" data-stage="response-header" data-i18n="right.responseHeader">响应头</div>
+						<div class="response-title menu-title" data-stage="response-cookie" data-i18n="right.responseCookie">Cookie</div>
 						<div class="cb"></div>
 					</div>
                 </div>
@@ -247,20 +248,22 @@
 				<!--response-menu-->
 				<div class="response-body p10 pb0 pt0">
 					<div class="btn-group" role="group">
-						<button type="button" class="response-menu btn btn-default btn-xs" id="format-row">原始返回</button>
-						<button type="button" class="response-menu btn btn-default btn-xs" id="format-pretty">格式化</button>
+						<button type="button" class="response-menu btn btn-default btn-xs" id="format-row" data-i18n="json.row">原始返回</button>
+						<button type="button" class="response-menu btn btn-default btn-xs" id="format-pretty" data-i18n="json.pretty">格式化</button>
 					</div>
-					&nbsp;&nbsp;&nbsp;&nbsp;Json工具:
+					&nbsp;&nbsp;&nbsp;&nbsp;Json:
 					<div class="btn-group" role="group">
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" id="json-expand" crap-data-name="expand" crap-data-value="1">全部展开</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="1">展开一级</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="2">展开二级</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="3">展开三级</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="4">展开四级</button>
-						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="nl2br" crap-data-value="true">自动换行</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" id="json-expand" crap-data-name="expand" crap-data-value="1" data-i18n="json.expand">全部展开</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="1" data-i18n="json.collapseOne">展开一级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="2" data-i18n="json.collapseTwo">展开二级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="3" data-i18n="json.collapseThree">展开三级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="collapse" crap-data-value="4" data-i18n="json.collapseFour">展开四级</button>
+						<button type="button" class="response-menu response-json btn btn-default btn-xs" crap-data-name="nl2br" crap-data-value="true" data-i18n="json.nl2br">自动换行</button>
 					</div>
 
-					<a class="btn btn-default btn-xs" target="_blank" href="http://api.crap.cn/static/help/155037909955501000049.html"><i class="iconfont">&#xe6a3; 帮助文档</i></a>
+					<a class="btn btn-default btn-xs" target="_blank" href="http://api.crap.cn/static/help/155037909955501000049.html">
+						<i class="iconfont mr5">&#xe6a3; </i><span data-i18n="help">帮助文档</span>
+					</a>
 				</div>
 				<!--response-menu:end-->
 
@@ -272,9 +275,15 @@
 
 						<!--pretty-->
 						<div id="response-pretty" class="b1 r5 p10 BGFFF min-h400">
-							<div class="tc mt100 C999"><i class="iconfont">&#xe634;</i>请点击发送请求按钮测试接口</div>
+							<div class="tc mt100 C999">
+								<i class="iconfont mr5 f16">&#xe634;</i>
+								<span data-i18n="response.responseTip">请点击发送请求按钮测试接口</span>
+							</div>
 							<div class="tc C999">
-								<a class="cursor C999" target="_blank" href="http://api.crap.cn/static/help/155037970568801000060.html"><i class="iconfont">&#xe6a3;</i> 点击查看帮助文档 ~</a>
+								<a class="cursor C999" target="_blank" href="http://api.crap.cn/static/help/155037970568801000060.html">
+									<i class="iconfont mr5">&#xe6a3;</i>
+									<span data-i18n="response.responseHelp">点击查看帮助文档 ~</span>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -292,11 +301,8 @@
 						<table class="table">
 
 						</table>
-
 					</div>
-
                 </div>
-
 			</div>
 		</div>
 	</div>
@@ -312,15 +318,16 @@
 	</div>
 	<div class="tip-div" id="tip-div"></div>
 	<div id="fade" class="folat"></div>
+
 	<div id="dialog" class="look-up shadow">
 		<div id="dialog-title" class="CFFF f16 shadow dialog-title">
 		</div>
 		<div id="dialog-content" class="look-up-content b0 f12 tl p30 BGFFF C555">
 			<table class="table table-bordered">
 				<tr>
-					<td>接口名</td>
+					<td data-i18n="interfaceName">接口名</td>
 					<td>
-						<input class="form-control" id="save-interface-name" placeholder="请输入接口名称"/>
+						<input class="form-control" id="save-interface-name" data-i18n="[placeholder]interfaceNameTip"/>
 					</td>
 				</tr>
 				<tr>
