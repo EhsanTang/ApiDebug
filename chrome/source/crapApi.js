@@ -1,10 +1,10 @@
 $(function(){
+    i18nInit();
     getLocalModules();
     //getHistorys();
     //openMyDialog("title",500);
     var pageName = getValue("id-page-name")
     if (pageName == "debug"){
-        i18nInit();
         refreshSyncIco(-1);
         getLoginInfoDAO(drawLoginInfoDAO);
         // getAdvertisement();

@@ -10,15 +10,20 @@
     "save":"保存1",
     "saveAs":"另存为1",
     "renameModule":"重命名模块",
+    "interfaceDebug":"接口调试1",
+    "jsonTool":"Json工具1",
+    "officialWebsite":"官网1",
+    "setting":"系统设置1",
+    "login":"登录1",
+    "loginAndIco":"登陆 →1",
+    "registerAndIco":"登陆 →1",
     "head" :{
-        "title":"ApiDebug-Http接口调试插件"
+        "title":"Crap | Http接口调试插件"
     },
     "nav":{
         "menu":"菜单1",
-        "login":"登录1",
         "loginOut":"退出1",
         "clearLocal":"清除本地数据1",
-        "jsonTool":"Json工具1",
         "newTab":"打开新页面1",
         "newInterface":"新建接口1",
         "sync":"同步数据1"
