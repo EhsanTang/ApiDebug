@@ -66,7 +66,7 @@
             <div class="bb1 h40 mt40 f12 C555 pt10">
 				<div class="bb2 fl w-50 tc h30 cursor" id="modules-title" title="Module">
 					<i class="iconfont">&#xe615;</i>&nbsp;&nbsp;
-					<span data-i18n="left.module">模块</span>
+					<span data-i18n="module">模块</span>
 				</div>
 				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">
 					<i class="iconfont">&#xe6bb;</i>&nbsp;&nbsp;
@@ -117,7 +117,7 @@
 							</td>
 							<td class="tr w100">
 								<div class="btn-group w">
-								  <button type="button" class="btn btn-adorn f12" id="save-interface" data-i18n="right.save">
+								  <button type="button" class="btn btn-adorn f12" id="save-interface" data-i18n="save">
 									  保存
 								  </button>
 								  <button type="button" class="btn btn-adorn dropdown-toggle f12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -125,7 +125,7 @@
 									<span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu min-w80">
-									<li><a id="save-as-interface" class="pl10 pr10 cursor f12" data-i18n="right.saveAs">另存为</a></li>
+									<li><a id="save-as-interface" class="pl10 pr10 cursor f12" data-i18n="saveAs">另存为</a></li>
 									<!--<li><a href="#" class="pl10 pr10">Another</a></li>
 									<li><a href="#" class="pl10 pr10">Something</a></li>
 									<li role="separator" class="divider pl10 pr10"></li>
@@ -298,9 +298,7 @@
 
 					<!--cookie-->
 					<div class="response-cookie b1 r5 p10 min-h400 none BGFFF">
-						<table class="table">
-
-						</table>
+						<table class="table"></table>
 					</div>
                 </div>
 			</div>
@@ -331,44 +329,44 @@
 					</td>
 				</tr>
 				<tr>
-					<td>模块名</td>
+					<td data-i18n="moduleName">模块</td>
 					<td>
-						保存到已有的模块（已有模块与新模块名二选一）
+						<span data-i18n="saveModuleTip">保存到已有的模块（已有模块与新模块名二选一）</span>
 						<select class="form-control" id="save-module-id">
 
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<td>模块名</td>
+					<td data-i18n="moduleName">模块名</td>
 					<td>
-						创建新的模块（已有模块与新模块名二选一）
-						<input class="form-control" id="save-module-name" placeholder="请输入模块名"/>
+						<span data-i18n="newModuleTip">创建新的模块（已有模块与新模块名二选一）</span>
+						<input class="form-control" id="save-module-name" data-i18n="[placeholder]moduleNameTip"/>
 					</td>
 				</tr>
 
 			</table>
-			<button type="button" class="btn btn-main fr" id="save-interface-submit">保存</button>
+			<button type="button" class="btn btn-main fr" id="save-interface-submit" data-i18n="save">保存</button>
 
 		</div>
 		<i class="iconfont i-close CFFF fb f16 close-dialog" crap-data="dialog">&#xe69a;</i>
 	</div>
 	<div id="dialog2" class="look-up shadow">
-		<div class="CFFF f16 shadow" style="line-height:40px;padding-left:20px; height:40px; background-color:#233050;">
+		<div class="CFFF f16 shadow" style="line-height:40px;padding-left:20px; height:40px; background-color:#233050;" data-i18n="renameModule">
 			Rename module
 		</div>
 		<div class="look-up-content b0 f12 tl p30 BGFFF C555">
 			<table class="table table-bordered">
 				<tr>
-					<td>Module Name</td>
+					<td data-i18n="moduleName">Module Name</td>
 					<td>
 						<input class="form-control" id="rename-module-id" type="hidden"/>
-						<input class="form-control" id="rename-module-name" placeholder="Click input module name"/>
+						<input class="form-control" id="rename-module-name" data-i18n="[placeholder]moduleNameTip"/>
 					</td>
 				</tr>
 
 			</table>
-			<button type="button" class="btn btn-main fr" id="save-module-submit">Save</button>
+			<button type="button" class="btn btn-main fr" id="save-module-submit" data-i18n="save">Save</button>
 
 		</div>
 		<i class="iconfont i-close CFFF fb f16 close-dialog" crap-data="dialog2">&#xe69a;</i>
