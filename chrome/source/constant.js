@@ -15,6 +15,7 @@ var l_responseNotJsonTip = "l_responseNotJsonTip";
 
 
 /***********js 提示，必须以l_开头：表示language **********/
+var defLanguage = "en"
 var _en = "_en"
 var l_logoutSuccessTip = "l_logoutSuccessTip";
 var l_successTip = "l_successTip"
