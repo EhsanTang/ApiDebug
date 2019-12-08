@@ -13,7 +13,7 @@
     "interfaceDebug":"接口调试",
     "jsonTool":"Json工具",
     "officialWebsite":"官网",
-    "setting":"系统设置",
+    "setting":"系统设置(Setting)",
     "login":"登录",
     "loginAndIco":"登陆 →",
     "registerAndIco":"登陆 →",
@@ -61,7 +61,7 @@
         "responseHelp":"点击查看帮助文档 ~"
     },
     "set":{
-        "language":"插件语言",
+        "language":"插件语言(Language)",
         "serviceUrl":"远程服务地址",
         "timeout":"网络请求超时时间",
         "inputServiceUrlTip":"如已私有部署CRAP接口管理系统，请输入远程服务器地址",

@@ -13,7 +13,7 @@
     "interfaceDebug":"Debug Interface",
     "jsonTool":"Json Tool",
     "officialWebsite":"Official Website",
-    "setting":"Setting",
+    "setting":"Setting (系统设置)",
     "login":"Login",
     "loginAndIco":"Login →",
     "registerAndIco":"Register →",
@@ -61,7 +61,7 @@
         "responseHelp":"Click this to get help"
     },
     "set":{
-        "language":"Plug Language",
+        "language":"Plug Language(语言)",
         "serviceUrl":"Remote Service Url",
         "timeout":"Http Timeout",
         "inputServiceUrlTip":"Please input remote service website url",
