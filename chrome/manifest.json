@@ -1,6 +1,6 @@
 ﻿{
   "manifest_version": 2,
-  "name": "Postwoman-Http调试插件",
+  "name": "Postwoman-Http调试",
   "version": "1.0.10",
   "description": "开源API接口调试工具，支持Restful接口、http、https接口调试、POST模拟，支持PUT、DELETE接口调试。支持切换语言，支持云端备份，相较于postman，Postwoman更符合中国用户习惯。",
   "author": "ihsantang@163.com",
