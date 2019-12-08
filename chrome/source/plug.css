@@ -20,6 +20,9 @@ input{
 .color-main {
     color: #4e61d4;
 }
+.color-adorn {
+    color: #ff4530;
+}
 .bg-main {
     background-color: #5e71e4!important;
     color: #ffffff!important;

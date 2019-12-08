@@ -17,6 +17,7 @@
     "login":"登录1",
     "loginAndIco":"登陆 →1",
     "registerAndIco":"登陆 →1",
+    "inputJsonTip":"请输入待格式化的Json数据，然后点击上方菜单栏格式化数据；\n如需修改原数据，请切换到原始数据菜单后再修改;",
     "head" :{
         "title":"Crap | Http接口调试插件"
     },
@@ -44,7 +45,7 @@
         "responseHeader":"响应头1"
     },
     "json":{
-        "row":"原始返回1",
+        "row":"原始数据1",
         "pretty":"格式化1",
         "expand":"全部展开1",
         "collapseOne":"展开一级1",
