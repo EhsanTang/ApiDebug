@@ -277,6 +277,9 @@ no-radius{-moz-border-radius: 0px!important;-webkit-border-radius:  0px!importan
 }
 .shadow{box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);}
 .shadow-b{box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);}
+.shadow-3 { box-shadow: 0 0 3px rgba(0,0,0,0.1);  }
+
+
 
 .trans{
 	content: '';

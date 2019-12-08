@@ -10,6 +10,12 @@ function setSetting(name, value, _this){
     }
 
     localStorage[name] = value;
+    _this.addClass("btn-adorn")
+
+    if (name == SETTING_LANGUAGE){
+        _this.text("修改成功，刷新页面后生效!");
+        return;
+    }
     _this.text("修改成功!");
 }
 

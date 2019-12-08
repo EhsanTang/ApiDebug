@@ -25,53 +25,46 @@
 			<span data-i18n="interfaceDebug">调试接口</span></a>
 	</div>
 				
+	<div class="w min-w900 p50 pt60">
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="shadow-3 p20">
+					<div class="bl3 pl10 f16" data-i18n="set.serviceUrl"></div>
+					<input id="crap-web-site-url" class="form-control w h BGFFF mt20" data-i18n="[placeholder]set.inputServiceUrlTip"/>
+					<div class="C999 mt10"  data-i18n="set.defServiceUrlTip">默认服务器地址 — http://api.crap.cn</div>
+					<button class="btn btn-main btn-sm fr mt10 submitSetting w" crap-data-name="crap-web-site-url" data-i18n="submit">提交</button>
+					<div class="cb"></div>
+				</div>
+			</div>
 
-	<div class="w min-w900 response-body p10 pb0 p50 pt60">
-		<table class="w table table-striped">
-			<tr>
-				<td class="w150 tc" data-i18n="set.serviceUrl"></td>
-				<td>
-					<input id="crap-web-site-url" class="form-control w h BGFFF" rows="5" data-i18n="[placeholder]set.inputServiceUrlTip"/>
-					<div class="fr C999"  data-i18n="set.defServiceUrlTip">默认服务器地址 — http://api.crap.cn</div><br>
-					<button class="btn btn-adorn btn-sm fr mt10 submitSetting" crap-data-name="crap-web-site-url" data-i18n="submit">提交</button>
-				</td>
+			<div class="col-xs-3">
+				<div class="shadow-3 p20">
+					<div class="bl3 pl10 f16" data-i18n="set.timeout"></div>
+					<input id="crap-http-timeout" class="form-control w h BGFFF mt20" type="number" data-i18n="[placeholder]set.inputTimeoutTip"/>
+					<div class="C999 mt10"  data-i18n="set.defTimeoutTip">默认接口调试超时时间 — 10000(毫秒)</div>
+					<button class="btn btn-main btn-sm fr mt10 submitSetting w" crap-data-name="crap-http-timeout" data-i18n="submit">提交</button>
+					<div class="cb"></div>
+				</div>
+			</div>
 
-			</tr>
-
-			<tr>
-				<td class="w150 tc" data-i18n="set.timeout"></td>
-				<td>
-					<input id="crap-http-timeout" class="form-control w h BGFFF" rows="5" type="number" data-i18n="[placeholder]set.inputTimeoutTip" />
-					<div class="fr C999" data-i18n="set.defTimeoutTip">默认接口调试超时时间 — 10000(毫秒)</div><br>
-					<button class="btn btn-adorn btn-sm fr mt10 submitSetting" crap-data-name="crap-http-timeout" data-i18n="submit">提交</button>
-				</td>
-
-			</tr>
-
-			<tr>
-				<td class="w150 tc" data-i18n="set.language"></td>
-				<td>
-					<select class="form-control" id="crap-setting-language">
+			<div class="col-xs-3">
+				<div class="shadow-3 p20">
+					<div class="bl3 pl10 f16" data-i18n="set.language"></div>
+					<select class="form-control mt20" id="crap-setting-language">
 						<option value="zh">简体中文</option>
 						<option value="en">English</option>
 					</select>
-					<button class="btn btn-adorn btn-sm fr mt10 submitSetting" crap-data-name="crap-setting-language" data-i18n="submit">提交</button>
-				</td>
+					<button class="btn btn-main btn-sm fr mt10 submitSetting w" crap-data-name="crap-setting-language" data-i18n="submit">提交</button>
+					<div class="cb"></div>
+				</div>
+			</div>
 
-			</tr>
+			<!--<div class="col-xs-3">
+				<div class="shadow-3 p20"></div>
+				<div class="cb"></div>
+			</div>-->
 
-		</table>
-			<!--row-->
-
-
-
-	</div>
-
-	<div class="w min-w900 response-body p10 pb0 pt50">
-		<!--row-->
-
-
-
+		</div>
 	</div>
 
 

@@ -1,72 +1,72 @@
 {
-    "help":"帮助文档1",
-    "interfaceName":"接口名1",
-    "interfaceNameTip":"请输入接口名1",
-    "moduleNameTip":"请输入模块名1",
-    "module":"模块1",
-    "moduleName":"模块名1",
-    "saveModuleTip":"保存到已有的模块（已有模块与新模块名二选一）1",
-    "newModuleTip":"创建新的模块（已有模块与新模块名二选一）1",
+    "help":"Help Doc",
+    "interfaceName":"Interface Name",
+    "interfaceNameTip":"Please input interface name",
+    "moduleNameTip":"Please input module name",
+    "module":"Module",
+    "moduleName":"Module Name",
+    "saveModuleTip":"Save to exist module/folder",
+    "newModuleTip":"Or create new module/folder",
     "save":"Save",
-    "saveAs":"另存为1",
-    "renameModule":"重命名模块",
-    "interfaceDebug":"接口调试1",
-    "jsonTool":"Json工具1",
-    "officialWebsite":"官网1",
-    "setting":"系统设置1",
-    "login":"登录1",
-    "loginAndIco":"登陆 →1",
-    "registerAndIco":"登陆 →1",
-    "inputJsonTip":"请输入待格式化的Json数据，然后点击上方菜单栏格式化数据；\n如需修改原数据，请切换到原始数据菜单后再修改;",
+    "saveAs":"Save As",
+    "renameModule":"Rename Module",
+    "interfaceDebug":"Debug Interface",
+    "jsonTool":"Json Tool",
+    "officialWebsite":"Official Website",
+    "setting":"Setting",
+    "login":"Login",
+    "loginAndIco":"Login →",
+    "registerAndIco":"Register →",
+    "inputJsonTip":"Please input json",
     "submit":"Submit",
     "head" :{
-        "title":"ApiDebug-Http Test Plug"
+        "title":"Crap | Http Test Plug"
     },
     "nav":{
-        "menu":"菜单1",
-        "loginOut":"退出1",
-        "clearLocal":"清除本地数据1",
-        "newTab":"打开新页面1",
-        "newInterface":"新建接口1",
-        "sync":"同步数据1"
+        "menu":"Left Menu",
+        "loginOut":"Logout",
+        "clearLocal":"Clear Local Data",
+        "newTab":"New Tab",
+        "newInterface":"New Interface",
+        "sync":"Sync Data"
     },
     "left":{
-        "history":"历史记录1"
+        "history":"History"
     },
     "right":{
-        "interfaceUrl":"请输入接口地址1",
-        "send":"发送1",
-        "header":"请求头1",
-        "param":"请求参数1",
-        "batchEdit":"批量编辑1",
-        "singleEdit":"单个编辑1",
-        "custom":"自定义格式1",
-        "responseBody":"响应主体1",
-        "responseCookie":"Cookie1",
-        "responseHeader":"响应头1"
+        "interfaceUrl":"Please input interface url",
+        "send":"Send",
+        "header":"Header",
+        "param":"Param",
+        "batchEdit":"Batch Edit",
+        "singleEdit":"Single Edit",
+        "custom":"Custom",
+        "responseBody":"Response Body",
+        "responseCookie":"Response Cookie",
+        "responseHeader":"Response Header"
     },
     "json":{
-        "row":"原始数据1",
-        "pretty":"格式化1",
-        "expand":"全部展开1",
-        "collapseOne":"展开一级1",
-        "collapseTwo":"展开二级1",
-        "collapseThree":"展开三级1",
-        "collapseFour":"展开四级1",
-        "nl2br":"自动换行1",
-        "help":"帮助文档1"
+        "row":"Row",
+        "pretty":"Pretty",
+        "expand":"Expand",
+        "collapseOne":"Collapse One Level",
+        "collapseTwo":"Collapse Two Level",
+        "collapseThree":"Collapse Three Level",
+        "collapseFour":"Collapse Four Level",
+        "nl2br":"Nl2br",
+        "help":"Help Doc"
     },
     "response":{
-        "responseTip":"请点击【发送】按钮测试接口1",
-        "responseHelp":"点击查看帮助文档 ~1"
+        "responseTip":"Hit the [Send] button to get a response",
+        "responseHelp":"Click this to get help"
     },
     "set":{
         "language":"Plug Language",
-        "serviceUrl":"远程服务地址1",
-        "timeout":"网络请求超时时间1",
-        "inputServiceUrlTip":"如已私有部署CRAP接口管理系统，请输入远程服务器地址1",
-        "defServiceUrlTip":"默认服务器地址 : http://api.crap.cn1",
-        "inputTimeoutTip":"请输入接口调试超时时间 (单位：毫秒)1",
-        "defTimeoutTip":"默认接口调试超时时间 : 10000(毫秒)1"
+        "serviceUrl":"Remote Service Url",
+        "timeout":"Http Timeout",
+        "inputServiceUrlTip":"Please input remote service website url",
+        "defServiceUrlTip":"Default Service Url : http://api.crap.cn",
+        "inputTimeoutTip":"Please input http timeout (ms)",
+        "defTimeoutTip":"Default timeout — 10000(ms)"
     }
 }

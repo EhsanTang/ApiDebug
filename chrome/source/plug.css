@@ -40,26 +40,26 @@ input{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-.btn-menu:hover {
-    background: #ff4530;
-    color: #ffffff;
+.btn-menu:hover, .btn-menu:focus {
+    background: #ff4530!important;
+    color: #ffffff!important;
     font-weight:300;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 .btn-adorn {
-    border: 1px solid #ff4530;
-    background-color: #ff4530;
-    color: #ffffff;
+    border: 1px solid #ff4530!important;
+    background-color: #ff4530!important;
+    color: #ffffff!important;
     -webkit-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-.btn-main:hover {
-    border: 1px solid #ff4530;
-    background: #ff4530;
-    color: #ffffff;
+.btn-adorn:hover, .btn-main:focus {
+    border: 1px solid #ff4530!important;
+    background: #ff4530!important;
+    color: #ffffff!important;
     opacity: 0.8;
 }
 .btn-main {
@@ -70,7 +70,7 @@ input{
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-.btn-main:hover {
+.btn-main:hover, .btn-main:focus{
     border: 1px solid #4e61d4;
     background: #4e61d4;
     color: #ffffff;
