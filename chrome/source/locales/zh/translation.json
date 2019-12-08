@@ -18,6 +18,7 @@
     "loginAndIco":"登陆 →1",
     "registerAndIco":"登陆 →1",
     "inputJsonTip":"请输入待格式化的Json数据，然后点击上方菜单栏格式化数据；\n如需修改原数据，请切换到原始数据菜单后再修改;",
+    "submit":"提交1",
     "head" :{
         "title":"Crap | Http接口调试插件"
     },
@@ -58,5 +59,14 @@
     "response":{
         "responseTip":"请点击【发送】按钮测试接口1",
         "responseHelp":"点击查看帮助文档 ~1"
+    },
+    "set":{
+        "language":"插件语言1",
+        "serviceUrl":"远程服务地址1",
+        "timeout":"网络请求超时时间1",
+        "inputServiceUrlTip":"如已私有部署CRAP接口管理系统，请输入远程服务器地址1",
+        "defServiceUrlTip":"默认服务器地址 : http://api.crap.cn1",
+        "inputTimeoutTip":"请输入接口调试超时时间 (单位：毫秒)1",
+        "defTimeoutTip":"默认接口调试超时时间 : 10000(毫秒)1"
     }
 }

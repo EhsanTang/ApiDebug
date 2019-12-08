@@ -9,8 +9,9 @@ $(function(){
         getLoginInfoDAO(drawLoginInfoDAO);
         // getAdvertisement();
     } else if (pageName == "setting"){
-        $("#website-url").val(getWebSiteUrl());
-        $("#http-timeout").val(getHttpTimeout());
+        $("#" + WEB_SITE_URL).val(getWebSiteUrl());
+        $("#" + WEB_HTTP_TIMEOUT).val(getHttpTimeout());
+        $("#" + SETTING_LANGUAGE).val(getLanguage());
     }
 
     $("#synch").click(function(){
@@ -331,12 +332,13 @@ $(function(){
     $("#set-web-site").click(function(){
         window.open("setting.html")
     });
-    $("#set-website-button").click(function(){
-        setWebSiteUrl($("#website-url").val());
+
+    $(".submitSetting").click(function(event){
+        var _this=$(event.target);
+        var name = _this.attr('crap-data-name');
+        setSetting(name,$("#" + name).val(), _this);
     });
-    $("#http-timeout-button").click(function(){
-        setHttpTimeout($("#http-timeout").val());
-    });
+
     $("#login-button").click(function(){
         window.open(getWebSiteUrl() + "/loginOrRegister.do#/login");
     });

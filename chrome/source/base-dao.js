@@ -46,10 +46,42 @@ function drawLogoutDAO(response) {
     }
 }
 
+/**********系统设置**************/
+function getHttpTimeout(){
+    try {
+        var httpTimeout = localStorage[WEB_HTTP_TIMEOUT];
+        httpTimeout = parseFloat(httpTimeout);
+        if (httpTimeout && httpTimeout != null && httpTimeout.toString() != "NaN" && httpTimeout > 1000) {
+            return httpTimeout;
+        } else {
+            return 10000;
+        }
+    }catch(e){
+        return 10000;
+    }
+}
+function getWebSiteUrl(){
+    var webSiteUrl = localStorage[WEB_SITE_URL];
+    if (webSiteUrl && webSiteUrl != null && webSiteUrl != ''){
+        return webSiteUrl;
+    }else{
+        return "http://api.crap.cn";
+    }
+}
+
+function getLanguage(){
+    var language = localStorage[SETTING_LANGUAGE];
+    if (language && language != null &&  $.inArray(language, SUPPORT_LANGUAGE) != -1){
+        return language;
+    }else{
+        return "zh";
+    }
+}
+
 
 function i18nInit() {
     $.i18n.init({
-        lng : 'zh', //指定语言
+        lng : getLanguage(), //指定语言
         resGetPath : 'source/locales/__lng__/__ns__.json',
         lngWhitelist:['zh', 'en'],
         preload:['zh', 'en'],

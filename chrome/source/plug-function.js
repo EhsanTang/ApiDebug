@@ -1,46 +1,27 @@
 /***************** 系统设置 *****************/
-function getHttpTimeout(){
-    try {
-        var httpTimeout = localStorage[WEB_HTTP_TIMEOUT];
-        httpTimeout = parseFloat(httpTimeout);
-        if (httpTimeout && httpTimeout != null && httpTimeout.toString() != "NaN" && httpTimeout > 1000) {
-            return httpTimeout;
-        } else {
-            return 10000;
+function setSetting(name, value, _this){
+    // 超时时间校验
+    if (name == WEB_HTTP_TIMEOUT){
+        var httpTimeout = parseFloat(value);
+        if (httpTimeout.toString() == "NaN" || httpTimeout < 1000) {
+            _this.text("异常! 超时时间必须是数字，且必须大于1000!");
+            return;
         }
-    }catch(e){
-        return 10000;
     }
-}
-function setHttpTimeout(httpTimeout){
-    httpTimeout = parseFloat(httpTimeout);
-    if (httpTimeout.toString() == "NaN" || httpTimeout < 1000) {
-        $("#http-timeout-button").text("异常! 超时时间必须是数字，且必须大于1000!");
-        return;
-    }
-    localStorage[WEB_HTTP_TIMEOUT] = httpTimeout;
-    $("#http-timeout-button").text("修改接口超时时间成功!");
+
+    localStorage[name] = value;
+    _this.text("修改成功!");
 }
 
-function getWebSiteUrl(){
-    var webSiteUrl = localStorage[WEB_SITE_URL];
-    if (webSiteUrl && webSiteUrl != null && webSiteUrl != ''){
-        return webSiteUrl;
-    }else{
-        return "http://api.crap.cn";
-    }
-}
-function setWebSiteUrl(url){
-    localStorage[WEB_SITE_URL] = url;
-    $("#set-website-button").text("修改服务器地址成功!");
-}
 
 function clearLocalStorage() {
     var webSiteUrl = getWebSiteUrl();
     var httpTimeout = getHttpTimeout();
+    var language = getLanguage();
     localStorage.clear();
-    setWebSiteUrl(webSiteUrl)
-    setHttpTimeout(httpTimeout)
+    localStorage[WEB_HTTP_TIMEOUT] = httpTimeout;
+    localStorage[SETTING_LANGUAGE] = language;
+    localStorage[WEB_SITE_URL] = webSiteUrl;
 }
 
 /************* 插件广告 ****************/
