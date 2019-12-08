@@ -38,7 +38,7 @@ $("#" + ID_LOGOUT).click(function(){
 });
 
 function drawLogoutDAO(response) {
-    alert("Logout success!",3,"success");
+    alert(getText(l_logoutSuccessTip),3,"success");
     if (response.success == 1){
         hiddenDiv(ID_USER_NAME);
         showDiv(ID_LOGIN);
@@ -78,6 +78,14 @@ function getLanguage(){
     }
 }
 
+function getText(name) {
+    if (getLanguage() == 'zh'){
+        var d =textObj[name];
+        return textObj[name];
+    } else {
+        return textObj[name + _en];
+    }
+}
 
 function i18nInit() {
     $.i18n.init({

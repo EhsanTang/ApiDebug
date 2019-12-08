@@ -4,7 +4,7 @@ function format(txt, tiperror){
         return JSON.stringify(txtObj, null, 5);
     }catch (e){
         if (tiperror){
-            alert("格式化异常，请检查json格式是否有误" + e);
+            alert(getText(l_formatErrorTip) + e);
         }
         return txt;
     }

@@ -4,7 +4,7 @@ function setSetting(name, value, _this){
     if (name == WEB_HTTP_TIMEOUT){
         var httpTimeout = parseFloat(value);
         if (httpTimeout.toString() == "NaN" || httpTimeout < 1000) {
-            _this.text("异常! 超时时间必须是数字，且必须大于1000!");
+            _this.text(getText(l_timeoutFormatErrorTip));
             return;
         }
     }
@@ -13,10 +13,10 @@ function setSetting(name, value, _this){
     _this.addClass("btn-adorn")
 
     if (name == SETTING_LANGUAGE){
-        _this.text("修改成功，刷新页面后生效!");
+        _this.text(getText(l_languageChangeTip));
         return;
     }
-    _this.text("修改成功!");
+    _this.text(getText(l_updateSuccessTip));
 }
 
 
@@ -115,11 +115,11 @@ function httpPost(url, myAsync, callBack, callBackParams){
                     callBack(responseJson, callBackParams);
                 }
             } else if (textStatus == "timeout") {
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"网络异常\",\"message\":\"timeout\"}}")
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"" + getText(l_netErrorTip) + "\",\"message\":\"timeout\"}}")
             }
 
             else {
-                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"未知异常\",\"message\":\"未知异常\"}}")
+                result = $.parseJSON("{\"success\":0,\"data\":null,\"error\":{\"code\":\"" + getText(l_unknownErrorTip) + "\",\"message\":\"" + getText(l_unknownErrorTip) +"\"}}")
             }
         }
     });
@@ -176,14 +176,14 @@ function formatJson(){
         rowData = $("#response-row").val();
     }
     if(rowData == ""){
-        alert("Please click [Send] button to get a response");
+        alert(getText(l_clickSendTip));
         return false;
     }
     try {
         $.parseJSON( rowData );
     } catch (e) {
         console.warn(e);
-        alert("Response data is not json");
+        alert(getText(l_responseNotJsonTip));
         return;
     }
     if( $("#response-row").hasClass("hidden") == false){
@@ -286,7 +286,7 @@ function getParams(){
 var originalResponseText = "";
 function callAjax() {
     if ($("#url").val().trim() == ''){
-        $("#response-row").val("Url can't be null!");
+        $("#response-row").val(getText(l_urlIsNullTip));
         $("#format-row").click();
         return;
     }
@@ -378,7 +378,7 @@ function callAjax() {
                     $("#format-row").click();
                 }
             }else{
-                $("#response-row").val("textStatus: " + textStatus +"\n\n There was an error connecting to " + url);
+                $("#response-row").val("textStatus: " + textStatus +"\n\n" + getText(l_connectingError) + url);
                 $("#format-row").click();
             }
             $("#float").fadeOut(300);
@@ -647,11 +647,11 @@ function saveInterfaceDetail(moduleId, paramType, id, name, method, url, params,
 // save interface and module
 function saveInterface(moduleId, saveAs) {
     if( handerStr($("#url").val()) == ""){
-        alert("接口地址不能为空");
+        alert(getText(l_urlIsNullTip));
         return false;
     }
     if( handerStr($("#save-interface-name").val()) == ""){
-        alert("接口名不能为空");
+        alert(getText(l_interfaceNameIsNullTip));
         return false;
     }
     // if moduleId is null,then create a new moduleId, but moduleNmae must be input
@@ -659,7 +659,7 @@ function saveInterface(moduleId, saveAs) {
         moduleId = "ffff-"+new Date().getTime() + "-" + random(10);
         var moduleName = $("#save-module-name").val();
         if( handerStr(moduleName) == ""){
-            alert("模块不能为空");
+            alert(getText(l_moduleNameIsNullTip));
             return;
         }
         // save module
@@ -716,13 +716,13 @@ function intitSaveInterfaceDialog(){
         console.warn(e);
     }
     $("#save-module-id").find("option").remove();
-    $("#save-module-id").append("<option value='-1'>--点击选择模块--</option>");
+    $("#save-module-id").append("<option value='-1'>--" + getText(l_selectModuleTip) + "--</option>");
     for(var i=0 ; i<modules.length; i++) {
         if(modules[i].status != -1) {
             $("#save-module-id").append("<option value='" + modules[i].moduleId + "'>" + modules[i].moduleName + "</option>");
         }
     }
-    openDialog("保存接口:" + $("#interface-name").val(),500);
+    openDialog(getText(l_saveInterface) + $("#interface-name").val(),500);
 }
 
 /****状态码转提示*************/
@@ -744,7 +744,7 @@ function openDialog(title,iwidth){
     $("#dialog-content").css("max-height",($(document).height()*0.8)+'px');
     showMessage('dialog','false',false,-1);
     showMessage('fade','false',false,-1);
-    title = title? title:"编辑";
+    title = title? title:getText(l_edit);
     $("#dialog-title").html(title);
 }
 function closeMyDialog(tagDiv){
@@ -784,7 +784,7 @@ function myConfirm(message){
     var result = window.confirm(message);
     var end = Date.now();
     if (end - begin < 10) {
-        alert("请勿禁用【确认】弹窗，直接操作非常危险!", 5, "error", 500);
+        alert(getText(l_closeAlertTip), 5, "error", 500);
         return true;
     }
     return result;
