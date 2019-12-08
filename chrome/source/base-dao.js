@@ -74,7 +74,7 @@ function getLanguage(){
     if (language && language != null &&  $.inArray(language, SUPPORT_LANGUAGE) != -1){
         return language;
     }else{
-        return "zh";
+        return defLanguage;
     }
 }
 
