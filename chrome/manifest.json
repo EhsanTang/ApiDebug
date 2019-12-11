@@ -1,9 +1,9 @@
 ﻿{
   "manifest_version": 2,
-  "name": "Postwoman - Http Test",
   "version": "1.0.15",
   "default_locale": "zh_CN",
-  "description": "A REST client for api test, http test, like postman.「开发助手，http接口调试，post调试，post模拟」",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
   "author":"ihsantang@163.com",
   "icons": {
     "64": "logo.png",
