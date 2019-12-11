@@ -1,7 +1,7 @@
 ﻿{
   "manifest_version": 2,
   "version": "1.0.15",
-  "default_locale": "zh_CN",
+  "default_locale": "en",
   "name": "__MSG_appName__",
   "description": "__MSG_appDesc__",
   "author":"ihsantang@163.com",
@@ -26,6 +26,6 @@
       "js":["source/jquery-1.9.1.min.js","source/content_scripts.js"]
     }
   ],"background": {
-  "page": "background.html"
-}
+    "page": "background.html"
+  }
 }
