@@ -1,1 +1,10 @@
-{}
+{
+  "appName": {
+    "message": "PostWoman 接口测试工具",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "This app does something awesome.", 
+    "description":"The description of the application, displayed in the web store."
+  }
+}
