@@ -1,4 +1,4 @@
-﻿{
+{
   "manifest_version": 2,
   "version": "1.0.15",
   "default_locale": "en",
@@ -11,7 +11,7 @@
   },
   "browser_action": {
     "default_icon": "logo.png",
-    "default_title": "CrapApi - EN",
+    "default_title": "__MSG_appName__",
     "default_popup": "index.html"
   },
   "permissions": [
