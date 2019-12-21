@@ -500,13 +500,19 @@ function getLocalModules(){
 								.replace(/ca_id/g,interfaces[j].id)
 								.replace(/ca_moduleId/g,interfaces[j].moduleId);
 								
-             if(interfaces[j].method == "GET"){
+             if (interfaces[j].method == "GET"){
                  interfaceText = interfaceText.replace("ca_methodIcon","&#xe645;");
                  interfaceText = interfaceText.replace("ca_method","GET");
-             }else{
+             } else if(interfaces[j].method == "PUT"){
                  interfaceText = interfaceText.replace("ca_methodIcon","&#xe6c4;");
-                 interfaceText = interfaceText.replace("ca_method","POST");
-             }
+                 interfaceText = interfaceText.replace("ca_method","PUT");
+             } else if(interfaces[j].method == "DELETE"){
+                 interfaceText = interfaceText.replace("ca_methodIcon","&#xe602;");
+                 interfaceText = interfaceText.replace("ca_method","DELETE");
+             }  else{
+                interfaceText = interfaceText.replace("ca_methodIcon","&#xe6c4;");
+                interfaceText = interfaceText.replace("ca_method","POST");
+            }
         }
         moduleText = moduleText.replace("ca_interfaces", interfaceText);
     }

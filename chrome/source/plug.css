@@ -23,6 +23,8 @@ input{
 }
 .GET{color:#99cc66;}
 .POST{color:#ff9933;}
+.DELETE{color:red;}
+.PUT{color:#16C2C2;}
 .color-main {
     color: #4e61d4;
 }

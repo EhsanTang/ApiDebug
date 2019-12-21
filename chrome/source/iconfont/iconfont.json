@@ -433,6 +433,13 @@
       "unicode_decimal": 59230
     },
     {
+      "icon_id": "1407308",
+      "name": "D",
+      "font_class": "letter-d-outline-copy",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "1418237",
       "name": "向下",
       "font_class": "xiangxia",
