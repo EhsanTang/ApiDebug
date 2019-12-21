@@ -70,17 +70,22 @@ function getWebSiteUrl(){
 }
 
 function getLanguage(){
-    var language = localStorage[SETTING_LANGUAGE];
-    if (language && language != null &&  $.inArray(language, SUPPORT_LANGUAGE) != -1){
-        return language;
-    }else{
-        return defLanguage;
+    try {
+        var language = localStorage[SETTING_LANGUAGE] || navigator.language;
+        if ($.inArray(language, SUPPORT_LANGUAGE_ZH) != -1){
+            return LANG_ZH_CN;
+        }
+        if ($.inArray(language, SUPPORT_LANGUAGE_EN) != -1){
+            return LANG_EN;
+        }
+        return LANG_ZH_CN;
+    } catch (e){
+        return LANG_ZH_CN;
     }
 }
 
 function getText(name) {
-    if (getLanguage() == 'zh'){
-        var d =textObj[name];
+    if (getLanguage() == LANG_ZH_CN){
         return textObj[name];
     } else {
         return textObj[name + _en];
@@ -91,8 +96,8 @@ function i18nInit() {
     $.i18n.init({
         lng : getLanguage(), //指定语言
         resGetPath : 'source/locales/__lng__/__ns__.json',
-        lngWhitelist:['zh', 'en'],
-        preload:['zh', 'en'],
+        lngWhitelist:[LANG_ZH_CN, LANG_EN],
+        preload:[LANG_ZH_CN, LANG_EN],
         ns: {
             namespaces: ['translation'],
             defaultNs: 'translation'   //默认使用的，不指定namespace时

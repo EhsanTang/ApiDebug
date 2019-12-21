@@ -7,16 +7,51 @@ var ADVERTISEMENT = "http://crap.cn/mock/trueExam.do?id=155030837878212000015&ca
 var INIT_URL = "/admin/init.do";
 var LOGOUT_URL = "/user/loginOut.do";
 
-var SUPPORT_LANGUAGE = ["zh", "en"];
+// zh-CN 华 -中国
+// zh-HK 华 - 香港的 SAR
+// zh-MO 华 - 澳门的 SAR
+// zh-SG 华 -新加坡
+// zh-TW 华 -台湾
+var LANG_ZH_CN = "zh-CN";
+var LANG_ZH_HK = "zh-HK";
+var LANG_ZH_MO = "zh-MO";
+var LANG_ZH_SG = "zh-SG";
+var LANG_ZH_TW = "zh-TW";
+
+// en 英国
+// en-AU 英国 -澳洲
+// en-BZ 英国 -伯利兹
+// en-CA 英国 -加拿大
+// en-CB 英国 -加勒比海
+// en-IE 英国 -爱尔兰
+// en-JM 英国 -牙买加
+// en-NZ 英国 - 新西兰
+// en-PH 英国 -菲律宾共和国
+// en-ZA 英国 - 南非
+// en-TT 英国 - 千里达托贝哥共和国
+// en-GB 英国 - 英国
+// en-US 英国 - 美国
+// en-ZW 英国 -津巴布韦
+
+var LANG_EN = "en";
+var LANG_EN_AU = "en-AU";
+var LANG_EN_CA = "en-CA";
+var LANG_EN_IE = "en-IE";
+var LANG_EN_NZ = "en-NZ";
+var LANG_EN_GB = "en-GB";
+var LANG_EN_US = "en-US";
+
+var SUPPORT_LANGUAGE_ZH = [LANG_ZH_CN, LANG_ZH_HK, LANG_ZH_MO, LANG_ZH_SG, LANG_ZH_TW];
+var SUPPORT_LANGUAGE_EN = [LANG_EN, LANG_EN_AU, LANG_EN_CA, LANG_EN_IE, LANG_EN_NZ, LANG_EN_GB, LANG_EN_US];
+
 var WEB_SITE_URL = "crap-web-site-url";
 var WEB_HTTP_TIMEOUT = "crap-http-timeout";
 var SETTING_LANGUAGE = "crap-setting-language";
-var l_responseNotJsonTip = "l_responseNotJsonTip";
 
 
 /***********js 提示，必须以l_开头：表示language **********/
-var defLanguage = "zh"
 var _en = "_en"
+var l_responseNotJsonTip = "l_responseNotJsonTip";
 var l_logoutSuccessTip = "l_logoutSuccessTip";
 var l_successTip = "l_successTip"
 var l_clearLocalData = "l_clearLocalData";
