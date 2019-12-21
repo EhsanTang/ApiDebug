@@ -135,7 +135,7 @@ paramsTr += "</tr>";
 var moduleDiv = "<div class='panel panel-info no-radius b0 mt0 left-menu-border-top'>";
 moduleDiv += "      <div class='panel-heading no-radius rel' data-parent='#modules'>";
 moduleDiv += "          <div class='cursor' data-toggle='collapse' data-parent='#modules' href='#panel_ca_moduleId' crap-data='ca_moduleId'>";
-moduleDiv += "              <i class='iconfont color-main f16'>&#xe615;</i>&nbsp;&nbsp;  ca_moduleName";
+moduleDiv += "              <i class='iconfont module-title-ico f16'>&#xe624;</i>&nbsp;&nbsp;  ca_moduleName";
 moduleDiv += "		        <span class='more'>";
 moduleDiv += "			        <i class='iconfont fr h lh40'>&#xe75f;</i>";
 moduleDiv += "			        <span class='t0 h'><i class='iconfont interface-menu rename-module mt0 lh40 fr'crap-data='ca_moduleId'>&#xe69e;</i></span>";
@@ -479,7 +479,10 @@ function getLocalModules(){
         }
         var moduleName =  modules[i].moduleName;
         var moduleId = modules[i].moduleId;
+
+        // 第一个文件夹默认打开
         moduleText += moduleDiv.replace(/ca_moduleId/g,moduleId).replace(/ca_moduleName/g,moduleName);
+
         var interfaces;
         try{
             interfaces = $.parseJSON( localStorage['crap-debug-interface-' + moduleId] );

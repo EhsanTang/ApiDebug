@@ -496,11 +496,11 @@
       "unicode_decimal": 59451
     },
     {
-      "icon_id": "2420041",
-      "name": "文件夹",
-      "font_class": "wenjianjia1",
-      "unicode": "e610",
-      "unicode_decimal": 58896
+      "icon_id": "2678643",
+      "name": "文件",
+      "font_class": "wenjian",
+      "unicode": "e662",
+      "unicode_decimal": 58978
     },
     {
       "icon_id": "2738785",
@@ -571,6 +571,13 @@
       "font_class": "chaosongwode",
       "unicode": "e666",
       "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "7120735",
+      "name": "文件夹 (1)",
+      "font_class": "wenjianjia2",
+      "unicode": "e624",
+      "unicode_decimal": 58916
     },
     {
       "icon_id": "7491483",

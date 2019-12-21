@@ -160,6 +160,15 @@ $(function(){
         });
     });
 
+    // 模块标题点击
+    $("#modules").on("click",".panel-heading", function(e) {
+        if ($(this).find("div").hasClass("collapsed")){
+            $(".module-title-ico").html("&#xe615;");
+            $(this).find(".module-title-ico").html("&#xe624;");
+        } else {
+            $(this).find(".module-title-ico").html("&#xe615;");
+        }
+    });
 
     $("#modules").on("click",".interface", function() {
         var urlInfo = $.parseJSON( $(this).attr("crap-data") );
