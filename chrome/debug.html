@@ -63,13 +63,13 @@
 		<!-- *****************************left************************************ -->
 		<div id="left" class="h m0 fl p0 shadow ofy-a" style="width:18%;">
             <!--接口请求头、参数等切换标签-->
-            <div class="bb1 h40 mt40 f12 C555 pt10">
-				<div class="bb2 fl w-50 tc h30 cursor" id="modules-title" title="Module">
-					<i class="iconfont">&#xe615;</i>&nbsp;&nbsp;
+            <div class="bb1 h45 mt40 f14 C555 pt5">
+				<div class="bb2 fl w-50 tc h40 lh40 cursor" id="modules-title" title="Module">
+					<i class="iconfont f16">&#xe615;</i>&nbsp;&nbsp;
 					<span data-i18n="module">模块</span>
 				</div>
-				<div class="fl w-50 tc h30 cursor" id="historys-title" title="History">
-					<i class="iconfont">&#xe6bb;</i>&nbsp;&nbsp;
+				<div class="fl w-50 tc h40 lh40 cursor" id="historys-title" title="History">
+					<i class="iconfont f16">&#xe6bb;</i>&nbsp;&nbsp;
 					<span data-i18n="left.history">历史记录</span>
 				</div>
             </div>
@@ -88,18 +88,38 @@
 
 			<!--参数、头、相应结果-->
 			<div class="w h mt10 rel">
-				<!--接口标题-->
-				<div class="mt10 ml10 bl3 f14 pl10 tl pr10">
-					<input type="text" class="form-control b0 r2 p3 h27 f14 color-main BGFFF p15" id="interface-name" autocomplete="off" data-i18n="[placeholder]interfaceNameTip"/>
-					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="interface-id" value="-1"/>
-					<input type="hidden" class="form-control b0 r2 BGF5 p3 h27" id="module-id" value="-1"/>
+				<input type="hidden" id="interface-id" value="-1"/>
+				<input type="hidden" id="module-id" value="-1"/>
+
+				<div class="pl10 pr10">
+
+					<!-- 1.接口名 -->
+					<div class="input-group">
+						<span class="w10 group-addon bl3"></span>
+						<input type="text" class="form-control f16 color-main r5 h37" id="interface-name" autocomplete="off" data-i18n="[placeholder]interfaceNameTip"/>
+						<!-- 环境 -->
+						<span class="w10 group-addon"></span>
+						<div class="dropdown group-addon h37">
+							<button type="button" class="btn btn-default dropdown-toggle h37 f12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span data-i18n="envVariable">环境变量</span>
+								<i class="iconfont pl5">&#xe614;</i>
+							</button>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li><a class="pl10 pr10 cursor f12" data-i18n="saveAs">另存为</a></li>
+								<!--<li><a href="#" class="pl10 pr10">Another</a></li>
+								<li><a href="#" class="pl10 pr10">Something</a></li>
+								<li role="separator" class="divider pl10 pr10"></li>
+								<li><a href="#" class="pl10 pr10">Separated</a></li>-->
+							</ul>
+						</div>
+					</div>
 				</div>
 
-				<!--接口URL-->
+				<!-- 2.接口名 -->
 				<table class="w mt10">
 						<tr>
 							<td class="w100 pr10 pl10">
-								<select class="form-control" id="method">
+								<select class="form-control group-addon w100 h37 dis-in-tab" id="method">
 									<option value="GET">GET</option>
 									<option value="POST">POST</option>
 									<option value="PUT">PUT</option>
@@ -108,31 +128,36 @@
 							</td>
 							<td class="pr10">
 								<div class="input-group">
-								  <input type="text" class="form-control" id="url" data-i18n="[placeholder]right.interfaceUrl" autocomplete="off">
-								  <span class="input-group-addon cursor btn-main f12" id="send">
-									  <i class="iconfont f16 mr5">&#xe634;</i>
-									  <span data-i18n="right.send">发送</span>
-								  </span>
+									<input type="text" class="form-control r5 h37" id="url" data-i18n="[placeholder]right.interfaceUrl" autocomplete="off">
+									<span class="w10 group-addon"></span>
+
+									<span class="btn group-addon btn-main ml10 f12" id="send">
+										<span data-i18n="right.send" class="pl10">发送</span>
+										<i class="iconfont f16 mr5 mt-2">&#xe634;</i>
+									</span>
+
+									<span class="w10 group-addon"></span>
+
+									<span class="btn btn-adorn group-addon no-right-radius h37 f12" id="save-interface" data-i18n="save">
+										保存
+									</span>
+
+									<div class="dropdown group-addon h37">
+										<button type="button" class="btn btn-adorn dropdown-toggle no-left-radius h37 pl5 pr5ß" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="iconfont CFFF">&#xe614;</i>
+										</button>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a id="save-as-interface" class="pl10 pr10 cursor f12" data-i18n="saveAs">另存为</a></li>
+											<!--<li><a href="#" class="pl10 pr10">Another</a></li>
+                                            <li><a href="#" class="pl10 pr10">Something</a></li>
+                                            <li role="separator" class="divider pl10 pr10"></li>
+                                            <li><a href="#" class="pl10 pr10">Separated</a></li>-->
+										</ul>
+									</div>
+
 								</div>
 							</td>
-							<td class="tr w100">
-								<div class="btn-group w">
-								  <button type="button" class="btn btn-adorn f12" id="save-interface" data-i18n="save">
-									  保存
-								  </button>
-								  <button type="button" class="btn btn-adorn dropdown-toggle f12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<span class="caret"></span>
-									<span class="sr-only">Toggle Dropdown</span>
-								  </button>
-								  <ul class="dropdown-menu min-w80">
-									<li><a id="save-as-interface" class="pl10 pr10 cursor f12" data-i18n="saveAs">另存为</a></li>
-									<!--<li><a href="#" class="pl10 pr10">Another</a></li>
-									<li><a href="#" class="pl10 pr10">Something</a></li>
-									<li role="separator" class="divider pl10 pr10"></li>
-									<li><a href="#" class="pl10 pr10">Separated</a></li>-->
-								  </ul>
-								</div>
-							</td>
+
 						</tr>
 				</table>
 

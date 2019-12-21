@@ -15,6 +15,12 @@ input{
     -webkit-box-shadow:none!important;
     box-shadow:none!important;
 }
+.group-addon{
+    width: 1%;
+    white-space: nowrap!important;
+    vertical-align: middle;
+    display: table-cell!important;
+}
 .GET{color:#99cc66;}
 .POST{color:#ff9933;}
 .color-main {
@@ -77,9 +83,9 @@ input{
     opacity: 0.8;
 }
 
-.btn-default:hover {
-    border: 1px solid #303030;
-    background: #303030;
+.btn-default:hover,.btn-default:focus, .btn-default:active, .btn-default:visited{
+    border: 1px solid #505050;
+    background: #505050;
     color: #ffffff;
 }
 #params-div .iconfont, #headers-div .iconfont {
