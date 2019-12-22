@@ -23,7 +23,7 @@
   "content_scripts":[
     {
       "matches":["http://*/*","https://*/*"],
-      "js":["source/jquery-1.9.1.min.js","source/content_scripts.js"]
+      "js":["source/tools/jquery-1.9.1.min.js","source/content_scripts.js"]
     }
   ],"background": {
     "page": "background.html"

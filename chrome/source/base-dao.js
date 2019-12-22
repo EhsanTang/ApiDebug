@@ -1,5 +1,5 @@
 /***********获取本地存储的数据**********/
-function getLoaclData(key){
+function getLocData(key){
     try{
         var value = localStorage[key];
         if(value){
@@ -11,7 +11,7 @@ function getLoaclData(key){
     }
 }
 /*********存储数据至本地***********/
-function saveLoaclData(key,value){
+function saveLocData(key, value){
     try{
         localStorage[key] = value;
         return true;

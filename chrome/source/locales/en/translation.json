@@ -7,8 +7,6 @@
     "moduleName":"Module Name",
     "saveModuleTip":"Save to exist module/folder",
     "newModuleTip":"Or create new module/folder",
-    "envVariable":"Unselected environment variable",
-    "manageEnvVariable":"Manage environment variable",
     "save":"Save",
     "saveAs":"Save As",
     "renameModule":"Rename Module",
@@ -21,6 +19,13 @@
     "registerAndIco":"Register →",
     "inputJsonTip":"Please input json",
     "submit":"Submit",
+    "env":{
+        "addEnv":"Add Environment",
+        "envVariable":"Unselected environment",
+        "envList":"Environment list",
+        "manageEnvVariable":"Manage environment variable",
+        "envName":"Environment name"
+    },
     "head" :{
         "title":"Crap | Http Test Plug"
     },

@@ -117,7 +117,7 @@ input{
 }
 /************debug***************/
 .bl3{border-left:3px solid #ff4530}
-.bb2{border-bottom:2px solid #ff4530}
+.bb2{border-bottom:2px solid #4e61d4}
 .params-headers-table input, .table-input{font-size:12px!important; border:0px!important;padding:2px 5px!important;height:25px!important;}
 .params-headers-table td{padding:2px!important}
 /************popup***************/
@@ -172,6 +172,40 @@ input{
 .more:hover > span{display:block!important;}
 .more span i:hover{background-color:#4f3479;}
 #modules .interface-menu:hover{background-color:#ff4530!important}
+
+/***************** evn ***********************/
+.env-list-menu{
+    position: relative;
+    height:40px;
+    line-height: 40px;
+    border-bottom: 1px solid #eeeeee;
+    padding-left:20px;
+    cursor: pointer;
+    padding-right: 60px;
+    overflow: hidden;
+}
+.env-list-menu:hover{
+    background-color: #4e61d4;
+    color: #ffffff;
+}
+.delete-env,.edit-env{
+    width:30px;
+    text-align: center;
+    height:100%;
+    float: right;
+    color:#ff4530;
+    right: 0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.edit-env{
+    right: 30px!important;
+}
+.delete-env:hover, .edit-env:hover{
+    color:#ffffff;
+    background-color:#ff4530;
+}
 /*****************加载浮层***************************/
 .folat{
     display:none;

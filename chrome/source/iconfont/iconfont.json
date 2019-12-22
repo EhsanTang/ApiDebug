@@ -620,6 +620,13 @@
       "font_class": "xiayi-copy",
       "unicode": "e8e9",
       "unicode_decimal": 59625
+    },
+    {
+      "icon_id": "12175937",
+      "name": "icon_全局变量",
+      "font_class": "icon_quanjubianliang",
+      "unicode": "e641",
+      "unicode_decimal": 58945
     }
   ]
 }

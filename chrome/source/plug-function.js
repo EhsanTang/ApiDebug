@@ -164,12 +164,8 @@ interfaceDiv += "	</div>";
 
 // Custom param types
 var customerTypes = ["text/plain", "application/json", "application/xml"];
-var saveInterfaceDiv = "";
-
-var cookieHeader = ""
-var nl2br = false;
-var needCollapse = false;
 var leftEnlarge = true;
+
 function formatJson(){
     var rowData = originalResponseText;
     if( rowData == ""){
@@ -951,13 +947,13 @@ function refreshSyncIco(isSync){
     var key = "crap-debug-isSync";
     var value = "";
     if(isSync == -1){
-        value = getLoaclData(key);
+        value = getLocData(key);
     }else if(isSync == 1){
         value = "true";
-        saveLoaclData(key, value);
+        saveLocData(key, value);
     }else if(isSync == 0){
         value = "false";
-        saveLoaclData(key, value);
+        saveLocData(key, value);
     }
     $("#synch-ico").removeClass("GET");
     $("#synch-ico").removeClass("POST");

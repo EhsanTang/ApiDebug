@@ -1,6 +1,6 @@
 /*********上移*********/
 function upModule(moduleId) {
-    var modules = getAllmodules(moduleId);
+    var modules = getAllModules(moduleId);
     for(var i=0; i<modules.length;i++){
         if(modules[i].moduleId == moduleId){
             if(i > 0) {
@@ -18,7 +18,7 @@ function upModule(moduleId) {
 }
 /*********下移*********/
 function downModule(moduleId) {
-    var modules = getAllmodules(moduleId);
+    var modules = getAllModules(moduleId);
     for(var i=0; i<modules.length;i++){
         if(modules[i].moduleId == moduleId){
             if(i < modules.length-1) {
@@ -34,7 +34,7 @@ function downModule(moduleId) {
     refreshSyncIco(0);
     return true;
 }
-function getAllmodules(){
+function getAllModules(){
     var modules;
     try {
         modules = $.parseJSON(localStorage['crap-debug-modules'])

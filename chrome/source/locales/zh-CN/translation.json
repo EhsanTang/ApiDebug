@@ -8,8 +8,6 @@
     "saveModuleTip":"保存到已有的模块（已有模块与新模块名二选一）",
     "newModuleTip":"创建新的模块（已有模块与新模块名二选一）",
     "save":" 保存 ",
-    "envVariable":"未选择环境变量",
-    "manageEnvVariable":"管理环境变量",
     "saveAs":"另存为",
     "renameModule":"重命名模块",
     "interfaceDebug":"接口调试",
@@ -21,6 +19,13 @@
     "registerAndIco":"登陆 →",
     "inputJsonTip":"请输入待格式化的Json数据，然后点击上方菜单栏格式化数据；\n如需修改原数据，请切换到原始数据菜单后再修改;",
     "submit":"提交",
+    "env":{
+        "addEnv":"添加环境",
+        "envVariable":"未选择环境",
+        "envList":"环境列表",
+        "manageEnvVariable":"管理环境变量",
+        "envName":"环境名"
+    },
     "head" :{
         "title":"Crap | Http接口调试插件"
     },
