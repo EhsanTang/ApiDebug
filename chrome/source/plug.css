@@ -85,9 +85,9 @@ input{
     opacity: 0.8;
 }
 
-.btn-default:hover,.btn-default:focus, .btn-default:active, .btn-default:visited{
-    border: 1px solid #505050;
-    background: #505050;
+.btn-default:hover{
+    border: 1px solid #333333;
+    background: #333333;
     color: #ffffff;
 }
 #params-div .iconfont, #headers-div .iconfont {
