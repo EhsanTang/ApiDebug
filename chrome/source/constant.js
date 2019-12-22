@@ -73,6 +73,8 @@ var l_selectModuleTip = "l_selectModuleTip";
 var l_saveInterface = "l_saveInterface";
 var l_edit = "l_edit";
 var l_closeAlertTip = "l_closeAlertTip";
+var l_varSaveSuccess = "l_varSaveSuccess";
+var l_save = "l_save";
 
 var textObj = {
     "l_logoutSuccessTip":"退出登陆成功!",
@@ -140,6 +142,12 @@ var textObj = {
 
     "l_closeAlertTip":"请勿禁用【确认】弹窗，直接操作非常危险!",
     "l_closeAlertTip_en":"Do not forbid [confirm] dialog, is very dangerous",
+
+    "l_varSaveSuccess":"环境变量保存成功!",
+    "l_varSaveSuccess_en":"Environment Variable Save Success!",
+
+    "l_save" :"提交保存",
+    "l_save_en" :"Submit",
 
 }
 

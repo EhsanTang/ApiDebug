@@ -206,6 +206,16 @@ input{
     color:#ffffff;
     background-color:#ff4530;
 }
+#env-variable-table tr td:first-child{
+    width: 300px;
+}
+#env-variable-table tr td{
+    padding-left:20px;
+    padding-right: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+}
 /*****************加载浮层***************************/
 .folat{
     display:none;

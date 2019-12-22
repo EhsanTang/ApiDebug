@@ -1,6 +1,15 @@
 var ENV_LOC_KEY = "crap-env-list";
+var VAR_LOC_KEY = "crap-var-list-";
+
 function saveAllEnv(envList){
     localStorage[ENV_LOC_KEY] = JSON.stringify(envList);
+}
+
+function saveAllVar(envId, varList){
+    localStorage[VAR_LOC_KEY + envId] = JSON.stringify(varList);
+}
+function deleteVar(envId) {
+    localStorage.removeItem(VAR_LOC_KEY + envId);
 }
 
 function getAllEnv(){
@@ -10,6 +19,19 @@ function getAllEnv(){
             lovEnvList = "[]";
         }
         return $.parseJSON(lovEnvList);
+    } catch (e) {
+        console.warn(e);
+        return $.parseJSON("[]");
+    }
+}
+
+function getAllVar(envId){
+    try {
+        var lovVarList = localStorage[VAR_LOC_KEY + envId];
+        if (lovVarList == null){
+            lovVarList = "[]";
+        }
+        return $.parseJSON(lovVarList);
     } catch (e) {
         console.warn(e);
         return $.parseJSON("[]");
@@ -28,8 +50,8 @@ function deleteEnv(id) {
             break;
         }
     }
-    envList.unshift(env);
-    // TODO 删除环境变量
+    //envList.unshift(env);
+    deleteVar(id);
     saveAllEnv(envList);
 }
 

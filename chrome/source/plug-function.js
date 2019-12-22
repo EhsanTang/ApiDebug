@@ -129,7 +129,7 @@ function httpPost(url, myAsync, callBack, callBackParams){
 var paramsTr = "<tr class='last'>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='key'></td>";
 paramsTr += "<td><input type='text' class='form-control' data-stage='value'></td>";
-paramsTr += "<td class='w20'><i class='iconfont'>&#xe69d;</i></td>";
+paramsTr += "<td class='w20'><i class='iconfont cursor color-adorn'>&#xe69d;</i></td>";
 paramsTr += "</tr>";
 
 var moduleDiv = "<div class='panel panel-info no-radius b0 mt0 left-menu-border-top'>";
